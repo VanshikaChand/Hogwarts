@@ -1,64 +1,87 @@
-/* About Me Page */
-
-.about-me {
+/* ===== Navigation Bar ===== */
+nav {
+  background: linear-gradient(90deg, #3b2a1a, #5c4033);
+  padding: 12px 20px;
   display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 30px;
-  padding: 50px 20px;
-  max-width: 1000px;
-  margin: 0 auto;
+  justify-content: center;
+  gap: 25px;
+  border-bottom: 3px solid gold;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.6);
+  position: sticky;
+  top: 0;
+  z-index: 1000;
 }
 
-.about-me h2, .about-me h3 {
-  text-align: center;
+nav a {
+  font-family: 'Cinzel Decorative', serif;
+  font-size: 1.1rem;
+  text-decoration: none;
   color: gold;
-  text-shadow: 0 0 10px black;
-}
-
-.about-me p, .about-me li {
-  font-size: 1.2rem;
-  line-height: 1.7;
-  color: #3b2a1a;
-}
-
-.about-me ul {
-  list-style-type: square;
-  padding-left: 20px;
-}
-
-.scroll-card.intro-card, 
-.scroll-card.my-hobbies, 
-.scroll-card.my-skills, 
-.scroll-card.fun-fact {
-  background: url('https://www.transparenttextures.com/patterns/aged-paper.png');
-  background-color: #f4e2c8;
-  border: 2px solid #8b5e3c;
-  border-radius: 12px;
-  padding: 25px 20px;
-  box-shadow: 0 6px 18px rgba(0,0,0,0.4);
+  text-shadow: 0 0 8px black;
   transition: all 0.3s ease-in-out;
 }
 
-.scroll-card.intro-card:hover,
-.scroll-card.my-hobbies:hover,
-.scroll-card.my-skills:hover,
-.scroll-card.fun-fact:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 8px 25px gold;
+nav a:hover {
+  color: #fff3b0;
+  text-shadow: 0 0 12px gold, 0 0 20px #ffcc00;
+  transform: scale(1.1);
 }
 
+/* ===== Footer ===== */
+footer {
+  background: linear-gradient(90deg, #5c4033, #3b2a1a);
+  color: #f4e2c8;
+  text-align: center;
+  padding: 25px 15px;
+  margin-top: 50px;
+  border-top: 3px solid gold;
+  box-shadow: 0 -4px 15px rgba(0,0,0,0.6);
+  font-size: 1rem;
+  line-height: 1.6;
+}
+
+footer p {
+  margin: 8px 0;
+}
+
+footer a {
+  color: gold;
+  text-decoration: none;
+  font-weight: bold;
+  transition: all 0.3s ease-in-out;
+}
+
+footer a:hover {
+  color: #fff3b0;
+  text-shadow: 0 0 8px gold;
+}
+
+/* ===== Responsive Adjustments ===== */
 @media (max-width: 768px) {
-  .about-me p, .about-me li {
+  nav {
+    flex-wrap: wrap;
+    gap: 15px;
+  }
+  nav a {
     font-size: 1rem;
+  }
+  footer {
+    font-size: 0.95rem;
   }
 }
 
 @media (max-width: 480px) {
-  .about-me {
-    padding: 30px 10px;
+  nav {
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    padding: 15px 0;
   }
-  .about-me p, .about-me li {
+  nav a {
     font-size: 0.95rem;
+  }
+  footer {
+    font-size: 0.9rem;
+    padding: 20px 10px;
   }
 }
