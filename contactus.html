@@ -7,7 +7,7 @@
   <title>Contact Us | Harry Potter Fanpage</title>
   <link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="contact.css">
-  <link rel="stylesheet" href="index.css"> 
+  <link rel="stylesheet" href="index.css">
 </head>
 
 <body>
@@ -22,35 +22,55 @@
     <a href="contactus.html">Contact Us</a>
   </nav>
 
-  <!-- Main Content -->
+  <!-- Contact Section -->
   <div class="contact-page">
+
     <section class="contact-intro scroll-card">
-      <h2>Contact the Headmaster’s Office ✉️</h2>
+      <img src="https://i.ibb.co/nQn9Zcw/owl.png" alt="Owl Post" class="owl-icon">
+      <h2>Send an Owl ✉️</h2>
       <p>
-        Have a question, suggestion, or just want to chat about the magical world?
-        Send us an owl by filling out the form below, and we’ll reply faster than a Firebolt!
+        Need to reach us? Whether it’s to share a spell, ask about a house,
+        or simply say hello — send your message below. Our enchanted owls
+        will make sure it arrives at the right tower.
       </p>
     </section>
 
     <section class="contact-form scroll-card">
       <form>
-        <label for="name">Your Name:</label>
-        <input type="text" id="name" name="name" placeholder="Enter your name" required>
+        <div class="form-group">
+          <label for="name">Your Name</label>
+          <input type="text" id="name" placeholder="Harry Potter" required>
+        </div>
 
-        <label for="email">Your Owl Post (Email):</label>
-        <input type="email" id="email" name="email" placeholder="Enter your email" required>
+        <div class="form-group">
+          <label for="email">Your Owl Post (Email)</label>
+          <input type="email" id="email" placeholder="harry@hogwarts.edu" required>
+        </div>
 
-        <label for="message">Your Message:</label>
-        <textarea id="message" name="message" rows="5" placeholder="Write your magical message..." required></textarea>
+        <div class="form-group">
+          <label for="house">Choose Your House</label>
+          <select id="house">
+            <option>Gryffindor</option>
+            <option>Ravenclaw</option>
+            <option>Hufflepuff</option>
+            <option>Slytherin</option>
+          </select>
+        </div>
 
-        <button type="submit">Send Owl</button>
+        <div class="form-group">
+          <label for="message">Your Message</label>
+          <textarea id="message" rows="6" placeholder="Write your magical message..." required></textarea>
+        </div>
+
+        <button type="submit">Send Owl 🦉</button>
       </form>
     </section>
+
   </div>
 
   <!-- Footer -->
   <footer>
-    <p>⚡ Made with magic by Vanshika Chand | © 2025 Harry Potter Fanpage</p>
+    <p>⚡ Crafted with magic by Vanshika Chand | © 2025 Harry Potter Fanpage</p>
     <p>
       <a href="aboutme.html">About Me</a> |
       <a href="contactus.html">Contact</a> |
