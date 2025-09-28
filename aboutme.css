@@ -70,18 +70,29 @@ footer a:hover {
   }
 }
 
+/* Make sections adapt on small screens */
+@media (max-width: 768px) {
+  .scroll-card {
+    padding: 20px;
+    margin: 20px 15px;
+  }
+  .scroll-card h2 {
+    font-size: 1.6rem;
+  }
+  .scroll-card h3 {
+    font-size: 1.3rem;
+  }
+}
+
 @media (max-width: 480px) {
-  nav {
-    flex-direction: column;
-    align-items: center;
-    gap: 10px;
-    padding: 15px 0;
+  .scroll-card {
+    padding: 15px 10px;
+    margin: 15px 10px;
   }
-  nav a {
-    font-size: 0.95rem;
+  .scroll-card h2 {
+    font-size: 1.4rem;
   }
-  footer {
-    font-size: 0.9rem;
-    padding: 20px 10px;
+  .scroll-card h3 {
+    font-size: 1.1rem;
   }
 }
