@@ -5,12 +5,11 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Contact Us | Harry Potter Fanpage</title>
   <link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="index.css">
-    <link rel="stylesheet" href="contactus.css">
+  <link rel="stylesheet" href="contactus.css">
 </head>
 <body>
 
-  <!-- ===== NAVBAR (Same as Index Page) ===== -->
+  <!-- ===== NAVBAR ===== -->
   <nav>
     <a href="index.html">Home</a>
     <a href="#">Characters</a>
@@ -24,8 +23,13 @@
 
   <!-- ===== CONTACT FORM ===== -->
   <div class="contact-container scroll-card">
+    <!-- Video Background -->
+    <video autoplay muted loop class="form-bg-video">
+      <source src="media/letter.mp4" type="video/mp4">
+    </video>
+
     <h2>Contact the Wizarding World</h2>
-    <p>Have a magical question or a suggestion? Send us an owl!</p>
+    <p>Send us an owl with your magical question or suggestion!</p>
 
     <form class="contact-form">
       <label for="name">Your Name</label>
@@ -37,11 +41,11 @@
       <label for="message">Message</label>
       <textarea id="message" placeholder="Write your spell… or question" rows="5" required></textarea>
 
-      <button type="submit">Send Owl</button>
+      <button type="submit">🦉</button>
     </form>
   </div>
 
-  <!-- ===== FOOTER (Same as Index Page) ===== -->
+  <!-- ===== FOOTER ===== -->
   <footer>
     <p>⚡ Made with magic by a Potterhead (Vanshika Chand) | © 2025 Harry Potter Fanpage</p>
     <a href="aboutme.html">About Me</a> |
