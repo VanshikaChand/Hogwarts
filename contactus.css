@@ -1,52 +1,12 @@
-/* ===== Reset ===== */
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-
-body {
-  font-family: 'Cinzel Decorative', serif;
-  background: url(media/1.jpg) no-repeat center center fixed;
-  background-size: cover;
-  color: #3e2c1c;
-  min-height: 100vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
 .contact-container {
-  background: rgba(255, 248, 220, 0.95); /* Parchment effect */
-  padding: 40px;
-  border-radius: 15px;
   max-width: 500px;
-  width: 90%;
-  box-shadow: 0 0 20px rgba(0,0,0,0.3);
-  text-align: center;
-}
-
-.contact-container h2 {
-  font-size: 2rem;
-  margin-bottom: 10px;
-  color: #5b3a1a;
-}
-
-.contact-container p {
-  font-size: 1rem;
-  margin-bottom: 25px;
-  color: #4a2e17;
-}
-
-.contact-form {
-  display: flex;
-  flex-direction: column;
-  gap: 15px;
-}
-
-.contact-form label {
-  text-align: left;
-  font-weight: bold;
+  margin: 50px auto;
+  padding: 30px;
+  background: rgba(244, 226, 200, 0.95); /* parchment look */
+  border: 2px solid #8b5e3c;
+  border-radius: 12px;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.4);
+  color: #3b2a1a;
 }
 
 .contact-form input,
@@ -56,12 +16,6 @@ body {
   border-radius: 8px;
   font-family: 'Cinzel Decorative', serif;
   font-size: 1rem;
-}
-
-.contact-form input:focus,
-.contact-form textarea:focus {
-  outline: none;
-  border-color: #5b3a1a;
 }
 
 .contact-form button {
@@ -77,4 +31,5 @@ body {
 
 .contact-form button:hover {
   background-color: #7b4f2f;
+  box-shadow: 0 0 15px gold;
 }
