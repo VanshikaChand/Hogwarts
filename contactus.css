@@ -70,7 +70,7 @@ nav a.active {
 .contact-container h2 {
   font-size: 2rem;
   margin-bottom: 10px;
-  color: #5b3a1a;
+  color: #ffffff;
   text-shadow: 0 0 5px gold, 0 0 10px #ffd700;
   position: relative;
   z-index: 1;
@@ -79,7 +79,7 @@ nav a.active {
 .contact-container p {
   font-size: 1rem;
   margin-bottom: 25px;
-  color: #4a2e17;
+  color: #ffffff;
   position: relative;
   z-index: 1;
 }
@@ -102,7 +102,7 @@ nav a.active {
 .contact-form input,
 .contact-form textarea {
   padding: 10px;
-  border: 2px solid #a17c5b;
+  border: 2px solid #ffffff;
   border-radius: 8px;
   font-family: 'Cinzel Decorative', serif;
   font-size: 1rem;
