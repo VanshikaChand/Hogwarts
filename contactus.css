@@ -1,117 +1,74 @@
-/* ===== Contact Page Layout ===== */
-body {
-  background: url("https://i.ibb.co/pjHTNdm/hogwarts-night.jpg") no-repeat center center/cover;
+/* Contact Us Page */
+
+.contact-container {
   min-height: 100vh;
-}
-
-.contact-page {
   display: flex;
-  flex-direction: column;
+  justify-content: center;
   align-items: center;
-  gap: 40px;
-  padding: 60px 20px;
-  max-width: 900px;
-  margin: 0 auto;
+  padding: 40px;
+  background: url("https://www.transparenttextures.com/patterns/aged-paper.png"), #f4e2c8;
 }
 
-/* ===== Header ===== */
-.contact-header {
-  text-align: center;
-  color: gold;
-  text-shadow: 0 0 15px black;
-  max-width: 700px;
-}
-
-.contact-header h1 {
-  font-size: 2.3rem;
-  margin-bottom: 10px;
-}
-
-.contact-header p {
-  font-size: 1.2rem;
-  color: #f4e2c8;
-  line-height: 1.7;
-}
-
-/* ===== Form Card ===== */
-.contact-form {
-  background: url('https://www.transparenttextures.com/patterns/aged-paper.png');
-  background-color: #f4e2c8;
-  padding: 35px 30px;
-  border-radius: 15px;
-  border: 3px solid #8b5e3c;
-  box-shadow: 0 10px 30px rgba(0,0,0,0.7);
+.contact-card {
+  background: rgba(255, 255, 255, 0.95);
+  border: 2px solid goldenrod;
+  border-radius: 12px;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.3);
+  padding: 40px;
   width: 100%;
-  max-width: 700px;
-  animation: glow 4s infinite alternate ease-in-out;
+  max-width: 500px;
+  text-align: center;
 }
 
-@keyframes glow {
-  from { box-shadow: 0 10px 30px rgba(0,0,0,0.7); }
-  to   { box-shadow: 0 10px 30px gold; }
+.contact-card h2 {
+  font-family: 'Cinzel Decorative', serif;
+  font-size: 2rem;
+  color: goldenrod;
+  margin-bottom: 20px;
+  text-shadow: 0 0 6px rgba(0,0,0,0.4);
 }
 
-/* ===== Form Elements ===== */
-.form-group {
+.contact-card p {
+  color: #3b2a1a;
+  margin-bottom: 25px;
+  font-size: 1.1rem;
+}
+
+.contact-card form {
   display: flex;
   flex-direction: column;
-  margin-bottom: 20px;
+  gap: 15px;
 }
 
-.contact-form label {
-  font-weight: bold;
-  color: #3b2a1a;
-  margin-bottom: 5px;
-}
-
-.contact-form input,
-.contact-form textarea,
-.contact-form select {
+.contact-card input,
+.contact-card textarea {
   padding: 12px;
-  border: 2px solid #8b5e3c;
+  border: 1px solid #c0a060;
   border-radius: 8px;
-  background: #fffdf5;
-  font-family: 'Cinzel Decorative', serif;
   font-size: 1rem;
-  transition: all 0.3s ease-in-out;
+  background: #fffaf0;
+  transition: 0.3s ease;
 }
 
-.contact-form input:focus,
-.contact-form textarea:focus,
-.contact-form select:focus {
-  border-color: gold;
+.contact-card input:focus,
+.contact-card textarea:focus {
   outline: none;
-  box-shadow: 0 0 12px gold;
+  border-color: goldenrod;
+  box-shadow: 0 0 8px gold;
 }
 
-/* ===== Button as Wax Seal ===== */
-.seal-button {
-  background: radial-gradient(circle at center, crimson 40%, #5c0000 100%);
-  color: gold;
-  font-size: 1.2rem;
-  font-family: 'Cinzel Decorative', serif;
-  border: 3px solid gold;
-  border-radius: 50%;
-  width: 140px;
-  height: 140px;
-  align-self: center;
+.contact-card button {
+  padding: 12px;
+  font-size: 1.1rem;
+  background: goldenrod;
+  color: white;
+  border: none;
+  border-radius: 8px;
   cursor: pointer;
-  transition: all 0.3s ease-in-out;
-  box-shadow: 0 6px 20px rgba(0,0,0,0.6);
+  transition: all 0.3s ease;
 }
 
-.seal-button:hover {
-  transform: scale(1.1);
-  box-shadow: 0 0 20px gold, 0 0 40px crimson;
-}
-
-/* ===== Responsive ===== */
-@media (max-width: 768px) {
-  .contact-header h1 { font-size: 1.9rem; }
-  .contact-header p { font-size: 1rem; }
-}
-
-@media (max-width: 480px) {
-  .contact-page { padding: 40px 15px; }
-  .seal-button { width: 110px; height: 110px; font-size: 1rem; }
+.contact-card button:hover {
+  background: darkgoldenrod;
+  box-shadow: 0 0 12px gold;
 }
