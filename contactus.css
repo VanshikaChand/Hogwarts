@@ -77,18 +77,20 @@ nav a.active {
   z-index: 1;
 }
 
+/* Make paragraph text white */
 .contact-container p {
   font-size: 1rem;
   margin-bottom: 25px;
-  color: #4a2e17;
+  color: white; /* changed from #4a2e17 */
   position: relative;
   z-index: 1;
 }
 
-.contact-form {
-  display: flex;
-  flex-direction: column;
-  gap: 15px;
+/* Make labels white */
+.contact-form label {
+  text-align: left;
+  font-weight: bold;
+  color: white; /* added */
   position: relative;
   z-index: 1;
 }
