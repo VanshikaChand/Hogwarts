@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Harry Potter Fanpage</title>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="index.css">
+  <link rel="stylesheet" href="aboutme.css">
+
+</head>
+
+<body>
+
+  <!-- Hidden checkbox to control overlay -->
+  <input type="checkbox" id="startJourney">
+
+  <!-- INTRO OVERLAY -->
+  <div class="intro">
+    <div class="firefly"></div>
+    <div class="firefly"></div>
+    <div class="firefly"></div>
+    <div class="firefly"></div>
+    <h1>Welcome to Hogwarts</h1>
+    <label for="startJourney" class="start-journey-btn">Start Your Journey</label>
+  </div>
+
+  <!-- MAIN PAGE -->
+  <div class="main">
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="#">Characters</a>
+      <a href="#">Spells</a>
+      <a href="#">Houses</a>
+      <a href="#">Movies</a>
+      <a href="#">Store</a>
+      <a href="aboutme.html">About Me</a>
+      <a href="#">Contact Us</a>
+    </nav>
+
+    <div class="main-content">
+      <!-- Intro Card -->
+      <section class="scroll-card">
+        <h2>Explore the Wizarding World</h2>
+        <p>Step inside Hogwarts, discover characters, spells, and magical adventures.
+          Click around and let the magic unfold!</p>
+      </section>
+
+      <!-- About Hogwarts Card -->
+      <section class="scroll-card">
+        <h3>About Hogwarts</h3>
+        <p>
+          Founded over a thousand years ago by Godric Gryffindor, Salazar Slytherin,
+          Rowena Ravenclaw, and Helga Hufflepuff, Hogwarts remains the greatest magical
+          institution in the wizarding world. Hidden within the Scottish Highlands, it
+          is protected by ancient spells and enchantments. Every witch and wizard dreams
+          of receiving their letter of acceptance.
+        </p>
+      </section>
+
+
+      <!-- Houses Preview -->
+      <section class="houses">
+        <h3>Hogwarts Houses</h3>
+        <div class="house-grid">
+
+          <!-- Gryffindor -->
+          <div class="house-card gryffindor">
+            <video autoplay muted loop playsinline class="house-video">
+              <source src="media/gryffindor.mp4" type="video/mp4">
+            </video>
+            <div class="house-overlay">
+              <h4>Gryffindor</h4>
+              <p>Bravery, courage, and chivalry. House of the lion </p>
+            </div>
+          </div>
+
+          <!-- Slytherin -->
+          <div class="house-card slytherin">
+            <video autoplay muted loop playsinline class="house-video">
+              <source src="media/slytherin.mp4" type="video/mp4">
+            </video>
+            <div class="house-overlay">
+              <h4>Slytherin</h4>
+              <p>Ambition, cunning, and resourcefulness. House of the serpent </p>
+            </div>
+          </div>
+
+          <!-- Ravenclaw -->
+          <div class="house-card ravenclaw">
+            <video autoplay muted loop playsinline class="house-video">
+              <source src="media/revenclaw.mp4" type="video/mp4">
+            </video>
+            <div class="house-overlay">
+              <h4>Ravenclaw</h4>
+              <p>Intelligence, wit, and wisdom. House of the eagle </p>
+            </div>
+          </div>
+
+          <!-- Hufflepuff -->
+          <div class="house-card hufflepuff">
+            <video autoplay muted loop playsinline class="house-video">
+              <source src="media/hufflepuff.mp4" type="video/mp4">
+            </video>
+            <div class="house-overlay">
+              <h4>Hufflepuff</h4>
+              <p>Loyalty, patience, and hard work. House of the badger </p>
+            </div>
+          </div>
+
+        </div>
+      </section>
+
+
+      <!-- Quotes -->
+      <section class="quotes">
+        <h3> Famous Quotes</h3>
+        <blockquote>“It does not do to dwell on dreams and forget to live.” – Albus Dumbledore</blockquote>
+        <blockquote>“Happiness can be found even in the darkest of times, if one only remembers to turn on the light.” –
+          Albus Dumbledore</blockquote>
+        <blockquote>“We’ve all got both light and dark inside us. What matters is the part we choose to act on.” –
+          Sirius Black</blockquote>
+      </section>
+    </div>
+  </div>
+
+  <!-- FOOTER -->
+  <footer>
+     <p>⚡ Made with magic by a Potterhead(Vanshika Chand) | © 2025 Harry Potter Fanpage</p>
+      <a href="aboutme.html">About Me</a> |
+      <a href="#">Contact</a> |
+      <a href="#">Socials</a>
+    </p>
+  </footer>
+
+</body>
+
+</html>

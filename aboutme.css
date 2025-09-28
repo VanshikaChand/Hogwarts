@@ -1,0 +1,64 @@
+/* About Me Page */
+
+.about-me {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 30px;
+  padding: 50px 20px;
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.about-me h2, .about-me h3 {
+  text-align: center;
+  color: gold;
+  text-shadow: 0 0 10px black;
+}
+
+.about-me p, .about-me li {
+  font-size: 1.2rem;
+  line-height: 1.7;
+  color: #3b2a1a;
+}
+
+.about-me ul {
+  list-style-type: square;
+  padding-left: 20px;
+}
+
+.scroll-card.intro-card, 
+.scroll-card.my-hobbies, 
+.scroll-card.my-skills, 
+.scroll-card.fun-fact {
+  background: url('https://www.transparenttextures.com/patterns/aged-paper.png');
+  background-color: #f4e2c8;
+  border: 2px solid #8b5e3c;
+  border-radius: 12px;
+  padding: 25px 20px;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.4);
+  transition: all 0.3s ease-in-out;
+}
+
+.scroll-card.intro-card:hover,
+.scroll-card.my-hobbies:hover,
+.scroll-card.my-skills:hover,
+.scroll-card.fun-fact:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 25px gold;
+}
+
+@media (max-width: 768px) {
+  .about-me p, .about-me li {
+    font-size: 1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .about-me {
+    padding: 30px 10px;
+  }
+  .about-me p, .about-me li {
+    font-size: 0.95rem;
+  }
+}
