@@ -160,3 +160,28 @@ footer a:hover {
   color: white;
   text-shadow: 0 0 10px gold;
 }
+
+/* ===== Mobile Responsiveness ===== */
+@media (max-width: 480px) {
+  .contact-container {
+    padding: 20px; /* reduce padding */
+    margin: 40px 10px;
+  }
+
+  nav {
+    flex-direction: column;
+    padding: 10px;
+  }
+
+  nav a {
+    margin: 5px 0;
+    font-size: 1rem;
+  }
+
+  .contact-form button {
+    width: 50px;
+    height: 50px;
+    font-size: 1.2rem;
+  }
+}
+
