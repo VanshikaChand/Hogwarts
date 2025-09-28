@@ -1,50 +1,67 @@
-/* ===== Contact Page ===== */
+/* ===== Contact Page Layout ===== */
+body {
+  background: url("https://i.ibb.co/pjHTNdm/hogwarts-night.jpg") no-repeat center center/cover;
+  min-height: 100vh;
+}
+
 .contact-page {
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 35px;
+  gap: 40px;
   padding: 60px 20px;
-  max-width: 950px;
+  max-width: 900px;
   margin: 0 auto;
 }
 
-.owl-icon {
-  width: 70px;
-  display: block;
-  margin: 0 auto 15px;
-}
-
-.contact-intro h2 {
+/* ===== Header ===== */
+.contact-header {
   text-align: center;
   color: gold;
-  text-shadow: 0 0 12px black;
+  text-shadow: 0 0 15px black;
+  max-width: 700px;
+}
+
+.contact-header h1 {
+  font-size: 2.3rem;
   margin-bottom: 10px;
 }
 
-.contact-intro p {
+.contact-header p {
   font-size: 1.2rem;
-  color: #3b2a1a;
+  color: #f4e2c8;
   line-height: 1.7;
-  text-align: center;
 }
 
-/* ===== Form Styling ===== */
-.contact-form form {
-  display: flex;
-  flex-direction: column;
-  gap: 20px;
+/* ===== Form Card ===== */
+.contact-form {
+  background: url('https://www.transparenttextures.com/patterns/aged-paper.png');
+  background-color: #f4e2c8;
+  padding: 35px 30px;
+  border-radius: 15px;
+  border: 3px solid #8b5e3c;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.7);
+  width: 100%;
+  max-width: 700px;
+  animation: glow 4s infinite alternate ease-in-out;
 }
 
+@keyframes glow {
+  from { box-shadow: 0 10px 30px rgba(0,0,0,0.7); }
+  to   { box-shadow: 0 10px 30px gold; }
+}
+
+/* ===== Form Elements ===== */
 .form-group {
   display: flex;
   flex-direction: column;
-  gap: 8px;
+  margin-bottom: 20px;
 }
 
 .contact-form label {
   font-weight: bold;
   color: #3b2a1a;
+  margin-bottom: 5px;
 }
 
 .contact-form input,
@@ -52,10 +69,10 @@
 .contact-form select {
   padding: 12px;
   border: 2px solid #8b5e3c;
-  border-radius: 10px;
-  background-color: #fdf6e3;
-  font-size: 1rem;
+  border-radius: 8px;
+  background: #fffdf5;
   font-family: 'Cinzel Decorative', serif;
+  font-size: 1rem;
   transition: all 0.3s ease-in-out;
 }
 
@@ -67,48 +84,34 @@
   box-shadow: 0 0 12px gold;
 }
 
-.contact-form button {
-  background: linear-gradient(90deg, gold, #ffcc00);
-  border: none;
-  padding: 14px;
-  font-size: 1.1rem;
-  font-weight: bold;
-  border-radius: 12px;
+/* ===== Button as Wax Seal ===== */
+.seal-button {
+  background: radial-gradient(circle at center, crimson 40%, #5c0000 100%);
+  color: gold;
+  font-size: 1.2rem;
+  font-family: 'Cinzel Decorative', serif;
+  border: 3px solid gold;
+  border-radius: 50%;
+  width: 140px;
+  height: 140px;
+  align-self: center;
   cursor: pointer;
   transition: all 0.3s ease-in-out;
-  font-family: 'Cinzel Decorative', serif;
+  box-shadow: 0 6px 20px rgba(0,0,0,0.6);
 }
 
-.contact-form button:hover {
-  background: #fff3b0;
-  color: #3b2a1a;
-  box-shadow: 0 0 18px gold;
-  transform: scale(1.05);
-}
-
-/* ===== Scroll-card style reuse ===== */
-.scroll-card {
-  background: url('https://www.transparenttextures.com/patterns/aged-paper.png');
-  background-color: #f4e2c8;
-  border: 2px solid #8b5e3c;
-  border-radius: 15px;
-  padding: 30px 25px;
-  box-shadow: 0 6px 18px rgba(0,0,0,0.45);
-  transition: all 0.3s ease-in-out;
-}
-
-.scroll-card:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 8px 25px gold;
+.seal-button:hover {
+  transform: scale(1.1);
+  box-shadow: 0 0 20px gold, 0 0 40px crimson;
 }
 
 /* ===== Responsive ===== */
 @media (max-width: 768px) {
-  .contact-intro p { font-size: 1rem; }
-  .contact-form input, .contact-form textarea, .contact-form select { font-size: 0.95rem; }
+  .contact-header h1 { font-size: 1.9rem; }
+  .contact-header p { font-size: 1rem; }
 }
 
 @media (max-width: 480px) {
   .contact-page { padding: 40px 15px; }
-  .contact-intro p { font-size: 0.9rem; }
+  .seal-button { width: 110px; height: 110px; font-size: 1rem; }
 }
