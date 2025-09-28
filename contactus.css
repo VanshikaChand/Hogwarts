@@ -1,0 +1,110 @@
+/* Contact Page */
+
+.contact-page {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 30px;
+  padding: 50px 20px;
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.contact-intro h2 {
+  text-align: center;
+  color: gold;
+  text-shadow: 0 0 12px black;
+  margin-bottom: 15px;
+}
+
+.contact-intro p {
+  font-size: 1.2rem;
+  color: #3b2a1a;
+  line-height: 1.7;
+  text-align: center;
+}
+
+/* Contact Form */
+.contact-form form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.contact-form label {
+  font-weight: bold;
+  color: #3b2a1a;
+}
+
+.contact-form input,
+.contact-form textarea {
+  padding: 12px;
+  border: 2px solid #8b5e3c;
+  border-radius: 10px;
+  background-color: #fdf6e3;
+  font-size: 1rem;
+  font-family: 'Cinzel Decorative', serif;
+  transition: all 0.3s ease-in-out;
+}
+
+.contact-form input:focus,
+.contact-form textarea:focus {
+  border-color: gold;
+  outline: none;
+  box-shadow: 0 0 10px gold;
+}
+
+.contact-form button {
+  background: linear-gradient(90deg, gold, #ffcc00);
+  border: none;
+  padding: 12px;
+  font-size: 1.1rem;
+  font-weight: bold;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
+  font-family: 'Cinzel Decorative', serif;
+}
+
+.contact-form button:hover {
+  background: #fff3b0;
+  color: #3b2a1a;
+  box-shadow: 0 0 15px gold;
+  transform: scale(1.05);
+}
+
+/* Scroll-card effect (reuse from aboutme.css) */
+.scroll-card {
+  background: url('https://www.transparenttextures.com/patterns/aged-paper.png');
+  background-color: #f4e2c8;
+  border: 2px solid #8b5e3c;
+  border-radius: 12px;
+  padding: 25px 20px;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.4);
+  transition: all 0.3s ease-in-out;
+}
+
+.scroll-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 25px gold;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .contact-intro p {
+    font-size: 1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .contact-page {
+    padding: 30px 10px;
+  }
+  .contact-intro p {
+    font-size: 0.95rem;
+  }
+  .contact-form input,
+  .contact-form textarea {
+    font-size: 0.9rem;
+  }
+}
