@@ -171,7 +171,7 @@ header p {
     display: flex;
     flex-wrap: wrap;
     justify-content: center; /* centers like Teachers */
-    gap: 30px;               /* same gap as others */
+    gap: 20px;               /* same gap as others */
 }
 
 .characters-section.rivals .character-card {
