@@ -5,198 +5,148 @@
 }
 
 /* ===== Body ===== */
+/* ===== Reset ===== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
 body {
     font-family: 'Cinzel Decorative', serif;
     background: #0f0f1a;
-    color: #f0f0f0;
-    margin: 0;
-    padding: 0;
+    color: #fff;
+    line-height: 1.5;
 }
 
-/* ===== Navigation ===== */
 nav {
-    background: rgba(0, 0, 0, 0.85);
-    padding: 15px;
     display: flex;
-    position: sticky;
-    top: 0;
-    z-index: 1000;
     justify-content: center;
-    flex-wrap: wrap;
-    border-bottom: 2px solid gold;
-    color: gold;
+    gap: 20px;
+    padding: 20px 0;
+    background: #111;
 }
 
 nav a {
-    margin: 10px 15px;
     text-decoration: none;
-    color: gold;
+    color: #f0c75e;
     font-weight: bold;
-    font-size: 1.1rem;
-    transition: color 0.3s, text-shadow 0.3s;
+    transition: 0.3s;
 }
 
 nav a:hover {
-    color: white;
-    text-shadow: 0 0 10px gold;
+    color: #fff;
 }
 
-/* ===== Header ===== */
 header {
     text-align: center;
     padding: 50px 20px;
-    background: linear-gradient(to right, #4b2e83, #1a1a2e);
-    border-bottom: 3px solid #ffd700;
-    font-family: 'harrypotter';
+    background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('media/hogwarts-bg.jpg') center/cover no-repeat;
 }
 
 header h1 {
-    font-family: 'harrypotter';
-    font-size: 4em;
-    color: #ffd700;
-    text-shadow: 0 0 5px #ffd700, 0 0 10px #ffcc00;
-    animation: glow 3s infinite alternate;
+    font-size: 3rem;
+    margin-bottom: 10px;
 }
 
 header p {
-    font-size: 1.2em;
-    color: #ddd;
-}
-
-/* ===== Characters Section ===== */
-.characters-section {
-    padding: 40px 20px;
-}
-
-.characters-section h2 {
-    font-family: 'harrypotter', 'Cinzel Decorative', serif;
-    color: #ffd700;
-    text-shadow: 0 0 8px #ffd700, 0 0 15px #ffcc00;
-    border-bottom: 2px solid #ffd700;
-    padding-bottom: 10px;
-    margin: 0 auto 30px auto;
-    text-align: center;
-    width: fit-content;
-    display: block;
-    font-size: 2.5em;
-    animation: glow 2s infinite alternate;
-}
-
-.characters-section h3 {
-    margin: 15px 0 10px;
-    color: #e0c96d;
-}
-
-/* ===== Character Grid ===== */
-.character-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-    gap: 25px;
-}
-
-.character-card {
-    background: #1a1a2e;
-    border-radius: 15px;
-    padding: 20px;
-    text-align: center;
-    transition: transform 0.3s, box-shadow 0.3s;
-}
-
-.character-card img {
-    width: 120px;
-    height: 120px;
-    border-radius: 50%;
-    object-fit: cover;
-    margin-bottom: 15px;
-    border: 3px solid #ffd700;
-}
-
-.character-card h3 {
-    margin: 10px 0;
-    font-size: 1.3em;
-    color: #ffd700;
-}
-
-.character-card p {
-    font-size: 0.95em;
+    font-size: 1.2rem;
     color: #ccc;
 }
 
-.character-card:hover {
-    transform: translateY(-8px);
-    box-shadow: 0 8px 18px rgba(255, 215, 0, 0.4);
+/* ===== Section ===== */
+.characters-section {
+    padding: 50px 20px;
 }
 
-/* ===== Teachers & Magical Beings Sections ===== */
-.characters-section.teachers .character-grid,
-.characters-section.magical-beings .character-grid {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 30px;
+.characters-section h2 {
+    text-align: center;
+    font-size: 2rem;
+    margin-bottom: 30px;
+    color: #f0c75e;
 }
 
-.characters-section.teachers .character-card,
-.characters-section.magical-beings .character-card {
-    flex: 0 1 220px;
-}
-
-/* ===== Magical Beings & Notables Two-Row Layout (Custom) ===== */
-.characters-section.magical-beings .character-grid {
+/* ===== Grid ===== */
+.character-grid {
     display: grid;
-    grid-template-columns: repeat(4, 1fr); /* 4 cards in first row */
-    gap: 30px;
-    justify-items: center;
+    gap: 20px;
+    justify-content: center;
 }
 
-.characters-section.magical-beings .character-card:nth-child(n+5) {
+/* ===== Row-wise custom grid ===== */
+.characters-section.heroes .character-grid {
+    grid-template-columns: repeat(3, 1fr); /* first row 3 cards */
+}
+
+.characters-section.heroes .character-grid .character-card:nth-child(n+4):nth-child(-n+8) {
     grid-column: span 1;
-    justify-self: center; /* centers each card in the second row */
+}
+
+.characters-section.heroes .character-grid .character-card:nth-child(n+4) {
+    grid-column: span 1;
+}
+
+.characters-section.heroes .character-grid .character-card:nth-child(n+9) {
+    grid-column: span 1;
+}
+
+/* For Magical Beings & Notables: 4-3 */
+.characters-section .magical-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+}
+
+.characters-section .magical-grid .character-card:nth-child(n+5) {
+    grid-column: span 1;
+}
+
+.character-card {
+    background: #1b1b2f;
+    padding: 15px;
+    border-radius: 12px;
+    text-align: center;
+    transition: 0.3s;
+}
+
+.character-card img {
+    width: 100%;
+    height: auto;
+    border-radius: 10px;
+    margin-bottom: 10px;
+}
+
+.character-card h3 {
+    margin: 10px 0 5px;
+    color: #f0c75e;
+}
+
+.character-card p {
+    font-size: 0.9rem;
+    color: #ccc;
 }
 
 /* ===== Footer ===== */
 footer {
-    background: rgba(0, 0, 0, 0.85);
-    color: gold;
     text-align: center;
     padding: 20px;
-    border-top: 2px solid gold;
-    font-size: 1rem;
-    text-shadow: 0 0 5px gold;
+    background: #111;
+    color: #ccc;
+    margin-top: 50px;
 }
 
 footer a {
-    color: gold;
+    color: #f0c75e;
     text-decoration: none;
-    margin: 0 10px;
-    transition: color 0.3s, text-shadow 0.3s;
+    margin: 0 5px;
 }
 
 footer a:hover {
-    color: white;
-    text-shadow: 0 0 10px gold;
+    color: #fff;
 }
 
-/* ===== Animations ===== */
-@keyframes glow {
-    0% { text-shadow: 0 0 5px #ffd700; }
-    50% { text-shadow: 0 0 15px #ffcc00; }
-    100% { text-shadow: 0 0 5px #ffd700; }
-}
-
-/* ===== Responsive tweak for small screens ===== */
-@media (max-width: 900px) {
-    .characters-section.magical-beings .character-grid {
-        grid-template-columns: repeat(2, 1fr);
-    }
-
-    .characters-section.magical-beings .character-card:nth-child(n+5) {
-        justify-self: center;
-    }
-}
-
-@media (max-width: 600px) {
-    .characters-section.magical-beings .character-grid {
-        grid-template-columns: 1fr;
-    }
+/* ===== Hover effect ===== */
+.character-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 5px 15px rgba(240, 199, 94, 0.5);
 }
