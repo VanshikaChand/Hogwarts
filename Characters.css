@@ -6,50 +6,24 @@ body {
   padding: 0;
 }
 
-/* ===== Header Video ===== */
-.video-header {
-  position: relative;
-  height: 70vh;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+header {
   text-align: center;
-  overflow: hidden;
-  color: #fff;
+  padding: 50px 20px;
+  background: linear-gradient(to right, #4b2e83, #1a1a2e);
+  border-bottom: 3px solid #ffd700;
 }
 
-.bg-video {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  z-index: -2;
-}
-
-.header-overlay {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: rgba(0,0,0,0.5); /* dark overlay for readability */
-  z-index: -1;
-}
-
-.header-content h1 {
+header h1 {
   font-size: 3em;
+  margin-bottom: 10px;
   color: #ffd700;
-  margin-bottom: 15px;
 }
 
-.header-content p {
-  font-size: 1.3em;
-  color: #eee;
+header p {
+  font-size: 1.2em;
+  color: #ddd;
 }
 
-/* ===== Section Styling ===== */
 .characters-section {
   padding: 40px 20px;
 }
@@ -60,6 +34,11 @@ body {
   padding-bottom: 5px;
   margin-bottom: 20px;
   font-size: 2em;
+}
+
+.characters-section h3 {
+  margin: 15px 0 10px;
+  color: #e0c96d;
 }
 
 .character-grid {
@@ -99,9 +78,4 @@ body {
 .character-card:hover {
   transform: translateY(-8px);
   box-shadow: 0 8px 18px rgba(255, 215, 0, 0.4);
-}
-
-/* Optional darker theme for Villains section */
-.characters-section.dark {
-  background: #121212;
 }
