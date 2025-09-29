@@ -143,6 +143,12 @@ header p {
     flex: 0 1 220px; /* keeps card width consistent */
 }
 
+.characters-section.magical-beings .character-card:hover {
+    transform: translateY(-10px) scale(1.05);
+    box-shadow: 0 0 20px 5px rgba(173, 216, 230, 0.7); /* magical blue glow */
+    border-color: #add8e6;
+}
+
 
 footer {
     background: rgba(0, 0, 0, 0.85);
