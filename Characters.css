@@ -123,7 +123,7 @@ header p {
     box-shadow: 0 8px 18px rgba(255, 215, 0, 0.4);
 }
 
-/* ===== Teachers & Magical Beings Flex ===== */
+/* ===== Teachers & Magical Beings Specific Flex ===== */
 .characters-section.teachers .character-grid,
 .characters-section.magical-beings .character-grid {
     display: flex;
@@ -137,16 +137,15 @@ header p {
     flex: 0 1 220px;
 }
 
-/* ===== Magical Beings & Notables Two-Row Layout ===== */
+/* ===== Magical Beings Two-Row Layout ===== */
 .characters-section.magical-beings .character-grid {
     display: grid;
-    grid-template-columns: repeat(4, 1fr); /* first row: 4 cards */
+    grid-template-columns: repeat(4, 1fr);
     gap: 30px;
-    justify-items: center; /* centers cards in each column */
+    justify-items: center;
 }
 
 .characters-section.magical-beings .character-card:nth-child(n+5) {
-    grid-column: 2 / span 3; /* second row: 3 cards centered */
     justify-self: center;
 }
 
@@ -199,6 +198,20 @@ footer a:hover {
     0% { text-shadow: 0 0 5px #ffd700; }
     50% { text-shadow: 0 0 15px #ffcc00; }
     100% { text-shadow: 0 0 5px #ffd700; }
+}
+
+
+/* ===== Magical Beings & Notables Two-Row Layout ===== */
+.characters-section.magical-beings .character-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr); /* first row: 4 cards */
+    gap: 30px;
+    justify-items: center; /* centers cards in each column */
+}
+
+.characters-section.magical-beings .character-card:nth-child(n+5) {
+    grid-column: 2 / span 3; /* second row: 3 cards centered */
+    justify-self: center;
 }
 
 /* ===== Responsive ===== */
