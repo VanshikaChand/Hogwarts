@@ -129,17 +129,28 @@ header p {
 /* ===== Teachers & Magical Beings Specific Flex ===== */
 .characters-section.teachers .character-grid,
 .characters-section.magical-beings .character-grid {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 30px;
+}
+
+.characters-section.teachers .character-card,
+.characters-section.magical-beings .character-card {
+    flex: 0 1 220px;
+}
+
+/* ===== Magical Beings Two-Row Layout ===== */
+.characters-section.magical-beings .character-grid {
     display: grid;
-    grid-template-columns: repeat(4, 1fr);
+    grid-template-columns: repeat(4, 1fr); /* first row: 4 cards */
     gap: 30px;
     justify-items: center;
 }
 
-/* ===== Magical Beings Two-Row Layout ===== */
-.characters-section.magical-beings .character-card:nth-child(5),
-.characters-section.magical-beings .character-card:nth-child(6),
-.characters-section.magical-beings .character-card:nth-child(7) {
-    grid-column: span 1; /* keep 3 in one row */
+.characters-section.magical-beings .character-card:nth-child(n+5) {
+    grid-column: 2 / span 3; /* second row: 3 cards centered */
+    justify-self: center;
 }
 
 /* ===== Villains Two-Row Layout ===== */
