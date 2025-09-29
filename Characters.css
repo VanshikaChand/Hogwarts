@@ -167,12 +167,18 @@ header p {
 }
 
 /* ===== Rivals / Grey Characters Layout ===== */
+/* ===== Rivals / Grey Characters Layout (match Teachers & Magical Beings) ===== */
 .characters-section.rivals .character-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-    gap: 25px;
-    justify-items: center;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center; /* centers like Teachers */
+    gap: 30px;               /* same gap as others */
 }
+
+.characters-section.rivals .character-card {
+    flex: 0 1 220px;          /* consistent card width */
+}
+
 
 /* ===== Footer ===== */
 footer {
