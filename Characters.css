@@ -140,7 +140,6 @@ header p {
     /* Using a 10-column grid for precise centering control */
     grid-template-columns: repeat(10, 1fr); 
     gap: 20px; /* Adjusted gap for a better fit */
-    padding: 0 20px;
     justify-items: center; /* This centers each card within its assigned columns */
 }
 
