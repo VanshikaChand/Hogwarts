@@ -64,6 +64,11 @@ header p {
     margin-top: 10px;
 }
 
+/* ===== FIX: Request 1 & 4 - Added margin to create space between sections and footer ===== */
+.characters-section {
+    margin-bottom: 50px;
+}
+
 /* ===== Section Titles ===== */
 .characters-section h2 {
     font-family: 'harrypotter', 'Cinzel Decorative', serif;
@@ -77,30 +82,24 @@ header p {
     display: block;
     font-size: 2.5em;
     animation: glow 2s infinite alternate;
-    border-radius: 10px;       
-    background: rgba(0,0,0,0.3); 
+    border-radius: 10px;
+    background: rgba(0, 0, 0, 0.3);
 }
 
+/* ===== FIX: Request 4 - Added top margin to better separate family sub-sections ===== */
 .characters-section h3 {
-    margin: 15px 0 10px;
+    margin: 50px 0 10px;
     color: #e0c96d;
+    text-align: center; /* Centered the family titles for better look */
 }
-
 
 /* ===== Character Grid ===== */
 .character-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
     gap: 25px;
+    padding: 0 20px; /* Added some padding to the sides */
 }
-
-.characters-section .character-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-    gap: 25px;
-    margin-bottom: 40px; /* adds space between families */
-}
-
 
 .character-card {
     background: #1a1a2e;
@@ -135,54 +134,57 @@ header p {
     box-shadow: 0 8px 18px rgba(255, 215, 0, 0.4);
 }
 
-/* ===== Hero Section Layout ===== */
+/* ===== FIX: Request 5 - Hero Section Layout (3-5-2) ===== */
 .characters-section.hero .character-grid {
     display: grid;
-    grid-template-columns: repeat(5, 1fr);
+    grid-template-columns: repeat(5, 1fr); /* 5-column base */
     gap: 30px;
     justify-items: center;
 }
 
-/* Row 1 → 3 cards centered */
+/* Row 1: 3 cards centered */
 .characters-section.hero .character-card:nth-child(1) { grid-column: 2; }
 .characters-section.hero .character-card:nth-child(2) { grid-column: 3; }
 .characters-section.hero .character-card:nth-child(3) { grid-column: 4; }
 
-/* Row 2 → 5 cards normal flow */
+/* Row 2: 5 cards (normal flow) */
 .characters-section.hero .character-card:nth-child(n+4):nth-child(-n+8) { grid-column: auto; }
 
-/* Row 3 → 2 cards centered */
+/* Row 3: 2 cards centered */
 .characters-section.hero .character-card:nth-child(9) { grid-column: 2 / span 2; }
 .characters-section.hero .character-card:nth-child(10) { grid-column: 4 / span 2; }
 
 
-/* ===== Teachers & Magical Beings Specific Flex ===== */
-.characters-section.teachers .character-grid,
-.characters-section.magical-beings .character-grid {
+/* ===== Teachers - Centered Flex Layout ===== */
+.characters-section.teachers .character-grid {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
     gap: 30px;
 }
 
-.characters-section.teachers .character-card,
-.characters-section.magical-beings .character-card {
+.characters-section.teachers .character-card {
     flex: 0 1 220px;
 }
 
-/* ===== Magical Beings Two-Row Layout ===== */
-/* ===== Magical Beings Layout (make like Teachers) ===== */
+/* ===== FIX: Request 2 - Magical Beings Layout (4-3) ===== */
 .characters-section.magical-beings .character-grid {
     display: grid;
-    grid-template-columns: repeat(4, 1fr);
+    grid-template-columns: repeat(8, 1fr); /* 8-column base for precision */
     gap: 30px;
     justify-items: center;
 }
 
-/* Second row 3 cards centered */
-.characters-section.magical-beings .character-card:nth-child(n+5):nth-child(-n+7) {
-    grid-column: 2 / span 3; /* 3 cards in middle */
+/* Row 1: All 4 cards span 2 columns each */
+.characters-section.magical-beings .character-card:nth-child(-n+4) {
+    grid-column: span 2;
 }
+
+/* Row 2: 3 cards, positioned to be centered */
+.characters-section.magical-beings .character-card:nth-child(5) { grid-column: 2 / span 2; }
+.characters-section.magical-beings .character-card:nth-child(6) { grid-column: 4 / span 2; }
+.characters-section.magical-beings .character-card:nth-child(7) { grid-column: 6 / span 2; }
+
 
 /* ===== Villains Two-Row Layout ===== */
 .characters-section.villains .character-grid {
@@ -197,16 +199,12 @@ header p {
     justify-self: center;
 }
 
-/* ===== Rivals / Grey Characters Layout ===== */
+/* ===== FIX: Request 3 - Rivals Layout (4 in a row) ===== */
 .characters-section.rivals .character-grid {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center; /* centers like Teachers */
-    gap: 20px;               /* same gap as others */
-}
-
-.characters-section.rivals .character-card {
-    flex: 0 1 220px;          /* consistent card width */
+    display: grid;
+    grid-template-columns: repeat(4, 1fr); /* Changed from flex to grid */
+    gap: 30px; /* Adjusted gap to be consistent */
+    justify-items: center;
 }
 
 /* ===== Footer ===== */
@@ -232,8 +230,6 @@ footer a:hover {
     text-shadow: 0 0 10px gold;
 }
 
-
-
 /* ===== Glow Animation ===== */
 @keyframes glow {
     0% { text-shadow: 0 0 5px #ffd700; }
@@ -243,9 +239,19 @@ footer a:hover {
 
 /* ===== Responsive ===== */
 @media (max-width: 900px) {
+    .characters-section.hero .character-grid,
     .characters-section.magical-beings .character-grid,
-    .characters-section.villains .character-grid {
+    .characters-section.villains .character-grid,
+    .characters-section.rivals .character-grid { /* Added rivals to responsive rules */
         grid-template-columns: repeat(2, 1fr);
+        grid-column: auto; /* Reset grid placement on smaller screens */
+    }
+
+    /* Reset specific card placements for mobile */
+    .characters-section.hero .character-card:nth-child(n),
+    .characters-section.magical-beings .character-card:nth-child(n),
+    .characters-section.villains .character-card:nth-child(n) {
+        grid-column: auto;
     }
 }
 
