@@ -143,43 +143,21 @@ header p {
     flex: 0 1 220px; /* keeps card width consistent */
 }
 
-.characters-section.magical-beings .character-card:hover {
-    transform: translateY(-10px) scale(1.05);
-    box-shadow: 0 0 20px 5px rgba(173, 216, 230, 0.7); /* magical blue glow */
-    border-color: #add8e6;
-}
-
-/* ===== Magical Beings & Notables 2-row layout ===== */
+/* ===== Magical Beings & Notables 2-row layout (7 cards) ===== */
 .characters-section.magical-beings .character-grid {
     display: grid;
     grid-template-columns: repeat(4, 1fr); /* 4 cards in first row */
     gap: 30px;
-    justify-items: center; /* center each card */
+    justify-items: center; /* centers cards in their cells */
 }
 
-/* Center the second row (last 3 cards) under first row */
+/* Center the second row (last 3 cards) */
 .characters-section.magical-beings .character-card:nth-child(n+5) {
-    justify-self: center; /* centers cards in the grid cells */
+    grid-column: span 1;
+    justify-self: center; /* centers each card in its column */
 }
 
-/* Responsive adjustments */
-@media (max-width: 992px) {
-    .characters-section.magical-beings .character-grid {
-        grid-template-columns: repeat(3, 1fr); /* 3 cards per row */
-    }
-}
 
-@media (max-width: 768px) {
-    .characters-section.magical-beings .character-grid {
-        grid-template-columns: repeat(2, 1fr); /* 2 cards per row */
-    }
-}
-
-@media (max-width: 480px) {
-    .characters-section.magical-beings .character-grid {
-        grid-template-columns: 1fr; /* 1 card per row */
-    }
-}
 
 
 footer {
