@@ -1,3 +1,8 @@
+@font-face {
+      font-family: 'harrypotter';
+      src: url(media/HarryPotter-ov4z.ttf);
+    }
+
 body {
     font-family: 'Cinzel Decorative', serif;
     background: #0f0f1a;
