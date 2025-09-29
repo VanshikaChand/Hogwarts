@@ -127,7 +127,8 @@ header p {
 }
 
 /* ===== Teachers & Magical Beings Specific Flex ===== */
-.characters-section.teachers .character-grid{
+.characters-section.teachers .character-grid,
+.characters-section.magical-beings .character-grid {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
@@ -135,7 +136,7 @@ header p {
 }
 
 .characters-section.teachers .character-card,
-{
+.characters-section.magical-beings .character-card {
     flex: 0 1 220px;
 }
 
