@@ -253,32 +253,28 @@ footer a:hover {
 }
 
 /* ===== Responsive ===== */
-@media (max-width: 900px) {
-    .characters-section.hero .character-grid,
-    .characters-section.magical-beings .character-grid,
-    .characters-section.villains .character-grid,
-    .characters-section.rivals .character-grid { /* Added rivals to responsive rules */
-        grid-template-columns: repeat(2, 1fr);
-        grid-column: auto; /* Reset grid placement on smaller screens */
-    }
 
-    /* Reset specific card placements for mobile */
-    .characters-section.hero .character-card:nth-child(n),
-    .characters-section.magical-beings .character-card:nth-child(n),
-    .characters-section.villains .character-card:nth-child(n) {
-        grid-column: auto;
+/* Make the complex Hero layout responsive on larger tablet screens */
+@media (max-width: 1100px) {
+    .characters-section.hero .character-grid {
+        /* Switch to a simple, auto-fitting grid */
+        grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    }
+    .characters-section.hero .character-card {
+        /* This resets all the specific grid placements (like row 1, 2, 3) so they can flow freely */
+        grid-column: auto !important;
     }
 }
 
-@media (max-width: 600px) {
-    header h1 {
-        font-size: 3em;
+/* Make the other sections responsive on smaller tablets */
+@media (max-width: 900px) {
+    .characters-section.magical-beings .character-grid,
+    .characters-section.villains .character-grid,
+    .characters-section.rivals .character-grid {
+        grid-template-columns: repeat(2, 1fr);
     }
-    .characters-section h2 {
-        font-size: 2em;
-    }
-    .character-card img {
-        width: 100px;
-        height: 100px;
+    .characters-section.magical-beings .character-card:nth-child(n),
+    .characters-section.villains .character-card:nth-child(n) {
+        grid-column: auto;
     }
 }
