@@ -61,6 +61,7 @@ header h1 {
 header p {
     font-size: 1.2em;
     color: #ddd;
+    margin-top: 10px;
 }
 
 /* ===== Section Titles ===== */
@@ -69,13 +70,15 @@ header p {
     color: #ffd700;
     text-shadow: 0 0 8px #ffd700, 0 0 15px #ffcc00;
     border-bottom: 2px solid #ffd700;
-    padding-bottom: 10px;
-    margin: 0 auto 30px auto;
+    padding: 15px 20px;
+    margin: 40px auto 40px auto;
     text-align: center;
     width: fit-content;
     display: block;
     font-size: 2.5em;
     animation: glow 2s infinite alternate;
+    border-radius: 10px;       
+    background: rgba(0,0,0,0.3); 
 }
 
 .characters-section h3 {
@@ -123,24 +126,39 @@ header p {
     box-shadow: 0 8px 18px rgba(255, 215, 0, 0.4);
 }
 
-/* ===== Teachers & Villains & Rivals Layouts ===== */
+/* ===== Teachers & Magical Beings Specific Flex ===== */
 .characters-section.teachers .character-grid,
-.characters-section.villains .character-grid,
-.characters-section.rivals .character-grid {
-    display: grid;
-    gap: 25px;
-    justify-items: center;
+.characters-section.magical-beings .character-grid {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 30px;
 }
 
 .characters-section.teachers .character-card,
-.characters-section.villains .character-card,
-.characters-section.rivals .character-card {
+.characters-section.magical-beings .character-card {
     flex: 0 1 220px;
+}
+
+/* ===== Magical Beings Two-Row Layout ===== */
+.characters-section.magical-beings .character-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr); /* first row: 4 cards */
+    gap: 30px;
+    justify-items: center;
+}
+
+.characters-section.magical-beings .character-card:nth-child(n+5) {
+    grid-column: 2 / span 3; /* second row: 3 cards centered */
+    justify-self: center;
 }
 
 /* ===== Villains Two-Row Layout ===== */
 .characters-section.villains .character-grid {
+    display: grid;
     grid-template-columns: repeat(4, 1fr);
+    gap: 30px;
+    justify-items: center;
 }
 
 .characters-section.villains .character-card:nth-child(5) {
@@ -150,20 +168,10 @@ header p {
 
 /* ===== Rivals / Grey Characters Layout ===== */
 .characters-section.rivals .character-grid {
-    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-}
-
-/* ===== Magical Beings & Notables Two-Row Layout ===== */
-.characters-section.magical-beings .character-grid {
     display: grid;
-    grid-template-columns: repeat(4, 1fr); /* first row: 4 cards */
-    gap: 30px;
-    justify-items: center; /* centers cards in each column */
-}
-
-.characters-section.magical-beings .character-card:nth-child(n+5) {
-    grid-column: 2 / span 3; /* second row: 3 cards centered */
-    justify-self: center;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 25px;
+    justify-items: center;
 }
 
 /* ===== Footer ===== */
