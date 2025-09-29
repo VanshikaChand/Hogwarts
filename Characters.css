@@ -126,7 +126,7 @@ header p {
     box-shadow: 0 8px 18px rgba(255, 215, 0, 0.4);
 }
 
-/* ===== Teachers & Magical Beings Specific Flex ===== */
+/* ===== Teachers & Magical Beings Specific Grid ===== */
 .characters-section.teachers .character-grid,
 .characters-section.magical-beings .character-grid {
     display: grid;
@@ -139,7 +139,22 @@ header p {
 .characters-section.magical-beings .character-card:nth-child(5),
 .characters-section.magical-beings .character-card:nth-child(6),
 .characters-section.magical-beings .character-card:nth-child(7) {
-    grid-column: span 1; /* keep 3 in one row */
+    grid-column: auto;
+}
+
+/* Center the last 3 cards (second row) */
+.characters-section.magical-beings .character-grid {
+    grid-template-columns: repeat(4, 1fr);
+}
+
+.characters-section.magical-beings .character-card:nth-child(5) {
+    grid-column: 2; /* starts from column 2 */
+}
+.characters-section.magical-beings .character-card:nth-child(6) {
+    grid-column: 3;
+}
+.characters-section.magical-beings .character-card:nth-child(7) {
+    grid-column: 4;
 }
 
 /* ===== Villains Two-Row Layout ===== */
