@@ -152,13 +152,9 @@ footer a:hover {
 }
 
 @keyframes glow {
-  0% {
-    text-shadow: 0 0 3px #ffd700, 0 0 6px #ffcc00;
-  }
-  50% {
-    text-shadow: 0 0 5px #ffd700, 0 0 10px #ffcc00;
-  }
-  100% {
-    text-shadow: 0 0 3px #ffd700, 0 0 6px #ffcc00;
-  }
+  0% { text-shadow: 0 0 5px #ffd700; }
+  50% { text-shadow: 0 0 15px #ffcc00; }
+  100% { text-shadow: 0 0 5px #ffd700; }
 }
+
+
