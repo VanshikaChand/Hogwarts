@@ -149,6 +149,38 @@ header p {
     border-color: #add8e6;
 }
 
+/* ===== Magical Beings & Notables 2-row layout ===== */
+.characters-section.magical-beings .character-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr); /* 4 cards in first row */
+    gap: 30px;
+    justify-items: center; /* center each card */
+}
+
+/* Center the second row (last 3 cards) under first row */
+.characters-section.magical-beings .character-card:nth-child(n+5) {
+    justify-self: center; /* centers cards in the grid cells */
+}
+
+/* Responsive adjustments */
+@media (max-width: 992px) {
+    .characters-section.magical-beings .character-grid {
+        grid-template-columns: repeat(3, 1fr); /* 3 cards per row */
+    }
+}
+
+@media (max-width: 768px) {
+    .characters-section.magical-beings .character-grid {
+        grid-template-columns: repeat(2, 1fr); /* 2 cards per row */
+    }
+}
+
+@media (max-width: 480px) {
+    .characters-section.magical-beings .character-grid {
+        grid-template-columns: 1fr; /* 1 card per row */
+    }
+}
+
 
 footer {
     background: rgba(0, 0, 0, 0.85);
