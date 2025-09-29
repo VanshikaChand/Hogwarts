@@ -1,10 +1,8 @@
-/* ===== Font ===== */
 @font-face {
     font-family: 'harrypotter';
     src: url(media/HarryPotter-ov4z.ttf);
 }
 
-/* ===== Body ===== */
 body {
     font-family: 'Cinzel Decorative', serif;
     background: #0f0f1a;
@@ -13,12 +11,12 @@ body {
     padding: 0;
 }
 
-/* ===== Navigation ===== */
 nav {
     background: rgba(0, 0, 0, 0.85);
     padding: 15px;
     display: flex;
     position: sticky;
+    /* makes it stay on top while scrolling */
     top: 0;
     z-index: 1000;
     justify-content: center;
@@ -41,21 +39,22 @@ nav a:hover {
     text-shadow: 0 0 10px gold;
 }
 
-/* ===== Header ===== */
 header {
     text-align: center;
     padding: 50px 20px;
     background: linear-gradient(to right, #4b2e83, #1a1a2e);
     border-bottom: 3px solid #ffd700;
     font-family: 'harrypotter';
+
 }
 
 header h1 {
-    font-family: 'harrypotter';
-    font-size: 4em;
-    color: #ffd700;
-    text-shadow: 0 0 5px #ffd700, 0 0 10px #ffcc00;
-    animation: glow 3s infinite alternate;
+  font-family: 'harrypotter';
+  font-size: 4em;
+  color: #ffd700;
+  text-shadow: 0 0 5px #ffd700, 0 0 10px #ffcc00; /* toned down */
+  animation: glow 3s infinite alternate;
+
 }
 
 header p {
@@ -63,29 +62,38 @@ header p {
     color: #ddd;
 }
 
-/* ===== Characters Section ===== */
 .characters-section {
     padding: 40px 20px;
 }
 
 .characters-section h2 {
     font-family: 'harrypotter', 'Cinzel Decorative', serif;
+    /* Magical font */
     color: #ffd700;
     text-shadow: 0 0 8px #ffd700, 0 0 15px #ffcc00;
+    /* Glowing effect */
     border-bottom: 2px solid #ffd700;
     padding-bottom: 10px;
     margin: 0 auto 30px auto;
     text-align: center;
+    /* Centers the text */
     width: fit-content;
+    /* Shrinks width to text length */
     display: block;
     font-size: 2.5em;
     animation: glow 2s infinite alternate;
 }
 
+
+.characters-section h3 {
+    margin: 15px 0 10px;
+    color: #e0c96d;
+}
+
 .character-grid {
     display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
     gap: 25px;
-    justify-items: center;
 }
 
 .character-card {
@@ -121,29 +129,26 @@ header p {
     box-shadow: 0 8px 18px rgba(255, 215, 0, 0.4);
 }
 
-/* ===== Heroes Custom Layout ===== */
-.characters-section.heroes .character-grid {
-    grid-template-columns: repeat(3, 1fr);
-}
-
-.characters-section.heroes .character-card:nth-child(n+4):nth-child(-n+8) {
-    justify-self: center;
-}
-
-.characters-section.heroes .character-card:nth-child(n+9):nth-child(-n+10) {
-    justify-self: center;
-}
-
-/* ===== Magical Beings & Notables Custom Layout ===== */
+/* ===== Specific tweak for Teachers and Magical Beings sections ===== */
+.characters-section.teachers .character-grid,
 .characters-section.magical-beings .character-grid {
-    grid-template-columns: repeat(4, 1fr);
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center; /* centers cards in the row */
+    gap: 30px; /* more spacing between cards */
 }
 
-.characters-section.magical-beings .character-card:nth-child(n+5) {
-    justify-self: center;
+.characters-section.teachers .character-card,
+.characters-section.magical-beings .character-card {
+    flex: 0 1 220px; /* keeps card width consistent */
 }
 
-/* ===== Footer ===== */
+.characters-section.magical-beings .character-card:hover {
+    transform: translateY(-10px) scale(1.05);
+    box-shadow: 0 0 20px 5px rgba(173, 216, 230, 0.7); /* magical blue glow */
+    border-color: #add8e6;
+}
+
 footer {
     background: rgba(0, 0, 0, 0.85);
     color: gold;
@@ -166,24 +171,10 @@ footer a:hover {
     text-shadow: 0 0 10px gold;
 }
 
-/* ===== Animations ===== */
 @keyframes glow {
-    0% { text-shadow: 0 0 5px #ffd700; }
-    50% { text-shadow: 0 0 15px #ffcc00; }
-    100% { text-shadow: 0 0 5px #ffd700; }
+  0% { text-shadow: 0 0 5px #ffd700; }
+  50% { text-shadow: 0 0 15px #ffcc00; }
+  100% { text-shadow: 0 0 5px #ffd700; }
 }
 
-/* ===== Responsive ===== */
-@media (max-width: 900px) {
-    .characters-section.heroes .character-grid,
-    .characters-section.magical-beings .character-grid {
-        grid-template-columns: repeat(2, 1fr);
-    }
-}
 
-@media (max-width: 600px) {
-    .characters-section.heroes .character-grid,
-    .characters-section.magical-beings .character-grid {
-        grid-template-columns: 1fr;
-    }
-}
