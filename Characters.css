@@ -141,16 +141,16 @@ header p {
 }
 
 /* ===== Magical Beings Two-Row Layout ===== */
+/* ===== Magical Beings Layout (make like Teachers) ===== */
 .characters-section.magical-beings .character-grid {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr); /* first row: 4 cards */
-    gap: 30px;
-    justify-items: center;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center; /* centers the row */
+    gap: 30px;               /* equal distance between cards */
 }
 
-.characters-section.magical-beings .character-card:nth-child(n+5) {
-    grid-column: 2 / span 3; /* second row: 3 cards centered */
-    justify-self: center;
+.characters-section.magical-beings .character-card {
+    flex: 0 1 220px;         /* consistent card width */
 }
 
 /* ===== Villains Two-Row Layout ===== */
