@@ -129,6 +129,21 @@ header p {
     box-shadow: 0 8px 18px rgba(255, 215, 0, 0.4);
 }
 
+/* ===== Specific tweak for Teachers and Magical Beings sections ===== */
+.characters-section.teachers .character-grid,
+.characters-section.magical-beings .character-grid {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center; /* centers cards in the row */
+    gap: 30px; /* more spacing between cards */
+}
+
+.characters-section.teachers .character-card,
+.characters-section.magical-beings .character-card {
+    flex: 0 1 220px; /* keeps card width consistent */
+}
+
+
 footer {
     background: rgba(0, 0, 0, 0.85);
     color: gold;
