@@ -200,6 +200,20 @@ footer a:hover {
     100% { text-shadow: 0 0 5px #ffd700; }
 }
 
+
+/* ===== Magical Beings & Notables Two-Row Layout ===== */
+.characters-section.magical-beings .character-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr); /* first row: 4 cards */
+    gap: 30px;
+    justify-items: center; /* centers cards in each column */
+}
+
+.characters-section.magical-beings .character-card:nth-child(n+5) {
+    grid-column: 2 / span 3; /* second row: 3 cards centered */
+    justify-self: center;
+}
+
 /* ===== Responsive ===== */
 @media (max-width: 900px) {
     .characters-section.magical-beings .character-grid,
