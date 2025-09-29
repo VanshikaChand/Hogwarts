@@ -49,18 +49,12 @@ header {
 }
 
 header h1 {
-    font-family: 'harrypotter', 'Cinzel Decorative', serif;
-    /* Magical font */
-    font-size: 4em;
-    color: #ffd700;
-    /* gold */
-    text-shadow:
-        0 0 5px #ffd700,
-        0 0 10px #ffcc00,
-        0 0 20px #ffcc00,
-        0 0 30px #ffd700,
-        0 0 40px #ffd700;
-    animation: glow 2s infinite alternate;
+  font-family: 'harrypotter';
+  font-size: 4em;
+  color: #ffd700;
+  text-shadow: 0 0 5px #ffd700, 0 0 10px #ffcc00; /* toned down */
+  animation: glow 3s infinite alternate;
+
 }
 
 header p {
@@ -87,6 +81,7 @@ header p {
     /* Shrinks width to text length */
     display: block;
     font-size: 2.5em;
+    animation: glow 2s infinite alternate;
 }
 
 
@@ -157,35 +152,13 @@ footer a:hover {
 }
 
 @keyframes glow {
-    0% {
-        text-shadow:
-            0 0 5px #ffd700,
-            0 0 10px #ffcc00,
-            0 0 20px #ffcc00,
-            0 0 30px #ffd700,
-            0 0 40px #ffd700;
-    }
-
-    50% {
-        text-shadow:
-            0 0 8px #ffec8b,
-            0 0 15px #ffd700,
-            0 0 25px #ffd700,
-            0 0 35px #ffec8b,
-            0 0 50px #ffd700;
-    }
-
-    100% {
-        text-shadow:
-            0 0 5px #ffd700,
-            0 0 10px #ffcc00,
-            0 0 20px #ffcc00,
-            0 0 30px #ffd700,
-            0 0 40px #ffd700;
-    }
-}
-
-
-.characters-section h2 {
-    animation: glow 2s infinite alternate;
+  0% {
+    text-shadow: 0 0 3px #ffd700, 0 0 6px #ffcc00;
+  }
+  50% {
+    text-shadow: 0 0 5px #ffd700, 0 0 10px #ffcc00;
+  }
+  100% {
+    text-shadow: 0 0 3px #ffd700, 0 0 6px #ffcc00;
+  }
 }
