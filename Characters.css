@@ -82,16 +82,10 @@ header p {
     animation: glow 2s infinite alternate;
 }
 
-.characters-section h3 {
-    margin: 15px 0 10px;
-    color: #e0c96d;
-}
-
-/* ===== Character Grid ===== */
 .character-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
     gap: 25px;
+    justify-items: center;
 }
 
 .character-card {
@@ -127,31 +121,26 @@ header p {
     box-shadow: 0 8px 18px rgba(255, 215, 0, 0.4);
 }
 
-/* ===== Teachers & Magical Beings Sections ===== */
-.characters-section.teachers .character-grid,
-.characters-section.magical-beings .character-grid {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 30px;
+/* ===== Heroes Custom Layout ===== */
+.characters-section.heroes .character-grid {
+    grid-template-columns: repeat(3, 1fr);
 }
 
-.characters-section.teachers .character-card,
-.characters-section.magical-beings .character-card {
-    flex: 0 1 220px;
+.characters-section.heroes .character-card:nth-child(n+4):nth-child(-n+8) {
+    justify-self: center;
 }
 
-/* ===== Magical Beings & Notables Two-Row Layout (Custom) ===== */
+.characters-section.heroes .character-card:nth-child(n+9):nth-child(-n+10) {
+    justify-self: center;
+}
+
+/* ===== Magical Beings & Notables Custom Layout ===== */
 .characters-section.magical-beings .character-grid {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr); /* 4 cards in first row */
-    gap: 30px;
-    justify-items: center;
+    grid-template-columns: repeat(4, 1fr);
 }
 
 .characters-section.magical-beings .character-card:nth-child(n+5) {
-    grid-column: span 1;
-    justify-self: center; /* centers each card in the second row */
+    justify-self: center;
 }
 
 /* ===== Footer ===== */
@@ -184,18 +173,16 @@ footer a:hover {
     100% { text-shadow: 0 0 5px #ffd700; }
 }
 
-/* ===== Responsive tweak for small screens ===== */
+/* ===== Responsive ===== */
 @media (max-width: 900px) {
+    .characters-section.heroes .character-grid,
     .characters-section.magical-beings .character-grid {
         grid-template-columns: repeat(2, 1fr);
-    }
-
-    .characters-section.magical-beings .character-card:nth-child(n+5) {
-        justify-self: center;
     }
 }
 
 @media (max-width: 600px) {
+    .characters-section.heroes .character-grid,
     .characters-section.magical-beings .character-grid {
         grid-template-columns: 1fr;
     }
