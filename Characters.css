@@ -1,7 +1,7 @@
 @font-face {
-      font-family: 'harrypotter';
-      src: url(media/HarryPotter-ov4z.ttf);
-    }
+    font-family: 'harrypotter';
+    src: url(media/HarryPotter-ov4z.ttf);
+}
 
 body {
     font-family: 'Cinzel Decorative', serif;
@@ -15,6 +15,10 @@ nav {
     background: rgba(0, 0, 0, 0.85);
     padding: 15px;
     display: flex;
+    position: sticky;
+    /* makes it stay on top while scrolling */
+    top: 0;
+    z-index: 1000;
     justify-content: center;
     flex-wrap: wrap;
     border-bottom: 2px solid gold;
@@ -40,6 +44,7 @@ header {
     padding: 50px 20px;
     background: linear-gradient(to right, #4b2e83, #1a1a2e);
     border-bottom: 3px solid #ffd700;
+    font-family: 'harrypotter';
 }
 
 header h1 {
@@ -110,23 +115,23 @@ header p {
 }
 
 footer {
-      background: rgba(0, 0, 0, 0.85);
-      color: gold;
-      text-align: center;
-      padding: 20px;
-      border-top: 2px solid gold;
-      font-size: 1rem;
-      text-shadow: 0 0 5px gold;
-    }
+    background: rgba(0, 0, 0, 0.85);
+    color: gold;
+    text-align: center;
+    padding: 20px;
+    border-top: 2px solid gold;
+    font-size: 1rem;
+    text-shadow: 0 0 5px gold;
+}
 
-    footer a {
-      color: gold;
-      text-decoration: none;
-      margin: 0 10px;
-      transition: color 0.3s, text-shadow 0.3s;
-    }
+footer a {
+    color: gold;
+    text-decoration: none;
+    margin: 0 10px;
+    transition: color 0.3s, text-shadow 0.3s;
+}
 
-    footer a:hover {
-      color: white;
-      text-shadow: 0 0 10px gold;
-    }
+footer a:hover {
+    color: white;
+    text-shadow: 0 0 10px gold;
+}
