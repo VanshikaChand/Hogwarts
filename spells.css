@@ -1,98 +1,125 @@
+/* ===== Reset ===== */
 body {
-  margin: 0;
-  font-family: 'Cinzel Decorative', cursive;
-  color: #fff;
-  background: url('https://i.ibb.co/1XrrGZC/darkforest.jpg') no-repeat center center fixed;
-  background-size: cover;
+    font-family: 'Cinzel Decorative', serif;
+    background: #0f0f1a;
+    color: #f0f0f0;
+    margin: 0;
+    padding: 0;
 }
 
+/* ===== Navigation ===== */
+nav {
+    background: rgba(0, 0, 0, 0.85);
+    padding: 15px;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    border-bottom: 2px solid gold;
+}
+nav a {
+    margin: 10px 15px;
+    text-decoration: none;
+    color: gold;
+    font-weight: bold;
+    font-size: 1.1rem;
+    transition: 0.3s;
+}
+nav a:hover {
+    color: white;
+    text-shadow: 0 0 10px gold;
+}
+
+/* ===== Header ===== */
 header {
-  text-align: center;
-  padding: 40px 20px;
+    text-align: center;
+    padding: 50px 20px;
+    background: linear-gradient(to right, #1a1a2e, #4b2e83);
+    border-bottom: 3px solid gold;
 }
-
 header h1 {
-  font-size: 3rem;
-  text-shadow: 0 0 8px #fff, 0 0 12px #8e44ad, 0 0 20px #9b59b6;
-  animation: glow 2s infinite alternate;
+    font-family: 'harrypotter', serif;
+    font-size: 3.5em;
+    color: #ffd700;
+    text-shadow: 0 0 8px #ffd700, 0 0 15px #ffcc00;
+    animation: glow 3s infinite alternate;
 }
-
 header p {
-  font-size: 1.2rem;
-  color: #d8b4f1;
+    font-size: 1.2em;
+    color: #ddd;
 }
 
+/* ===== Section Titles ===== */
+.spells-section h2 {
+    font-family: 'harrypotter', serif;
+    font-size: 2.2em;
+    color: #ffd700;
+    text-align: center;
+    margin: 50px auto 30px;
+    text-shadow: 0 0 6px gold, 0 0 12px #ffcc00;
+}
+
+/* ===== Spell Grid ===== */
+.spell-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 25px;
+    padding: 0 20px 40px;
+}
+
+.spell-card {
+    background: #1a1a2e;
+    border: 2px solid gold;
+    border-radius: 15px;
+    padding: 20px;
+    text-align: center;
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+.spell-card h3 {
+    font-size: 1.4em;
+    color: #ffd700;
+    margin-bottom: 8px;
+}
+.spell-card em {
+    color: #aaa;
+    font-size: 0.95em;
+}
+.spell-card p {
+    margin-top: 6px;
+    font-size: 0.95em;
+    color: #ccc;
+}
+.spell-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 8px 18px rgba(255, 215, 0, 0.4);
+}
+
+/* ===== Footer ===== */
+footer {
+      background: rgba(0, 0, 0, 0.85);
+      color: gold;
+      text-align: center;
+      padding: 20px;
+      border-top: 2px solid gold;
+      font-size: 1rem;
+      text-shadow: 0 0 5px gold;
+    }
+
+    footer a {
+      color: gold;
+      text-decoration: none;
+      margin: 0 10px;
+      transition: color 0.3s, text-shadow 0.3s;
+    }
+
+    footer a:hover {
+      color: white;
+      text-shadow: 0 0 10px gold;
+    }
+
+
+/* ===== Glow Animation ===== */
 @keyframes glow {
-  from { text-shadow: 0 0 5px #fff, 0 0 10px #8e44ad; }
-  to { text-shadow: 0 0 10px #fff, 0 0 25px #9b59b6, 0 0 40px #8e44ad; }
-}
-
-.search-box {
-  text-align: center;
-  margin-bottom: 30px;
-}
-
-.search-box input {
-  padding: 10px 20px;
-  border-radius: 25px;
-  border: none;
-  width: 50%;
-  font-size: 1rem;
-  transition: box-shadow 0.3s ease;
-}
-
-.search-box input:focus {
-  outline: none;
-  box-shadow: 0 0 15px #9b59b6;
-}
-
-.grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  gap: 20px;
-  padding: 0 40px 60px;
-}
-
-.card {
-  background: rgba(20, 20, 30, 0.8);
-  border-radius: 20px;
-  padding: 20px;
-  transition: transform 0.3s, box-shadow 0.3s;
-  position: relative;
-  overflow: hidden;
-}
-
-.card h2 {
-  font-size: 1.5rem;
-  margin-bottom: 10px;
-  color: #fff;
-  text-shadow: 0 0 6px #fff, 0 0 10px #8e44ad;
-}
-
-.card p {
-  color: #ddd;
-  font-size: 1rem;
-  line-height: 1.5;
-}
-
-.card:hover {
-  transform: translateY(-8px) scale(1.02);
-  box-shadow: 0 0 20px #8e44ad;
-}
-
-/* Magical sparkle effect */
-.card::before {
-  content: "";
-  position: absolute;
-  top: -50%;
-  left: -50%;
-  width: 200%;
-  height: 200%;
-  background: radial-gradient(circle, rgba(255,255,255,0.15) 10%, transparent 70%);
-  animation: sparkle 6s linear infinite;
-}
-
-@keyframes sparkle {
-  from { transform: rotate(0deg); }
-  to { transform: rotate(360deg); }
+    0% { text-shadow: 0 0 5px #ffd700; }
+    50% { text-shadow: 0 0 15px #ffcc00; }
+    100% { text-shadow: 0 0 5px #ffd700; }
 }
