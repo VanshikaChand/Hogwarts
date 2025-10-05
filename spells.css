@@ -1,0 +1,98 @@
+body {
+  margin: 0;
+  font-family: 'Cinzel Decorative', cursive;
+  color: #fff;
+  background: url('https://i.ibb.co/1XrrGZC/darkforest.jpg') no-repeat center center fixed;
+  background-size: cover;
+}
+
+header {
+  text-align: center;
+  padding: 40px 20px;
+}
+
+header h1 {
+  font-size: 3rem;
+  text-shadow: 0 0 8px #fff, 0 0 12px #8e44ad, 0 0 20px #9b59b6;
+  animation: glow 2s infinite alternate;
+}
+
+header p {
+  font-size: 1.2rem;
+  color: #d8b4f1;
+}
+
+@keyframes glow {
+  from { text-shadow: 0 0 5px #fff, 0 0 10px #8e44ad; }
+  to { text-shadow: 0 0 10px #fff, 0 0 25px #9b59b6, 0 0 40px #8e44ad; }
+}
+
+.search-box {
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+.search-box input {
+  padding: 10px 20px;
+  border-radius: 25px;
+  border: none;
+  width: 50%;
+  font-size: 1rem;
+  transition: box-shadow 0.3s ease;
+}
+
+.search-box input:focus {
+  outline: none;
+  box-shadow: 0 0 15px #9b59b6;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 20px;
+  padding: 0 40px 60px;
+}
+
+.card {
+  background: rgba(20, 20, 30, 0.8);
+  border-radius: 20px;
+  padding: 20px;
+  transition: transform 0.3s, box-shadow 0.3s;
+  position: relative;
+  overflow: hidden;
+}
+
+.card h2 {
+  font-size: 1.5rem;
+  margin-bottom: 10px;
+  color: #fff;
+  text-shadow: 0 0 6px #fff, 0 0 10px #8e44ad;
+}
+
+.card p {
+  color: #ddd;
+  font-size: 1rem;
+  line-height: 1.5;
+}
+
+.card:hover {
+  transform: translateY(-8px) scale(1.02);
+  box-shadow: 0 0 20px #8e44ad;
+}
+
+/* Magical sparkle effect */
+.card::before {
+  content: "";
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(circle, rgba(255,255,255,0.15) 10%, transparent 70%);
+  animation: sparkle 6s linear infinite;
+}
+
+@keyframes sparkle {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}

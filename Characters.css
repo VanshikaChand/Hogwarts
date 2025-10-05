@@ -141,7 +141,6 @@ header p {
     grid-template-columns: repeat(10, 1fr); 
     gap: 20px; /* Adjusted gap for a better fit */
     padding: 20px;
-    position: center;
     justify-items: center; /* This centers each card within its assigned columns */
 }
 
