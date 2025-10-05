@@ -9,25 +9,29 @@ body {
 
 /* ===== Navigation ===== */
 nav {
-    background: rgba(0, 0, 0, 0.85);
-    padding: 15px;
-    display: flex;
-    justify-content: center;
-    flex-wrap: wrap;
-    border-bottom: 2px solid gold;
-}
-nav a {
-    margin: 10px 15px;
-    text-decoration: none;
-    color: gold;
-    font-weight: bold;
-    font-size: 1.1rem;
-    transition: 0.3s;
-}
-nav a:hover {
-    color: white;
-    text-shadow: 0 0 10px gold;
-}
+      background: rgba(0, 0, 0, 0.85);
+      padding: 15px;
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      border-bottom: 2px solid gold;
+      color: gold;
+    }
+
+    nav a {
+      margin: 10px 15px;
+      text-decoration: none;
+      color: gold;
+      font-weight: bold;
+      font-size: 1.1rem;
+      transition: color 0.3s, text-shadow 0.3s;
+    }
+
+    nav a:hover {
+      color: white;
+      text-shadow: 0 0 10px gold;
+    }
+
 
 /* ===== Header ===== */
 header {
