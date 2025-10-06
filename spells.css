@@ -13,7 +13,7 @@ body {
     padding: 0;
 }
 
-/* ===== Navigation (SAME as Characters) ===== */
+/* ===== Navigation ===== */
 nav {
     background: rgba(0, 0, 0, 0.85);
     padding: 15px;
@@ -78,6 +78,7 @@ header p {
     font-size: 2.2em;
     border-radius: 10px;
     background: rgba(0, 0, 0, 0.3);
+    animation: glow 2s infinite alternate;
 }
 
 /* ===== Spell Grid ===== */
@@ -101,6 +102,7 @@ header p {
     font-size: 1.4em;
     color: #ffd700;
     margin-bottom: 8px;
+    animation: glow 2s infinite alternate; /* Glow effect for spell names */
 }
 
 .spell-card em {
@@ -119,7 +121,7 @@ header p {
     box-shadow: 0 8px 18px rgba(255, 215, 0, 0.4);
 }
 
-/* ===== Footer (SAME as Characters) ===== */
+/* ===== Footer ===== */
 footer {
     background: rgba(0, 0, 0, 0.85);
     color: gold;
@@ -147,4 +149,60 @@ footer a:hover {
     0% { text-shadow: 0 0 5px #ffd700; }
     50% { text-shadow: 0 0 15px #ffcc00; }
     100% { text-shadow: 0 0 5px #ffd700; }
+}
+
+/* ===== Responsive Design ===== */
+@media (max-width: 768px) {
+    nav {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    nav a {
+        margin: 8px 0;
+        font-size: 1rem;
+    }
+
+    header h1 {
+        font-size: 2.5em;
+    }
+
+    header p {
+        font-size: 1em;
+    }
+
+    .spells-section h2 {
+        font-size: 1.8em;
+        padding: 10px;
+    }
+
+    .spell-card h3 {
+        font-size: 1.2em;
+    }
+
+    .spell-card p {
+        font-size: 0.9em;
+    }
+}
+
+@media (max-width: 480px) {
+    header {
+        padding: 30px 10px;
+    }
+
+    header h1 {
+        font-size: 2em;
+    }
+
+    .spells-section h2 {
+        font-size: 1.5em;
+    }
+
+    .spell-grid {
+        grid-template-columns: 1fr; /* stack cards in single column */
+    }
+
+    .spell-card {
+        padding: 15px;
+    }
 }
