@@ -13,6 +13,34 @@ body {
     padding: 0;
 }
 
+/* ===== Navigation ===== */
+nav {
+    background: rgba(0, 0, 0, 0.85);
+    padding: 15px;
+    display: flex;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    justify-content: center;
+    flex-wrap: wrap;
+    border-bottom: 2px solid gold;
+    color: gold;
+}
+
+nav a {
+    margin: 10px 15px;
+    text-decoration: none;
+    color: gold;
+    font-weight: bold;
+    font-size: 1.1rem;
+    transition: color 0.3s, text-shadow 0.3s;
+}
+
+nav a:hover {
+    color: white;
+    text-shadow: 0 0 10px gold;
+}
+
 /* ===== Header ===== */
 header {
     text-align: center;
@@ -74,7 +102,7 @@ header p {
     font-size: 1.4em;
     color: #ffd700;
     margin-bottom: 8px;
-    animation: glow 2s infinite alternate;
+    animation: glow 2s infinite alternate; /* Glow effect for spell names */
 }
 
 .spell-card em {
@@ -93,6 +121,29 @@ header p {
     box-shadow: 0 8px 18px rgba(255, 215, 0, 0.4);
 }
 
+/* ===== Footer ===== */
+footer {
+      background: rgba(0, 0, 0, 0.85);
+      color: gold;
+      text-align: center;
+      padding: 20px;
+      border-top: 2px solid gold;
+      font-size: 1rem;
+      text-shadow: 0 0 5px gold;
+    }
+
+    footer a {
+      color: gold;
+      text-decoration: none;
+      margin: 0 10px;
+      transition: color 0.3s, text-shadow 0.3s;
+    }
+
+    footer a:hover {
+      color: white;
+      text-shadow: 0 0 10px gold;
+    }
+
 /* ===== Glow Animation ===== */
 @keyframes glow {
     0% { text-shadow: 0 0 5px #ffd700; }
@@ -102,6 +153,16 @@ header p {
 
 /* ===== Responsive Design ===== */
 @media (max-width: 768px) {
+    nav {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    nav a {
+        margin: 8px 0;
+        font-size: 1rem;
+    }
+
     header h1 {
         font-size: 2.5em;
     }
@@ -138,7 +199,7 @@ header p {
     }
 
     .spell-grid {
-        grid-template-columns: 1fr;
+        grid-template-columns: 1fr; /* stack cards in single column */
     }
 
     .spell-card {
