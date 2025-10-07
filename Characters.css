@@ -10,47 +10,81 @@ body {
   overflow-x: hidden;
   font-family: 'Cinzel Decorative', serif;
   color: #fff;
-  background: radial-gradient(circle at top, #0a0a12 10%, #0f0f1a 90%);
+  background: linear-gradient(180deg, #050509 0%, #0a0a14 60%, #151520 100%);
+  background-attachment: fixed;
+}
+
+/* ===== NAVIGATION ===== */
+nav {
+  display: flex;
+  justify-content: center;
+  gap: 25px;
+  padding: 20px 10px;
+  background: rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(8px);
+  border-bottom: 1px solid rgba(255, 215, 0, 0.25);
+}
+
+nav a {
+  color: #ffd700;
+  text-decoration: none;
+  font-weight: bold;
+  letter-spacing: 1px;
+  transition: color 0.3s, text-shadow 0.3s;
+}
+
+nav a:hover {
+  color: #fff59d;
+  text-shadow: 0 0 10px #ffd700;
 }
 
 /* ===== HEADER ===== */
 header {
   text-align: center;
-  padding: 80px 20px;
-  background: linear-gradient(180deg, rgba(10, 10, 20, 0.9), rgba(10, 10, 30, 0.4));
-  border-bottom: 2px solid rgba(255, 215, 0, 0.2);
+  padding: 100px 20px;
   position: relative;
+  background: url('https://i.pinimg.com/originals/4f/18/2b/4f182b65a8cbfc5831f64b20b56e2b49.jpg') center/cover no-repeat;
+  color: #fff;
+}
+
+header::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.6);
+  backdrop-filter: blur(3px);
 }
 
 header h1 {
-  font-size: 3.5rem;
-  color: #fdd835;
-  text-shadow: 0 0 30px #fdd835, 0 0 60px #b8860b;
-  letter-spacing: 3px;
+  position: relative;
   font-family: 'harrypotter', serif;
+  font-size: 4rem;
+  color: #ffd700;
+  text-shadow: 0 0 20px #ffd700, 0 0 50px #ffeb3b;
+  letter-spacing: 3px;
 }
 
 header p {
-  font-size: 1.2rem;
-  color: #ccc;
-  margin-top: 10px;
+  position: relative;
+  font-size: 1.3rem;
+  color: #f1f1f1;
+  margin-top: 15px;
+  text-shadow: 0 0 10px #000;
 }
 
 /* ===== HEROES SECTION ===== */
 .hero {
-  background: radial-gradient(circle at center, #1a1a2e 10%, #0f0f1a 90%);
+  background: linear-gradient(180deg, #0f0f1a 0%, #1a1a2e 60%, #0f0f1a 100%);
   padding: 80px 40px;
   text-align: center;
   color: #f5f5f5;
-  font-family: 'Cinzel Decorative', serif;
-  position: relative;
 }
 
 .hero h2 {
   font-size: 3rem;
   color: #fdd835;
-  text-shadow: 0 0 20px #fdd835, 0 0 40px #b8860b;
-  margin-bottom: 40px;
+  text-shadow: 0 0 25px #fdd835, 0 0 40px #b8860b;
+  margin-bottom: 50px;
   position: relative;
 }
 
@@ -68,47 +102,47 @@ header p {
   to { text-shadow: 0 0 30px #fff59d; }
 }
 
-/* ===== GRID CONTAINER ===== */
+/* ===== GRID LAYOUT ===== */
 .character-grid {
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 40px;
+  gap: 50px;
 }
 
-/* ===== ROW LAYOUTS ===== */
+/* ===== ROW STYLING ===== */
 .hero-row {
   display: flex;
   justify-content: center;
   flex-wrap: wrap;
-  gap: 25px;
+  gap: 30px;
 }
 
-/* Highlight main characters (Row 1) */
-.row1 .character-card:nth-child(1),
-.row1 .character-card:nth-child(2),
-.row1 .character-card:nth-child(3) {
+/* Larger scaling for main trio */
+.row1 .character-card {
   transform: scale(1.1);
+  border: 1px solid rgba(255, 215, 0, 0.4);
+  box-shadow: 0 0 25px rgba(255, 215, 0, 0.25);
 }
 
 /* ===== CHARACTER CARD ===== */
 .character-card {
   background: rgba(255, 255, 255, 0.07);
-  border: 1px solid rgba(255, 255, 255, 0.15);
+  border: 1px solid rgba(255, 255, 255, 0.1);
   border-radius: 15px;
   width: 200px;
   padding: 15px;
   transition: all 0.4s ease;
   backdrop-filter: blur(5px);
-  box-shadow: 0 0 15px rgba(255, 215, 0, 0.2);
+  box-shadow: 0 0 15px rgba(255, 215, 0, 0.15);
 }
 
 .character-card:hover {
   transform: translateY(-10px) scale(1.05);
-  box-shadow: 0 0 30px rgba(255, 215, 0, 0.5);
+  box-shadow: 0 0 30px rgba(255, 215, 0, 0.6);
 }
 
-/* ===== CHARACTER IMAGE ===== */
+/* ===== IMAGES ===== */
 .character-card img {
   width: 100%;
   height: 260px;
@@ -123,7 +157,7 @@ header p {
   filter: brightness(1.2);
 }
 
-/* ===== CHARACTER NAME ===== */
+/* ===== TEXT ===== */
 .character-card h3 {
   margin: 15px 0 10px;
   color: #ffd700;
@@ -131,7 +165,6 @@ header p {
   text-shadow: 0 0 10px #b8860b;
 }
 
-/* ===== CHARACTER DETAILS ===== */
 .character-card p {
   color: #ddd;
   font-size: 0.9rem;
@@ -139,8 +172,8 @@ header p {
   font-family: 'Poppins', sans-serif;
 }
 
-/* ===== ROW SPECIFIC STYLING ===== */
-.row1 { justify-content: center; gap: 40px; }
+/* ===== ROW SPACING ===== */
+.row1 { justify-content: center; gap: 45px; }
 .row2 { justify-content: space-evenly; gap: 25px; }
 .row3 { justify-content: center; gap: 60px; }
 
@@ -148,9 +181,9 @@ header p {
 footer {
   text-align: center;
   padding: 40px;
-  background: linear-gradient(180deg, #0f0f1a, #0a0a12);
+  background: linear-gradient(180deg, #0a0a12, #050509);
   color: #bbb;
-  border-top: 2px solid rgba(255, 215, 0, 0.2);
+  border-top: 2px solid rgba(255, 215, 0, 0.25);
   font-size: 1rem;
 }
 
@@ -170,7 +203,6 @@ footer a:hover {
 }
 
 @media (max-width: 768px) {
-  .character-grid { gap: 25px; }
   .hero h2 { font-size: 2.5rem; }
   .character-card img { height: 220px; }
   .row2 { justify-content: center; }
