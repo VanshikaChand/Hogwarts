@@ -7,33 +7,34 @@
 /* ===== Reset & Body ===== */
 body {
     font-family: 'Cinzel Decorative', serif;
-    background: #0f0f1a;
+    background: linear-gradient(to bottom, #0f0f1a, #1a0f2a);
     color: #f0f0f0;
     margin: 0;
     padding: 0;
+    overflow-x: hidden;
 }
 
 /* ===== Navigation ===== */
 nav {
     background: rgba(0, 0, 0, 0.85);
-    padding: 15px;
+    padding: 15px 20px;
     display: flex;
+    justify-content: space-between;
+    align-items: center;
     position: sticky;
     top: 0;
     z-index: 1000;
-    justify-content: center;
-    flex-wrap: wrap;
     border-bottom: 2px solid gold;
-    color: gold;
+    flex-wrap: wrap;
 }
 
 nav a {
-    margin: 10px 15px;
+    margin: 0 12px;
     text-decoration: none;
     color: gold;
     font-weight: bold;
     font-size: 1.1rem;
-    transition: color 0.3s, text-shadow 0.3s;
+    transition: 0.3s;
 }
 
 nav a:hover {
@@ -41,20 +42,27 @@ nav a:hover {
     text-shadow: 0 0 10px gold;
 }
 
+/* Hamburger Menu */
+.menu-toggle {
+    display: none;
+    font-size: 1.8rem;
+    cursor: pointer;
+    color: gold;
+}
+
 /* ===== Header ===== */
 header {
     text-align: center;
-    padding: 50px 20px;
+    padding: 60px 20px;
     background: linear-gradient(to right, #4b2e83, #1a1a2e);
     border-bottom: 3px solid #ffd700;
     font-family: 'harrypotter';
 }
 
 header h1 {
-    font-family: 'harrypotter';
     font-size: 4em;
     color: #ffd700;
-    text-shadow: 0 0 5px #ffd700, 0 0 10px #ffcc00;
+    text-shadow: 0 0 5px #ffd700, 0 0 20px #ffcc00;
     animation: glow 3s infinite alternate;
 }
 
@@ -64,16 +72,15 @@ header p {
     margin-top: 10px;
 }
 
-/* ===== FIX: Request 1 & 4 - Added margin to create space between sections and footer ===== */
+/* ===== Character Section ===== */
 .characters-section {
     margin-bottom: 50px;
 }
 
-/* ===== Section Titles ===== */
 .characters-section h2 {
     font-family: 'harrypotter', 'Cinzel Decorative', serif;
     color: #ffd700;
-    text-shadow: 0 0 8px #ffd700, 0 0 15px #ffcc00;
+    text-shadow: 0 0 10px #ffd700, 0 0 20px #ffcc00;
     border-bottom: 2px solid #ffd700;
     padding: 15px 20px;
     margin: 40px auto 40px auto;
@@ -81,17 +88,15 @@ header p {
     width: fit-content;
     display: block;
     font-size: 2.5em;
-    animation: glow 2s infinite alternate;
     border-radius: 10px;
     background: rgba(0, 0, 0, 0.3);
 }
 
-/* ===== FIX: Request 4 - Added top margin to better separate family sub-sections ===== */
 .characters-section h3 {
-    margin: 50px 0 10px;
+    margin: 50px 0 20px;
     color: #e0c96d;
     text-align: center;
-    /* Centered the family titles for better look */
+    font-size: 1.6em;
 }
 
 /* ===== Character Grid ===== */
@@ -100,30 +105,44 @@ header p {
     grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
     gap: 25px;
     padding: 0 20px;
-    /* Added some padding to the sides */
 }
 
 .character-card {
     background: #1a1a2e;
-    border-radius: 15px;
-    padding: 20px;
+    border-radius: 20px;
+    padding: 25px 15px;
     text-align: center;
-    transition: transform 0.3s, box-shadow 0.3s;
+    transition: 0.4s;
+    box-shadow: 0 5px 20px rgba(255, 215, 0, 0.1);
+    transform-style: preserve-3d;
 }
 
+.character-card:hover {
+    transform: translateY(-15px) scale(1.08) rotateY(5deg);
+    box-shadow: 0 15px 40px rgba(255, 215, 0, 0.5);
+}
+
+/* ===== Character Images ===== */
 .character-card img {
-    width: 120px;
-    height: 120px;
+    width: 130px;
+    height: 130px;
     border-radius: 50%;
     object-fit: cover;
     margin-bottom: 15px;
     border: 3px solid #ffd700;
+    transition: 0.4s;
 }
 
+.character-card:hover img {
+    transform: scale(1.1) rotate(5deg);
+}
+
+/* ===== Text Styling ===== */
 .character-card h3 {
     margin: 10px 0;
     font-size: 1.3em;
     color: #ffd700;
+    text-shadow: 0 0 5px #ffd700;
 }
 
 .character-card p {
@@ -131,127 +150,27 @@ header p {
     color: #ccc;
 }
 
-.character-card:hover {
-    transform: translateY(-8px);
-    box-shadow: 0 8px 18px rgba(255, 215, 0, 0.4);
-}
-
-/* ===== FIX: Hero Section Layout (3-5-2) - More Precise Centering ===== */
+/* ===== Hero Section Custom Layout (Desktop) ===== */
 .characters-section.hero .character-grid {
     display: grid;
-    /* Using a 10-column grid for precise centering control */
     grid-template-columns: repeat(10, 1fr);
     gap: 20px;
-    /* Adjusted gap for a better fit */
-    padding: 20px;
-    justify-items: center;
-    /* This centers each card within its assigned columns */
-}
-
-/* Reset any inherited column settings from other rules */
-.characters-section.hero .character-card {
-    grid-column: auto;
-}
-
-/* --- Row 1: 3 cards centered --- */
-/* Each card is placed in the center of a 2-column wide area */
-.characters-section.hero .character-card:nth-child(1) {
-    grid-column: 3 / span 2;
-}
-
-.characters-section.hero .character-card:nth-child(2) {
-    grid-column: 5 / span 2;
-}
-
-.characters-section.hero .character-card:nth-child(3) {
-    grid-column: 7 / span 2;
-}
-
-/* --- Row 2: 5 cards filling the row --- */
-/* These 5 cards each take up 2 columns, perfectly filling the 10-column row */
-.characters-section.hero .character-card:nth-child(n+4):nth-child(-n+8) {
-    grid-column: span 2;
-}
-
-/* --- Row 3: 2 cards centered --- */
-/* The final 2 cards are positioned symmetrically */
-.characters-section.hero .character-card:nth-child(9) {
-    grid-column: 4 / span 2;
-}
-
-.characters-section.hero .character-card:nth-child(10) {
-    grid-column: 6 / span 2;
-}
-
-/* ===== Teachers - Centered Flex Layout ===== */
-.characters-section.teachers .character-grid {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 30px;
-}
-
-.characters-section.teachers .character-card {
-    flex: 0 1 220px;
-}
-
-/* ===== FIX: Request 2 - Magical Beings Layout (4-3) ===== */
-.characters-section.magical-beings .character-grid {
-    display: grid;
-    grid-template-columns: repeat(8, 1fr);
-    /* 8-column base for precision */
-    gap: 30px;
     justify-items: center;
 }
 
-/* Row 1: All 4 cards span 2 columns each */
-.characters-section.magical-beings .character-card:nth-child(-n+4) {
-    grid-column: span 2;
-}
-
-/* Row 2: 3 cards, positioned to be centered */
-.characters-section.magical-beings .character-card:nth-child(5) {
-    grid-column: 2 / span 2;
-}
-
-.characters-section.magical-beings .character-card:nth-child(6) {
-    grid-column: 4 / span 2;
-}
-
-.characters-section.magical-beings .character-card:nth-child(7) {
-    grid-column: 6 / span 2;
-}
-
-
-/* ===== Villains Two-Row Layout ===== */
-.characters-section.villains .character-grid {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 30px;
-    justify-items: center;
-}
-
-.characters-section.villains .character-card:nth-child(5) {
-    grid-column: 2 / span 2;
-    justify-self: center;
-}
-
-/* ===== FIX: Request 3 - Rivals Layout (4 in a row) ===== */
-.characters-section.rivals .character-grid {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    /* Changed from flex to grid */
-    gap: 30px;
-    /* Adjusted gap to be consistent */
-    justify-items: center;
-}
+.characters-section.hero .character-card:nth-child(1) { grid-column: 3 / span 2; }
+.characters-section.hero .character-card:nth-child(2) { grid-column: 5 / span 2; }
+.characters-section.hero .character-card:nth-child(3) { grid-column: 7 / span 2; }
+.characters-section.hero .character-card:nth-child(n+4):nth-child(-n+8) { grid-column: span 2; }
+.characters-section.hero .character-card:nth-child(9) { grid-column: 4 / span 2; }
+.characters-section.hero .character-card:nth-child(10) { grid-column: 6 / span 2; }
 
 /* ===== Footer ===== */
 footer {
-    background: rgba(0, 0, 0, 0.85);
+    background: rgba(0,0,0,0.85);
     color: gold;
     text-align: center;
-    padding: 20px;
+    padding: 25px 15px;
     border-top: 2px solid gold;
     font-size: 1rem;
     text-shadow: 0 0 5px gold;
@@ -261,7 +180,7 @@ footer a {
     color: gold;
     text-decoration: none;
     margin: 0 10px;
-    transition: color 0.3s, text-shadow 0.3s;
+    transition: 0.3s;
 }
 
 footer a:hover {
@@ -271,45 +190,45 @@ footer a:hover {
 
 /* ===== Glow Animation ===== */
 @keyframes glow {
-    0% {
-        text-shadow: 0 0 5px #ffd700;
-    }
-
-    50% {
-        text-shadow: 0 0 15px #ffcc00;
-    }
-
-    100% {
-        text-shadow: 0 0 5px #ffd700;
-    }
+    0% { text-shadow: 0 0 5px #ffd700; }
+    50% { text-shadow: 0 0 15px #ffcc00; }
+    100% { text-shadow: 0 0 5px #ffd700; }
 }
 
 /* ===== Responsive ===== */
-
-/* Make the complex Hero layout responsive on larger tablet screens */
 @media (max-width: 1100px) {
     .characters-section.hero .character-grid {
-        /* Switch to a simple, auto-fitting grid */
-        grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
     }
-
-    .characters-section.hero .character-card {
-        /* This resets all the specific grid placements (like row 1, 2, 3) so they can flow freely */
-        grid-column: auto !important;
-    }
+    .characters-section.hero .character-card { grid-column: auto !important; }
 }
 
-/* Make the other sections responsive on smaller tablets */
+/* ===== Tablets ===== */
 @media (max-width: 900px) {
-
     .characters-section.magical-beings .character-grid,
     .characters-section.villains .character-grid,
     .characters-section.rivals .character-grid {
         grid-template-columns: repeat(2, 1fr);
     }
+}
 
-    .characters-section.magical-beings .character-card:nth-child(n),
-    .characters-section.villains .character-card:nth-child(n) {
-        grid-column: auto;
+/* ===== Mobile ===== */
+@media (max-width: 600px) {
+    nav a { display: none; }
+    .menu-toggle { display: block; }
+
+    .character-card {
+        width: 90%;
+        margin: 10px auto;
+        padding: 20px;
+    }
+
+    .character-card img { width: 100px; height: 100px; }
+
+    header h1 { font-size: 2.5em; }
+
+    .character-grid {
+        gap: 15px;
+        padding: 0 10px;
     }
 }
