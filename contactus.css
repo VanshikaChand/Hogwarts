@@ -45,7 +45,8 @@ nav a.active {
 
 /* ===== CONTACT FORM ===== */
 .contact-container {
-  background: rgba(244, 226, 200, 0.2); /* transparent parchment */
+  background: rgba(244, 226, 200, 0.2);
+  /* transparent parchment */
   padding: 40px;
   border-radius: 20px;
   max-width: 500px;
@@ -53,15 +54,18 @@ nav a.active {
   box-shadow: 0 0 25px rgba(255, 215, 0, 0.5);
   text-align: center;
   position: relative;
-  backdrop-filter: blur(5px); /* softens the video behind */
+  backdrop-filter: blur(5px);
+  /* softens the video behind */
   overflow: hidden;
   z-index: 1;
 }
 
 .form-bg-video {
   position: absolute;
-  top: 0; left: 0;
-  width: 100%; height: 100%;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
   object-fit: cover;
   z-index: 0;
   border-radius: 20px;
@@ -164,7 +168,8 @@ footer a:hover {
 /* ===== Mobile Responsiveness ===== */
 @media (max-width: 480px) {
   .contact-container {
-    padding: 20px; /* reduce padding */
+    padding: 20px;
+    /* reduce padding */
     margin: 40px 10px;
   }
 
@@ -184,4 +189,3 @@ footer a:hover {
     font-size: 1.2rem;
   }
 }
-
