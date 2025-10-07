@@ -1,151 +1,235 @@
-/* ===== FONT ===== */
+/* ===== Custom Font ===== */
 @font-face {
-  font-family: 'harrypotter';
-  src: url('media/HarryPotter-ov4z.ttf');
+    font-family: 'harrypotter';
+    src: url(media/HarryPotter-ov4z.ttf);
 }
 
+/* ===== Reset & Body ===== */
 body {
-  margin: 0;
-  padding: 0;
-  font-family: 'Cinzel Decorative', serif;
-  color: #fff;
-  background: radial-gradient(circle at top, #0a0a12 10%, #0f0f1a 90%);
+    font-family: 'Cinzel Decorative', serif;
+    background: #0a0a1e;
+    color: #f0f0f0;
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
+    position: relative;
 }
 
-/* ===== NAVBAR ===== */
+/* ===== Starry Moving Background ===== */
+body::before {
+    content: '';
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(circle at 20% 20%, rgba(255,255,255,0.08) 1px, transparent 1px),
+                radial-gradient(circle at 80% 70%, rgba(255,255,255,0.06) 1px, transparent 1px),
+                radial-gradient(circle at 50% 50%, rgba(255,255,255,0.05) 1px, transparent 1px);
+    background-size: 50px 50px, 70px 70px, 100px 100px;
+    pointer-events: none;
+    z-index: 0;
+    animation: moveStars 25s linear infinite;
+}
+
+@keyframes moveStars {
+    0% { background-position: 0 0, 0 0, 0 0; }
+    100% { background-position: 200px 200px, -150px 100px, 100px -200px; }
+}
+
+/* ===== Navigation ===== */
 nav {
-  display: flex;
-  justify-content: center;
-  gap: 25px;
-  background: #0f0f1a;
-  padding: 15px;
-  flex-wrap: wrap;
+    background: rgba(0, 0, 0, 0.7);
+    padding: 15px;
+    display: flex;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    justify-content: center;
+    flex-wrap: wrap;
+    border-bottom: 2px solid gold;
 }
 
 nav a {
-  color: #ffd700;
-  text-decoration: none;
-  font-weight: bold;
+    margin: 10px 15px;
+    text-decoration: none;
+    color: gold;
+    font-weight: bold;
+    font-size: 1.1rem;
+    transition: color 0.3s, text-shadow 0.3s;
 }
 
 nav a:hover {
-  text-shadow: 0 0 8px #ffd700;
+    color: white;
+    text-shadow: 0 0 10px gold;
 }
 
-/* ===== HEADER ===== */
+/* ===== Header ===== */
 header {
-  text-align: center;
-  padding: 80px 20px;
+    text-align: center;
+    padding: 60px 20px;
+    position: relative;
+    border-bottom: 4px solid #ffd700;
+    z-index: 2;
 }
 
 header h1 {
-  font-size: 3.5rem;
-  color: #fdd835;
-  text-shadow: 0 0 30px #fdd835, 0 0 60px #b8860b;
-  font-family: 'harrypotter', serif;
+    font-family: 'harrypotter';
+    font-size: 4.5rem;
+    color: #ffd700;
+    text-shadow: 0 0 10px #ffd700, 0 0 25px #ffcc00, 0 0 50px #ffd700;
+    animation: glow 3s ease-in-out infinite alternate;
+    display: inline-block;
+    padding: 20px 40px;
+    border-radius: 25px;
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(12px);
+    border: 2px solid rgba(255, 223, 0, 0.4);
 }
 
 header p {
-  color: #ccc;
-  font-size: 1.2rem;
+    font-size: 1.3rem;
+    color: #ddd;
+    margin-top: 15px;
+    text-shadow: 0 0 8px #fff;
 }
 
-/* ===== HEROES SECTION ===== */
+/* ===== Glow Animation ===== */
+@keyframes glow {
+    0% { text-shadow: 0 0 10px #ffd700, 0 0 20px #ffcc00; }
+    50% { text-shadow: 0 0 25px #ffd700, 0 0 50px #ffcc00, 0 0 75px #ffd700; }
+    100% { text-shadow: 0 0 10px #ffd700, 0 0 20px #ffcc00; }
+}
+
+/* ===== Sections ===== */
+.characters-section {
+    margin: 70px 0;
+}
+
 .characters-section h2 {
-  text-align: center;
-  font-size: 2.5rem;
-  color: #ffd700;
-  margin-bottom: 40px;
-  text-shadow: 0 0 10px #b8860b;
+    font-family: 'harrypotter', 'Cinzel Decorative', serif;
+    color: #ffd700;
+    text-shadow: 0 0 15px #ffd700, 0 0 25px #ffcc00;
+    text-align: center;
+    font-size: 3em;
+    margin-bottom: 40px;
+    animation: glow 3s infinite alternate;
 }
 
-/* Hero Rows */
-.hero-row {
-  display: flex;
-  justify-content: center;
-  flex-wrap: wrap;
-  gap: 30px;
-  margin-bottom: 40px;
+/* ===== Character Grid ===== */
+.character-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 25px;
+    padding: 0 30px;
+    justify-items: center;
+    z-index: 1;
 }
 
-/* Row-specific spacing */
-.row1 { justify-content: center; gap: 30px; } /* 3 main heroes */
-.row2 { justify-content: center; gap: 25px; } /* 5 supporting heroes */
-.row3 { justify-content: center; gap: 40px; } /* 2 final heroes */
-
-/* ===== CHARACTER CARD ===== */
+/* ===== Character Card ===== */
 .character-card {
-  background: rgba(255, 255, 255, 0.07);
-  border: 1px solid rgba(255, 255, 255, 0.15);
-  border-radius: 15px;
-  width: 200px;
-  padding: 15px;
-  backdrop-filter: blur(5px);
-  box-shadow: 0 0 15px rgba(255, 215, 0, 0.2);
-  transition: all 0.4s ease;
-  text-align: center;
+    background: rgba(26, 26, 46, 0.8);
+    border-radius: 25px;
+    padding: 25px 15px;
+    text-align: center;
+    transition: transform 0.5s, box-shadow 0.5s, background 0.5s;
+    position: relative;
+    backdrop-filter: blur(6px);
+    animation: float 4s ease-in-out infinite;
+}
+
+@keyframes float {
+    0%, 100% { transform: translateY(0px); }
+    50% { transform: translateY(-10px); }
 }
 
 .character-card:hover {
-  transform: translateY(-10px) scale(1.05);
-  box-shadow: 0 0 30px rgba(255, 215, 0, 0.5);
+    transform: translateY(-15px) scale(1.05) rotate(-1deg);
+    box-shadow: 0 15px 35px rgba(255, 215, 0, 0.7), 0 0 25px rgba(255, 223, 0, 0.5);
+    background: rgba(30, 30, 60, 0.85);
 }
 
+/* ===== Character Images ===== */
 .character-card img {
-  width: 100%;
-  height: 260px;
-  object-fit: cover;
-  border-radius: 12px;
-  border: 2px solid transparent;
-  transition: all 0.4s ease;
+    width: 130px;
+    height: 130px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-bottom: 15px;
+    border: 4px solid #ffd700;
+    transition: transform 0.5s, box-shadow 0.5s;
 }
 
-.character-card:hover img {
-  border: 2px solid gold;
-  filter: brightness(1.2);
+.character-card img:hover {
+    transform: scale(1.15) rotate(5deg);
+    box-shadow: 0 0 20px #ffd700, 0 0 40px #ffcc00;
 }
 
+/* ===== Character Names & Description ===== */
 .character-card h3 {
-  margin: 15px 0 10px;
-  color: #ffd700;
-  font-size: 1.3rem;
-  text-shadow: 0 0 10px #b8860b;
+    color: #ffd700;
+    font-size: 1.4em;
+    transition: color 0.3s, text-shadow 0.3s;
+}
+
+.character-card h3:hover {
+    color: #fff;
+    text-shadow: 0 0 15px #ffd700, 0 0 30px #ffcc00;
 }
 
 .character-card p {
-  color: #ddd;
-  font-size: 0.9rem;
-  margin: 5px 0;
-  font-family: 'Poppins', sans-serif;
+    color: #ccc;
+    font-size: 0.95em;
+    margin-top: 5px;
 }
 
-/* ===== FOOTER ===== */
+/* ===== Section Themes (Optional color variants) ===== */
+.characters-section.hero .character-card { background: rgba(42, 26, 59, 0.85); }
+.characters-section.teachers .character-card { background: rgba(26, 42, 46, 0.85); }
+.characters-section.villains .character-card { background: rgba(58, 26, 26, 0.85); }
+.characters-section.rivals .character-card { background: rgba(42, 42, 42, 0.85); }
+.characters-section.magical-beings .character-card { background: rgba(26, 42, 58, 0.85); }
+
+/* ===== Footer ===== */
 footer {
-  text-align: center;
-  padding: 40px;
-  background: linear-gradient(180deg, #0f0f1a, #0a0a12);
-  color: #bbb;
-  border-top: 2px solid rgba(255, 215, 0, 0.2);
+    background: rgba(0, 0, 0, 0.75);
+    color: gold;
+    text-align: center;
+    padding: 25px;
+    border-top: 2px solid gold;
+    font-size: 1rem;
+    text-shadow: 0 0 5px gold;
 }
 
 footer a {
-  color: #ffd700;
-  text-decoration: none;
+    color: gold;
+    text-decoration: none;
+    margin: 0 10px;
+    transition: color 0.3s, text-shadow 0.3s;
 }
 
 footer a:hover {
-  text-shadow: 0 0 10px #ffd700;
+    color: white;
+    text-shadow: 0 0 10px gold;
 }
 
-/* ===== RESPONSIVE ===== */
-@media (max-width: 768px) {
-  .character-card { width: 150px; }
-  .character-card img { height: 200px; }
-  header h1 { font-size: 2.5rem; }
+/* ===== Responsive ===== */
+@media (max-width: 1100px) {
+    .characters-section.hero .character-grid {
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    }
 }
 
-@media (max-width: 480px) {
-  .character-card { width: 120px; padding: 10px; }
-  .character-card img { height: 150px; }
-  header h1 { font-size: 2rem; }
+@media (max-width: 900px) {
+    .character-grid {
+        grid-template-columns: repeat(1, 1fr);
+        gap: 20px;
+    }
+
+    .characters-section h2 {
+        font-size: 2.2em;
+    }
+
+    .character-card img {
+        width: 110px;
+        height: 110px;
+    }
 }
