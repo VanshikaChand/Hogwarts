@@ -255,7 +255,7 @@ body {
 
 .house-section h3 {
   font-size: 2rem;
-  margin-bottom: 30px;
+  margin-bottom: 60px;
   text-shadow: 0 0 10px gold;
 }
 
@@ -264,9 +264,9 @@ body {
   grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
   gap: 25px;
   margin-bottom: 50px;
-  margin: 0 auto;        /* center the grid */
+  margin: 0 auto 50px;        /* center the grid */
   max-width: 1100px;     /* optional, limit width on big screens */
-  padding: 0 20px; 
+  padding: 0 50px; 
 }
 
 .house-card {
