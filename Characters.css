@@ -1,258 +1,183 @@
-/* ===== Custom Font ===== */
+/* ===== FONT IMPORTS ===== */
 @font-face {
   font-family: 'harrypotter';
-  src: url(media/HarryPotter-ov4z.ttf);
+  src: url('media/HarryPotter-ov4z.ttf');
 }
 
-/* ===== Reset & Body ===== */
 body {
-  font-family: 'Cinzel Decorative', serif;
-  background: radial-gradient(circle at top, #1a103d 0%, #0a0618 100%);
-  color: #f0f0f0;
   margin: 0;
   padding: 0;
   overflow-x: hidden;
-  position: relative;
+  font-family: 'Cinzel Decorative', serif;
+  color: #fff;
+  background: radial-gradient(circle at top, #0a0a12 10%, #0f0f1a 90%);
 }
 
-/* ===== Sparkle Background ===== */
-body::before {
-  content: '';
-  position: fixed;
-  top: 0; left: 0; right: 0; bottom: 0;
-  background: radial-gradient(circle, rgba(255,255,255,0.15) 1px, transparent 1px);
-  background-size: 60px 60px;
-  pointer-events: none;
-  z-index: 0;
-  animation: sparkle 15s linear infinite;
-  opacity: 0.5;
-}
-
-@keyframes sparkle {
-  0% { background-position: 0 0; }
-  100% { background-position: 100px 100px; }
-}
-
-/* ===== Navigation ===== */
-nav {
-  background: rgba(0, 0, 0, 0.85);
-  padding: 15px;
-  display: flex;
-  position: sticky;
-  top: 0;
-  z-index: 1000;
-  justify-content: center;
-  flex-wrap: wrap;
-  border-bottom: 2px solid gold;
-}
-
-nav a {
-  margin: 10px 15px;
-  text-decoration: none;
-  color: gold;
-  font-weight: bold;
-  font-size: 1.1rem;
-  transition: color 0.3s, text-shadow 0.3s;
-}
-
-nav a:hover {
-  color: white;
-  text-shadow: 0 0 10px gold;
-}
-
-/* ===== Header ===== */
+/* ===== HEADER ===== */
 header {
   text-align: center;
-  padding: 60px 20px;
-  background: linear-gradient(135deg, #301860, #120b25);
-  border-bottom: 3px solid #ffd700;
-  font-family: 'harrypotter';
+  padding: 80px 20px;
+  background: linear-gradient(180deg, rgba(10, 10, 20, 0.9), rgba(10, 10, 30, 0.4));
+  border-bottom: 2px solid rgba(255, 215, 0, 0.2);
   position: relative;
-  z-index: 1;
 }
 
 header h1 {
-  font-family: 'harrypotter';
-  font-size: 4em;
-  color: #ffd700;
-  text-shadow: 0 0 10px #ffd700, 0 0 25px #ffcc00, 0 0 40px #ffcc00;
-  animation: glow 3s infinite alternate;
+  font-size: 3.5rem;
+  color: #fdd835;
+  text-shadow: 0 0 30px #fdd835, 0 0 60px #b8860b;
+  letter-spacing: 3px;
+  font-family: 'harrypotter', serif;
 }
 
 header p {
-  font-size: 1.2em;
-  color: #ddd;
-  margin-top: 15px;
+  font-size: 1.2rem;
+  color: #ccc;
+  margin-top: 10px;
+}
+
+/* ===== HEROES SECTION ===== */
+.hero {
+  background: radial-gradient(circle at center, #1a1a2e 10%, #0f0f1a 90%);
+  padding: 80px 40px;
+  text-align: center;
+  color: #f5f5f5;
+  font-family: 'Cinzel Decorative', serif;
+  position: relative;
+}
+
+.hero h2 {
+  font-size: 3rem;
+  color: #fdd835;
+  text-shadow: 0 0 20px #fdd835, 0 0 40px #b8860b;
+  margin-bottom: 40px;
+  position: relative;
+}
+
+.hero h2::after {
+  content: "⚡";
+  font-size: 2rem;
+  position: absolute;
+  right: 47%;
+  top: -10px;
+  animation: glow 1.5s infinite alternate;
 }
 
 @keyframes glow {
-  0% { text-shadow: 0 0 10px #ffd700; }
-  50% { text-shadow: 0 0 25px #ffcc00, 0 0 50px #ffd700; }
-  100% { text-shadow: 0 0 10px #ffd700; }
+  from { text-shadow: 0 0 10px #fdd835; }
+  to { text-shadow: 0 0 30px #fff59d; }
 }
 
-/* ===== Section Headings ===== */
-.characters-section h2 {
-  font-family: 'harrypotter', 'Cinzel Decorative', serif;
-  color: #ffd700;
-  text-shadow: 0 0 15px #ffd700, 0 0 30px #ffcc00;
-  text-align: center;
-  font-size: 3em;
-  margin: 60px 0 40px;
-  animation: glow 3s infinite alternate;
-  background: none;
-  position: relative;
-}
-
-.characters-section h2::after {
-  content: '';
-  display: block;
-  width: 120px;
-  height: 3px;
-  background: gold;
-  margin: 10px auto 0;
-  box-shadow: 0 0 20px gold;
-}
-
-/* ===== Character Grid (default sections) ===== */
+/* ===== GRID CONTAINER ===== */
 .character-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-  gap: 30px;
-  padding: 0 40px;
-  justify-items: center;
-  z-index: 1;
-}
-
-/* ===== Character Card ===== */
-.character-card {
-  background: rgba(20, 20, 40, 0.9);
-  border-radius: 20px;
-  padding: 25px;
-  text-align: center;
-  transition: transform 0.6s, box-shadow 0.6s;
-  position: relative;
-  z-index: 1;
-  animation: float 5s ease-in-out infinite;
-}
-
-@keyframes float {
-  0%, 100% { transform: translateY(0px); }
-  50% { transform: translateY(-10px); }
-}
-
-.character-card:hover {
-  transform: translateY(-15px) scale(1.05) rotate(-1deg);
-  box-shadow: 0 15px 35px rgba(255, 215, 0, 0.6), 0 0 25px rgba(255, 223, 0, 0.4);
-}
-
-/* ===== Character Images ===== */
-.character-card img {
-  width: 130px;
-  height: 130px;
-  border-radius: 50%;
-  object-fit: cover;
-  margin-bottom: 15px;
-  border: 4px solid #ffd700;
-  transition: transform 0.5s, box-shadow 0.5s;
-}
-
-.character-card img:hover {
-  transform: scale(1.15) rotate(5deg);
-  box-shadow: 0 0 25px #ffd700, 0 0 40px #ffcc00;
-}
-
-/* ===== Character Names & Description ===== */
-.character-card h3 {
-  color: #ffd700;
-  font-size: 1.4em;
-  margin-bottom: 5px;
-  transition: color 0.3s, text-shadow 0.3s;
-}
-
-.character-card h3:hover {
-  color: #fff;
-  text-shadow: 0 0 15px #ffd700, 0 0 30px #ffcc00;
-}
-
-.character-card p {
-  color: #ccc;
-  font-size: 0.95em;
-}
-
-/* ===== HERO SECTION LAYOUT ===== */
-.characters-section.hero .character-grid {
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 50px;
+  gap: 40px;
 }
 
+/* ===== ROW LAYOUTS ===== */
 .hero-row {
   display: flex;
   justify-content: center;
-  gap: 35px;
   flex-wrap: wrap;
+  gap: 25px;
 }
 
-.hero-row.row1 .character-card { transform: scale(1.08); }
-.hero-row.row2 .character-card { transform: scale(1); }
-.hero-row.row3 .character-card { transform: scale(1.05); }
+/* Highlight main characters (Row 1) */
+.row1 .character-card:nth-child(1),
+.row1 .character-card:nth-child(2),
+.row1 .character-card:nth-child(3) {
+  transform: scale(1.1);
+}
 
-.hero-row.row1 { margin-top: 20px; }
-.hero-row.row2 { margin-top: 10px; }
-.hero-row.row3 { margin-bottom: 40px; }
+/* ===== CHARACTER CARD ===== */
+.character-card {
+  background: rgba(255, 255, 255, 0.07);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  border-radius: 15px;
+  width: 200px;
+  padding: 15px;
+  transition: all 0.4s ease;
+  backdrop-filter: blur(5px);
+  box-shadow: 0 0 15px rgba(255, 215, 0, 0.2);
+}
 
-/* ===== Themed Sections ===== */
-.characters-section.teachers .character-card { background: rgba(26, 42, 46, 0.9); }
-.characters-section.villains .character-card { background: rgba(58, 26, 26, 0.9); }
-.characters-section.rivals .character-card { background: rgba(42, 42, 42, 0.9); }
-.characters-section.magical-beings .character-card { background: rgba(26, 42, 58, 0.9); }
+.character-card:hover {
+  transform: translateY(-10px) scale(1.05);
+  box-shadow: 0 0 30px rgba(255, 215, 0, 0.5);
+}
 
-/* ===== Footer ===== */
+/* ===== CHARACTER IMAGE ===== */
+.character-card img {
+  width: 100%;
+  height: 260px;
+  border-radius: 12px;
+  object-fit: cover;
+  transition: all 0.4s ease;
+  border: 2px solid transparent;
+}
+
+.character-card:hover img {
+  border: 2px solid gold;
+  filter: brightness(1.2);
+}
+
+/* ===== CHARACTER NAME ===== */
+.character-card h3 {
+  margin: 15px 0 10px;
+  color: #ffd700;
+  font-size: 1.3rem;
+  text-shadow: 0 0 10px #b8860b;
+}
+
+/* ===== CHARACTER DETAILS ===== */
+.character-card p {
+  color: #ddd;
+  font-size: 0.9rem;
+  margin: 5px 0;
+  font-family: 'Poppins', sans-serif;
+}
+
+/* ===== ROW SPECIFIC STYLING ===== */
+.row1 { justify-content: center; gap: 40px; }
+.row2 { justify-content: space-evenly; gap: 25px; }
+.row3 { justify-content: center; gap: 60px; }
+
+/* ===== FOOTER ===== */
 footer {
-  background: rgba(0, 0, 0, 0.85);
-  color: gold;
   text-align: center;
-  padding: 25px;
-  border-top: 2px solid gold;
+  padding: 40px;
+  background: linear-gradient(180deg, #0f0f1a, #0a0a12);
+  color: #bbb;
+  border-top: 2px solid rgba(255, 215, 0, 0.2);
   font-size: 1rem;
-  text-shadow: 0 0 5px gold;
 }
 
 footer a {
-  color: gold;
+  color: #ffd700;
   text-decoration: none;
-  margin: 0 10px;
-  transition: color 0.3s, text-shadow 0.3s;
 }
 
 footer a:hover {
-  color: white;
-  text-shadow: 0 0 10px gold;
+  text-shadow: 0 0 10px #ffd700;
 }
 
-/* ===== Responsive ===== */
-@media (max-width: 1100px) {
-  .characters-section h2 {
-    font-size: 2.5em;
-  }
+/* ===== RESPONSIVE ===== */
+@media (max-width: 1024px) {
+  .character-card { width: 180px; }
+  .row3 { gap: 30px; }
 }
 
-@media (max-width: 900px) {
-  .hero-row {
-    flex-direction: column;
-    align-items: center;
-  }
+@media (max-width: 768px) {
+  .character-grid { gap: 25px; }
+  .hero h2 { font-size: 2.5rem; }
+  .character-card img { height: 220px; }
+  .row2 { justify-content: center; }
+}
 
-  .character-grid {
-    grid-template-columns: repeat(1, 1fr);
-    gap: 25px;
-    padding: 0 20px;
-  }
-
-  .character-card img {
-    width: 110px;
-    height: 110px;
-  }
+@media (max-width: 480px) {
+  .character-card { width: 150px; padding: 10px; }
+  .hero h2 { font-size: 2rem; }
+  .character-card img { height: 180px; }
 }
