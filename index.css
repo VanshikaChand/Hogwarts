@@ -250,7 +250,7 @@ body {
 }
 
 .house-section {
-  padding-bottom: 120px; /* added space before footer */
+  padding-bottom: 0 20px 120px; /* added space before footer */
 }
 
 .house-section h3 {
