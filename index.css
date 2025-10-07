@@ -44,21 +44,27 @@ body {
   left: 0;
   width: 200%;
   height: 100%;
-  background: radial-gradient(circle, rgba(255,255,255,0.08), transparent 70%);
+  background: radial-gradient(circle, rgba(255, 255, 255, 0.08), transparent 70%);
   animation: fogMove 60s linear infinite;
   z-index: -2;
 }
+
 .fog::after {
   animation-direction: reverse;
   opacity: 0.5;
 }
 
 @keyframes fogMove {
-  0% { transform: translateX(0); }
-  100% { transform: translateX(-50%); }
+  0% {
+    transform: translateX(0);
+  }
+
+  100% {
+    transform: translateX(-50%);
+  }
 }
 
-#enterPortal:checked ~ .intro {
+#enterPortal:checked~.intro {
   opacity: 0;
   pointer-events: none;
   visibility: hidden;
@@ -72,7 +78,7 @@ body {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  background: radial-gradient(circle at center, rgba(0,0,0,0.95) 0%, rgba(0,0,0,0.98) 100%);
+  background: radial-gradient(circle at center, rgba(0, 0, 0, 0.95) 0%, rgba(0, 0, 0, 0.98) 100%);
   z-index: 10;
   transition: opacity 1.2s ease;
   overflow: hidden;
@@ -104,29 +110,86 @@ body {
   animation: sparkle 3s infinite alternate;
 }
 
-.sparkles span:nth-child(1) { top: 20%; left: 30%; animation-delay: 0s; }
-.sparkles span:nth-child(2) { top: 50%; left: 70%; animation-delay: 1s; }
-.sparkles span:nth-child(3) { top: 70%; left: 50%; animation-delay: 2s; }
-.sparkles span:nth-child(4) { top: 30%; left: 80%; animation-delay: 3s; }
-.sparkles span:nth-child(5) { top: 60%; left: 20%; animation-delay: 4s; }
+.sparkles span:nth-child(1) {
+  top: 20%;
+  left: 30%;
+  animation-delay: 0s;
+}
+
+.sparkles span:nth-child(2) {
+  top: 50%;
+  left: 70%;
+  animation-delay: 1s;
+}
+
+.sparkles span:nth-child(3) {
+  top: 70%;
+  left: 50%;
+  animation-delay: 2s;
+}
+
+.sparkles span:nth-child(4) {
+  top: 30%;
+  left: 80%;
+  animation-delay: 3s;
+}
+
+.sparkles span:nth-child(5) {
+  top: 60%;
+  left: 20%;
+  animation-delay: 4s;
+}
 
 @keyframes sparkle {
-  0% { opacity: 0; transform: translateY(0); }
-  50% { opacity: 1; transform: translateY(-15px); }
-  100% { opacity: 0; transform: translateY(0); }
+  0% {
+    opacity: 0;
+    transform: translateY(0);
+  }
+
+  50% {
+    opacity: 1;
+    transform: translateY(-15px);
+  }
+
+  100% {
+    opacity: 0;
+    transform: translateY(0);
+  }
 }
 
 /* ===== ANIMATIONS ===== */
 @keyframes crestPop {
-  0% { transform: scale(0.5); opacity: 0; }
-  50% { transform: scale(1.2); opacity: 1; }
-  100% { transform: scale(1); opacity: 1; }
+  0% {
+    transform: scale(0.5);
+    opacity: 0;
+  }
+
+  50% {
+    transform: scale(1.2);
+    opacity: 1;
+  }
+
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
 }
 
 @keyframes crestBounce {
-  0% { transform: translateY(-50px) scale(0.5); opacity: 0; }
-  50% { transform: translateY(20px) scale(1.2); opacity: 1; }
-  100% { transform: translateY(0) scale(1); opacity: 1; }
+  0% {
+    transform: translateY(-50px) scale(0.5);
+    opacity: 0;
+  }
+
+  50% {
+    transform: translateY(20px) scale(1.2);
+    opacity: 1;
+  }
+
+  100% {
+    transform: translateY(0) scale(1);
+    opacity: 1;
+  }
 }
 
 /* ===== ENTER BUTTON ===== */
@@ -157,14 +220,14 @@ body {
   z-index: 2;
 }
 
-#enterPortal:checked ~ .portal {
+#enterPortal:checked~.portal {
   opacity: 1;
 }
 
 /* ===== NAVBAR ===== */
 .nav-bar {
   position: relative;
-  background: rgba(0,0,0,0.7);
+  background: rgba(0, 0, 0, 0.7);
   padding: 15px;
   border-bottom: 2px solid gold;
   display: flex;
@@ -250,7 +313,8 @@ body {
 }
 
 .house-section {
-  padding-bottom: 0 20px 120px; /* added space before footer */
+  padding-bottom: 0 20px 120px;
+  /* added space before footer */
 }
 
 .house-section h3 {
@@ -264,9 +328,11 @@ body {
   grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
   gap: 40px;
   margin-bottom: 50px;
-  margin: 0 auto 50px;        /* center the grid */
-  max-width: 1100px;     /* optional, limit width on big screens */
-  padding: 0 50px; 
+  margin: 0 auto 50px;
+  /* center the grid */
+  max-width: 1100px;
+  /* optional, limit width on big screens */
+  padding: 0 50px;
 }
 
 .house-card {
@@ -319,7 +385,8 @@ body {
 
 /* ===== QUOTES ===== */
 .quotes {
-  margin: 50px auto 160px; /* extra space before footer */
+  margin: 50px auto 160px;
+  /* extra space before footer */
   max-width: 900px;
   text-align: center;
   margin-bottom: 120px;
@@ -339,14 +406,14 @@ body {
   max-width: 700px;
   padding: 15px;
   border-left: 4px solid gold;
-  background: rgba(0,0,0,0.6);
+  background: rgba(0, 0, 0, 0.6);
   border-radius: 8px;
   text-shadow: 0 0 5px black;
 }
 
 /* ===== FOOTER ===== */
 footer {
-  background: rgba(0,0,0,0.85);
+  background: rgba(0, 0, 0, 0.85);
   color: gold;
   text-align: center;
   padding: 20px;
@@ -364,7 +431,7 @@ footer::before {
   left: 0;
   width: 100%;
   height: 40px;
-  background: linear-gradient(to bottom, transparent, rgba(255,215,0,0.15));
+  background: linear-gradient(to bottom, transparent, rgba(255, 215, 0, 0.15));
 }
 
 footer a {
@@ -379,8 +446,15 @@ footer a:hover {
 }
 
 @keyframes footerGlow {
-  0%, 100% { text-shadow: 0 0 5px gold, 0 0 15px gold; }
-  50% { text-shadow: 0 0 15px white, 0 0 25px gold; }
+
+  0%,
+  100% {
+    text-shadow: 0 0 5px gold, 0 0 15px gold;
+  }
+
+  50% {
+    text-shadow: 0 0 15px white, 0 0 25px gold;
+  }
 }
 
 footer {
@@ -390,36 +464,101 @@ footer {
 
 /* ===== MOBILE RESPONSIVE ===== */
 @media (max-width: 768px) {
-  .intro-title { font-size: 2rem; }
-  .crest { width: 140px; }
-  .enter-btn { font-size: 1.3rem; padding: 12px 30px; }
-  .hero-text h2 { font-size: 1.8rem; }
-  .hero-text p { font-size: 1.1rem; padding: 0 15px; }
-  .house-grid { grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 15px; }
-  .house-card { height: 220px; }
-  .quotes blockquote { font-size: 1.1rem; padding: 12px; max-width: 90%; }
-  .nav-bar { flex-direction: column; gap: 8px; }
-  .nav-bar a { font-size: 1rem; }
+  .intro-title {
+    font-size: 2rem;
+  }
+
+  .crest {
+    width: 140px;
+  }
+
+  .enter-btn {
+    font-size: 1.3rem;
+    padding: 12px 30px;
+  }
+
+  .hero-text h2 {
+    font-size: 1.8rem;
+  }
+
+  .hero-text p {
+    font-size: 1.1rem;
+    padding: 0 15px;
+  }
+
+  .house-grid {
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 15px;
+    padding: 0 20px;
+  }
+
+  .house-card {
+    height: 220px;
+  }
+
+  .quotes blockquote {
+    font-size: 1.1rem;
+    padding: 12px;
+    max-width: 90%;
+  }
+
+  .nav-bar {
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  .nav-bar a {
+    font-size: 1rem;
+  }
 }
 
 @media (max-width: 480px) {
-  .intro-title { font-size: 1.6rem; }
-  .crest { width: 120px; }
-  .enter-btn { font-size: 1rem; padding: 10px 20px; }
-  .hero-text h2 { font-size: 1.5rem; }
-  .hero-text p { font-size: 1rem; }
-  .house-card { height: 180px; }
-  .quotes blockquote { font-size: 0.95rem; padding: 8px; }
-  .nav-bar a { font-size: 0.9rem; margin: 5px 0; }
-}
+  .intro-title {
+    font-size: 1.6rem;
+  }
 
-@media (max-width: 768px) {
+  .crest {
+    width: 120px;
+  }
+
+  .enter-btn {
+    font-size: 1rem;
+    padding: 10px 20px;
+  }
+
+  .hero-text h2 {
+    font-size: 1.5rem;
+  }
+
+  .hero-text p {
+    font-size: 1rem;
+  }
+
+  .house-card {
+    height: 180px;
+  }
+
+  .house-grid {
+    padding: 0 15px;
+  }
+
+  .quotes blockquote {
+    font-size: 0.95rem;
+    padding: 8px;
+  }
+
+  .nav-bar a {
+    font-size: 0.9rem;
+    margin: 5px 0;
+  }
+
   .nav-links {
     position: absolute;
-    top: 60px; /* below navbar */
+    top: 60px;
+    /* below navbar */
     left: 0;
     right: 0;
-    background: rgba(0,0,0,0.85);
+    background: rgba(0, 0, 0, 0.85);
     flex-direction: column;
     align-items: center;
     max-height: 0;
@@ -429,8 +568,9 @@ footer {
   }
 
   /* Show links when checkbox is checked */
-  .nav-toggle:checked ~ .nav-links {
-    max-height: 500px; /* enough to show all links */
+  .nav-toggle:checked~.nav-links {
+    max-height: 500px;
+    /* enough to show all links */
   }
 
   .hamburger {
