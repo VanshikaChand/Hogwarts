@@ -299,6 +299,21 @@ body {
   box-shadow: 0 0 30px rgb(192, 12, 12);
 }
 
+.house-card.slytherin:hover {
+  transform: translateY(-10px) scale(1.05);
+  box-shadow: 0 0 30px rgb(5, 207, 46);
+}
+
+.house-card.ravenclaw:hover {
+  transform: translateY(-10px) scale(1.05);
+  box-shadow: 0 0 30px rgb(4, 97, 246);
+}
+
+.house-card.hufflepuff:hover {
+  transform: translateY(-10px) scale(1.05);
+  box-shadow: 0 0 30px rgb(231, 193, 1);
+}
+
 /* ===== QUOTES ===== */
 .quotes {
   margin: 50px auto 160px; /* extra space before footer */
