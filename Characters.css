@@ -50,14 +50,28 @@ header p {
   font-size: 1.2rem;
 }
 
-/* ===== CHARACTERS GRID ===== */
-.character-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-  gap: 30px;
-  justify-items: center;
-  padding: 0 20px 60px 20px;
+/* ===== HEROES SECTION ===== */
+.characters-section h2 {
+  text-align: center;
+  font-size: 2.5rem;
+  color: #ffd700;
+  margin-bottom: 40px;
+  text-shadow: 0 0 10px #b8860b;
 }
+
+/* Hero Rows */
+.hero-row {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 30px;
+  margin-bottom: 40px;
+}
+
+/* Row-specific spacing */
+.row1 { justify-content: center; gap: 30px; } /* 3 main heroes */
+.row2 { justify-content: center; gap: 25px; } /* 5 supporting heroes */
+.row3 { justify-content: center; gap: 40px; } /* 2 final heroes */
 
 /* ===== CHARACTER CARD ===== */
 .character-card {
@@ -104,11 +118,6 @@ header p {
   margin: 5px 0;
   font-family: 'Poppins', sans-serif;
 }
-
-/* Row-specific spacing */
-.row1 { justify-content: center; gap: 40px; }
-.row2 { justify-content: space-evenly; gap: 25px; }
-.row3 { justify-content: center; gap: 60px; }
 
 /* ===== FOOTER ===== */
 footer {
