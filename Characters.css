@@ -5,188 +5,169 @@
 }
 
 /* ===== Reset & Body ===== */
-* {
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
-}
-
 body {
     font-family: 'Cinzel Decorative', serif;
-    background: radial-gradient(circle at top, #0b0b1a, #1a0f3d);
+    background: #0a0a1e;
     color: #f0f0f0;
+    margin: 0;
+    padding: 0;
     overflow-x: hidden;
     position: relative;
 }
 
-/* ===== Magic Sparkle Background ===== */
+/* ===== Starry Moving Background ===== */
 body::before {
     content: '';
     position: fixed;
     width: 100%;
     height: 100%;
-    background: radial-gradient(circle, rgba(255,255,255,0.1) 1px, transparent 1px);
-    background-size: 40px 40px;
+    background: radial-gradient(circle at 20% 20%, rgba(255,255,255,0.08) 1px, transparent 1px),
+                radial-gradient(circle at 80% 70%, rgba(255,255,255,0.06) 1px, transparent 1px),
+                radial-gradient(circle at 50% 50%, rgba(255,255,255,0.05) 1px, transparent 1px);
+    background-size: 50px 50px, 70px 70px, 100px 100px;
     pointer-events: none;
     z-index: 0;
-    animation: moveStars 20s linear infinite;
+    animation: moveStars 25s linear infinite;
 }
 
 @keyframes moveStars {
-    0% { background-position: 0 0; }
-    100% { background-position: 200px 200px; }
+    0% { background-position: 0 0, 0 0, 0 0; }
+    100% { background-position: 200px 200px, -150px 100px, 100px -200px; }
 }
 
 /* ===== Navigation ===== */
 nav {
+    background: rgba(0, 0, 0, 0.7);
+    padding: 15px;
     display: flex;
-    justify-content: center;
-    flex-wrap: wrap;
-    padding: 15px 0;
-    background: rgba(0,0,0,0.85);
-    border-bottom: 3px solid gold;
     position: sticky;
     top: 0;
     z-index: 1000;
+    justify-content: center;
+    flex-wrap: wrap;
+    border-bottom: 2px solid gold;
 }
 
 nav a {
-    margin: 0 15px;
+    margin: 10px 15px;
     text-decoration: none;
     color: gold;
     font-weight: bold;
-    font-size: 1.2rem;
-    transition: all 0.3s ease;
+    font-size: 1.1rem;
+    transition: color 0.3s, text-shadow 0.3s;
 }
 
 nav a:hover {
     color: white;
     text-shadow: 0 0 10px gold;
-    transform: scale(1.1);
 }
 
 /* ===== Header ===== */
 header {
     text-align: center;
     padding: 60px 20px;
-    background: linear-gradient(135deg, #4b2e83, #1a1a2e);
-    border-bottom: 4px solid gold;
+    position: relative;
+    border-bottom: 4px solid #ffd700;
+    z-index: 2;
 }
 
 header h1 {
     font-family: 'harrypotter';
     font-size: 4.5rem;
     color: #ffd700;
-    text-shadow: 0 0 5px #ffd700, 0 0 20px #ffcc00;
+    text-shadow: 0 0 10px #ffd700, 0 0 25px #ffcc00, 0 0 50px #ffd700;
     animation: glow 3s ease-in-out infinite alternate;
+    display: inline-block;
+    padding: 20px 40px;
+    border-radius: 25px;
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(12px);
+    border: 2px solid rgba(255, 223, 0, 0.4);
 }
 
 header p {
     font-size: 1.3rem;
     color: #ddd;
-    margin-top: 10px;
+    margin-top: 15px;
+    text-shadow: 0 0 8px #fff;
 }
 
 /* ===== Glow Animation ===== */
 @keyframes glow {
-    0% { text-shadow: 0 0 5px #ffd700; }
-    50% { text-shadow: 0 0 25px #ffd700, 0 0 50px #ffcc00; }
-    100% { text-shadow: 0 0 5px #ffd700; }
+    0% { text-shadow: 0 0 10px #ffd700, 0 0 20px #ffcc00; }
+    50% { text-shadow: 0 0 25px #ffd700, 0 0 50px #ffcc00, 0 0 75px #ffd700; }
+    100% { text-shadow: 0 0 10px #ffd700, 0 0 20px #ffcc00; }
 }
 
 /* ===== Sections ===== */
 .characters-section {
-    margin: 50px 0;
+    margin: 70px 0;
 }
 
 .characters-section h2 {
     font-family: 'harrypotter', 'Cinzel Decorative', serif;
-    text-align: center;
-    font-size: 3.2rem;
     color: #ffd700;
-    text-shadow: 0 0 10px #ffd700, 0 0 25px #ffcc00;
-    background: rgba(0,0,0,0.3);
-    padding: 12px 25px;
-    border-radius: 20px;
+    text-shadow: 0 0 15px #ffd700, 0 0 25px #ffcc00;
+    text-align: center;
+    font-size: 3em;
     margin-bottom: 40px;
-    animation: glow 3s ease-in-out infinite alternate;
+    animation: glow 3s infinite alternate;
 }
 
 /* ===== Character Grid ===== */
 .character-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-    gap: 30px;
+    gap: 25px;
     padding: 0 30px;
     justify-items: center;
+    z-index: 1;
 }
 
 /* ===== Character Card ===== */
 .character-card {
-    position: relative;
-    background: #1a1a2e;
+    background: rgba(26, 26, 46, 0.8);
     border-radius: 25px;
     padding: 25px 15px;
     text-align: center;
-    box-shadow: 0 0 15px rgba(255,255,0,0.3);
-    transition: all 0.5s ease;
-    animation: float 5s ease-in-out infinite;
-    overflow: hidden;
-}
-
-.character-card::after {
-    content: '';
-    position: absolute;
-    width: 150%;
-    height: 150%;
-    top: -25%;
-    left: -25%;
-    background: conic-gradient(rgba(255,223,0,0.2), rgba(255,0,0,0.0), rgba(0,0,255,0.0), rgba(255,223,0,0.2));
-    animation: rotate 8s linear infinite;
-    z-index: 0;
-}
-
-@keyframes rotate {
-    0% { transform: rotate(0deg); }
-    100% { transform: rotate(360deg); }
+    transition: transform 0.5s, box-shadow 0.5s, background 0.5s;
+    position: relative;
+    backdrop-filter: blur(6px);
+    animation: float 4s ease-in-out infinite;
 }
 
 @keyframes float {
-    0%, 100% { transform: translateY(0); }
-    50% { transform: translateY(-12px); }
+    0%, 100% { transform: translateY(0px); }
+    50% { transform: translateY(-10px); }
 }
 
 .character-card:hover {
-    transform: scale(1.07) translateY(-15px);
-    box-shadow: 0 0 25px #ffd700, 0 0 40px #ffcc00;
+    transform: translateY(-15px) scale(1.05) rotate(-1deg);
+    box-shadow: 0 15px 35px rgba(255, 215, 0, 0.7), 0 0 25px rgba(255, 223, 0, 0.5);
+    background: rgba(30, 30, 60, 0.85);
 }
 
 /* ===== Character Images ===== */
 .character-card img {
-    width: 140px;
-    height: 140px;
+    width: 130px;
+    height: 130px;
     border-radius: 50%;
     object-fit: cover;
     margin-bottom: 15px;
-    border: 5px solid #ffd700;
-    transition: all 0.5s ease;
-    z-index: 1;
-    position: relative;
+    border: 4px solid #ffd700;
+    transition: transform 0.5s, box-shadow 0.5s;
 }
 
 .character-card img:hover {
-    transform: scale(1.2) rotate(8deg);
-    box-shadow: 0 0 30px #ffd700, 0 0 50px #ffcc00;
+    transform: scale(1.15) rotate(5deg);
+    box-shadow: 0 0 20px #ffd700, 0 0 40px #ffcc00;
 }
 
 /* ===== Character Names & Description ===== */
 .character-card h3 {
     color: #ffd700;
-    font-size: 1.5rem;
-    margin-bottom: 10px;
-    z-index: 1;
-    position: relative;
-    transition: all 0.3s ease;
+    font-size: 1.4em;
+    transition: color 0.3s, text-shadow 0.3s;
 }
 
 .character-card h3:hover {
@@ -196,22 +177,24 @@ header p {
 
 .character-card p {
     color: #ccc;
-    font-size: 0.95rem;
+    font-size: 0.95em;
+    margin-top: 5px;
 }
 
-/* ===== Section Themes (House Colors) ===== */
-.characters-section.gryffindor .character-card { border: 2px solid #ae0001; box-shadow: 0 0 15px #ffcc00; }
-.characters-section.slytherin .character-card { border: 2px solid #2a623d; box-shadow: 0 0 15px #00ff88; }
-.characters-section.hufflepuff .character-card { border: 2px solid #ffdb00; box-shadow: 0 0 15px #ffdb00; }
-.characters-section.ravenclaw .character-card { border: 2px solid #222f5b; box-shadow: 0 0 15px #00ccff; }
+/* ===== Section Themes (Optional color variants) ===== */
+.characters-section.hero .character-card { background: rgba(42, 26, 59, 0.85); }
+.characters-section.teachers .character-card { background: rgba(26, 42, 46, 0.85); }
+.characters-section.villains .character-card { background: rgba(58, 26, 26, 0.85); }
+.characters-section.rivals .character-card { background: rgba(42, 42, 42, 0.85); }
+.characters-section.magical-beings .character-card { background: rgba(26, 42, 58, 0.85); }
 
 /* ===== Footer ===== */
 footer {
-    background: rgba(0,0,0,0.85);
+    background: rgba(0, 0, 0, 0.75);
     color: gold;
     text-align: center;
     padding: 25px;
-    border-top: 3px solid gold;
+    border-top: 2px solid gold;
     font-size: 1rem;
     text-shadow: 0 0 5px gold;
 }
@@ -220,17 +203,17 @@ footer a {
     color: gold;
     text-decoration: none;
     margin: 0 10px;
-    transition: all 0.3s ease;
+    transition: color 0.3s, text-shadow 0.3s;
 }
 
 footer a:hover {
     color: white;
-    text-shadow: 0 0 15px gold;
+    text-shadow: 0 0 10px gold;
 }
 
 /* ===== Responsive ===== */
 @media (max-width: 1100px) {
-    .character-grid {
+    .characters-section.hero .character-grid {
         grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
     }
 }
@@ -241,7 +224,12 @@ footer a:hover {
         gap: 20px;
     }
 
-    header h1 { font-size: 3.2rem; }
-    .characters-section h2 { font-size: 2.5rem; }
-    .character-card img { width: 120px; height: 120px; }
+    .characters-section h2 {
+        font-size: 2.2em;
+    }
+
+    .character-card img {
+        width: 110px;
+        height: 110px;
+    }
 }
