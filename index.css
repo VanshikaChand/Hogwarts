@@ -58,6 +58,12 @@ body {
   100% { transform: translateX(-50%); }
 }
 
+#enterPortal:checked ~ .intro {
+  opacity: 0;
+  pointer-events: none;
+  visibility: hidden;
+}
+
 /* ===== INTRO SCREEN ===== */
 .intro {
   position: fixed;
@@ -72,10 +78,6 @@ body {
   overflow: hidden;
 }
 
-#enterPortal:checked ~ .intro {
-  opacity: 0;
-  pointer-events: none;
-}
 
 /* ===== CREST + TITLE ===== */
 .crest {
@@ -205,8 +207,18 @@ body {
 }
 
 /* ===== HOUSE SECTION ===== */
+.house-section::after {
+  content: "";
+  display: block;
+  height: 3px;
+  width: 80%;
+  margin: 80px auto 0;
+  background: linear-gradient(90deg, transparent, gold, transparent);
+  opacity: 0.6;
+}
+
 .house-section {
-  padding-bottom: 80px; /* added space before footer */
+  padding-bottom: 120px; /* added space before footer */
 }
 
 .house-section h3 {
@@ -257,9 +269,10 @@ body {
 
 /* ===== QUOTES ===== */
 .quotes {
-  margin: 50px auto 80px; /* extra space before footer */
+  margin: 50px auto 160px; /* extra space before footer */
   max-width: 900px;
   text-align: center;
+  margin-bottom: 120px;
 }
 
 .quotes h3 {
@@ -291,6 +304,7 @@ footer {
   font-size: 1rem;
   text-shadow: 0 0 5px gold;
   position: relative;
+  z-index: 5;
 }
 
 footer::before {
@@ -313,6 +327,16 @@ footer a:hover {
   color: white;
   text-shadow: 0 0 10px gold;
 }
+
+@keyframes footerGlow {
+  0%, 100% { text-shadow: 0 0 5px gold, 0 0 15px gold; }
+  50% { text-shadow: 0 0 15px white, 0 0 25px gold; }
+}
+
+footer {
+  animation: footerGlow 3s ease-in-out infinite alternate;
+}
+
 
 /* ===== MOBILE RESPONSIVE ===== */
 @media (max-width: 768px) {
