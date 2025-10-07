@@ -105,6 +105,11 @@ header p {
   font-family: 'Poppins', sans-serif;
 }
 
+/* Row-specific spacing */
+.row1 { justify-content: center; gap: 40px; }
+.row2 { justify-content: space-evenly; gap: 25px; }
+.row3 { justify-content: center; gap: 60px; }
+
 /* ===== FOOTER ===== */
 footer {
   text-align: center;
