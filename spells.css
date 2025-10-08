@@ -266,7 +266,7 @@ input, select, textarea {
   border-radius: 6px;
   border: 1px solid gold;
   background: rgba(255, 255, 255, 0.05);
-  color: white;
+  color: rgba(0, 0, 0, 0);
   font-size: 1rem;
 }
 
