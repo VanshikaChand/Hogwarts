@@ -9,7 +9,7 @@
 </head>
 <body>
 
-  <!-- Magical Atmosphere -->
+  <!-- ===== Fog Background ===== -->
   <div class="fog-layer"></div>
   <div class="fog-layer"></div>
 
@@ -17,9 +17,7 @@
   <nav class="nav-bar">
     <input type="checkbox" id="nav-toggle" class="nav-toggle">
     <label for="nav-toggle" class="hamburger">
-      <span></span>
-      <span></span>
-      <span></span>
+      <span></span><span></span><span></span>
     </label>
 
     <div class="nav-links">
@@ -37,54 +35,49 @@
   <!-- ===== HEADER ===== -->
   <header>
     <h1>Spells of the Wizarding World</h1>
-    <p>Explore ancient magic, learn incantations, and craft your own spells...</p>
+    <p>Unravel ancient incantations — or write your own ✨</p>
   </header>
 
-  <!-- ===== SPELL GRID ===== -->
+  <!-- ===== FAMOUS SPELLS ===== -->
   <section class="spells-section">
-    <h2>Popular Spells</h2>
+    <h2>Famous Spells</h2>
     <div class="spells-grid">
       <div class="spell-card">
         <h3>Expelliarmus</h3>
-        <p>Disarms an opponent’s wand or weapon.</p>
+        <p>Disarms your opponent.</p>
         <span class="incantation">"Expelliarmus!"</span>
       </div>
-
       <div class="spell-card">
         <h3>Lumos</h3>
         <p>Produces light from the wand tip.</p>
         <span class="incantation">"Lumos!"</span>
       </div>
-
       <div class="spell-card">
         <h3>Expecto Patronum</h3>
         <p>Summons a Patronus to repel Dementors.</p>
         <span class="incantation">"Expecto Patronum!"</span>
       </div>
-
       <div class="spell-card">
-        <h3>Alohomora</h3>
-        <p>Unlocks doors and objects magically.</p>
-        <span class="incantation">"Alohomora!"</span>
+        <h3>Protego</h3>
+        <p>Creates a magical shield.</p>
+        <span class="incantation">"Protego!"</span>
       </div>
     </div>
   </section>
 
-  <!-- ===== LIVING SPELLBOOK SECTION ===== -->
+  <!-- ===== SPELLBOOK SECTION ===== -->
   <section class="spellbook">
     <div class="book">
-      <!-- Left Page -->
       <div class="page left">
         <h2>Ancient Spells</h2>
         <ul>
           <li><b>Obliviate</b> – Erases memories.</li>
+          <li><b>Accio</b> – Summons objects.</li>
           <li><b>Wingardium Leviosa</b> – Makes objects levitate.</li>
-          <li><b>Protego</b> – Creates a magical shield.</li>
-          <li><b>Accio</b> – Summons objects toward you.</li>
+          <li><b>Stupefy</b> – Stuns opponents.</li>
         </ul>
       </div>
 
-      <!-- Right Page -->
       <div class="page right">
         <h2>Make Your Own Spell ✨</h2>
         <form>
@@ -96,22 +89,18 @@
             <option>Hex</option>
             <option>Enchantment</option>
           </select>
-          <textarea placeholder="Describe your spell's effect..." rows="4"></textarea>
+          <textarea placeholder="Describe your spell..." rows="4"></textarea>
           <button class="cast-btn">Cast Spell ✨</button>
         </form>
+        <div class="floating-quill">✒️</div>
       </div>
-    </div>
-
-    <!-- Hidden Spell Card (pure CSS illusion) -->
-    <div class="new-spell">
-      <h3>Your Spell Has Been Added to the Grimoire!</h3>
-      <p>✨ The ancient book recognizes your magic... ✨</p>
     </div>
   </section>
 
   <!-- ===== FOOTER ===== -->
   <footer>
-    <p>⚡ Crafted with Magic by Vanshika Chand | © 2025 Wizarding Spells</p>
+    <p>⚡ Crafted by Vanshika Chand | © 2025 Wizarding Spells</p>
   </footer>
+
 </body>
 </html>
