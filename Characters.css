@@ -15,24 +15,43 @@ body {
   position: relative;
 }
 
-/* ===== Starry Moving Background ===== */
+/* ===== Ambient Background ===== */
 body::before {
   content: '';
   position: fixed;
   width: 100%;
   height: 100%;
-  background: radial-gradient(circle at 20% 20%, rgba(255,255,255,0.08) 1px, transparent 1px),
-              radial-gradient(circle at 80% 70%, rgba(255,255,255,0.06) 1px, transparent 1px),
-              radial-gradient(circle at 50% 50%, rgba(255,255,255,0.05) 1px, transparent 1px);
-  background-size: 50px 50px, 70px 70px, 100px 100px;
-  pointer-events: none;
+  background:
+    radial-gradient(circle at 20% 20%, rgba(255,255,255,0.06) 1px, transparent 1px),
+    radial-gradient(circle at 80% 70%, rgba(255,255,255,0.05) 1px, transparent 1px);
+  background-size: 60px 60px, 90px 90px;
   z-index: 0;
-  animation: moveStars 25s linear infinite;
+  animation: stars 40s linear infinite;
 }
 
-@keyframes moveStars {
-  0% { background-position: 0 0, 0 0, 0 0; }
-  100% { background-position: 200px 200px, -150px 100px, 100px -200px; }
+@keyframes stars {
+  from { background-position: 0 0, 0 0; }
+  to { background-position: 200px -200px, -100px 100px; }
+}
+
+/* ===== Smoke Layer ===== */
+body::after {
+  content: '';
+  position: fixed;
+  top: -50px;
+  left: -50px;
+  width: 120%;
+  height: 120%;
+  background: radial-gradient(circle, rgba(255,255,255,0.08), transparent 70%);
+  opacity: 0.25;
+  filter: blur(40px);
+  animation: smoke 25s ease-in-out infinite;
+  z-index: 0;
+}
+
+@keyframes smoke {
+  0%, 100% { transform: translateY(0) scale(1); opacity: 0.25; }
+  50% { transform: translateY(-50px) scale(1.05); opacity: 0.3; }
 }
 
 /* ===== Navigation ===== */
@@ -42,7 +61,7 @@ nav {
   display: flex;
   position: sticky;
   top: 0;
-  z-index: 1000;
+  z-index: 10;
   justify-content: center;
   flex-wrap: wrap;
   border-bottom: 2px solid gold;
@@ -77,12 +96,6 @@ header h1 {
   color: #ffd700;
   text-shadow: 0 0 10px #ffd700, 0 0 25px #ffcc00, 0 0 50px #ffd700;
   animation: glow 3s ease-in-out infinite alternate;
-  display: inline-block;
-  padding: 20px 40px;
-  border-radius: 25px;
-  background: rgba(255, 255, 255, 0.05);
-  backdrop-filter: blur(12px);
-  border: 2px solid rgba(255, 223, 0, 0.4);
 }
 
 header p {
@@ -102,6 +115,8 @@ header p {
 /* ===== Sections ===== */
 .characters-section {
   margin: 70px 0;
+  position: relative;
+  z-index: 2;
 }
 
 .characters-section h2 {
@@ -125,13 +140,25 @@ header p {
   border-radius: 2px;
 }
 
-/* ===== Character Grid (Custom Layouts) ===== */
+/* ===== Family Subheadings ===== */
+.characters-section h3 {
+  text-align: center;
+  color: #f8f8ff;
+  font-size: 1.4rem;
+  margin: 40px 0 20px;
+  letter-spacing: 1px;
+  text-shadow: 0 0 6px rgba(255,255,255,0.7), 0 0 20px rgba(200,200,210,0.3);
+}
+
+/* ===== Character Grid ===== */
 .character-grid {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
   gap: 40px;
   padding: 0 40px;
+  position: relative;
+  z-index: 5;
 }
 
 /* ===== Character Card ===== */
@@ -153,50 +180,9 @@ header p {
   50% { transform: translateY(-10px); }
 }
 
-/* ===== Custom Layouts per Section ===== */
-
-/* Heroes: 3-5-2 layout */
-.hero .character-card:nth-child(1),
-.hero .character-card:nth-child(2),
-.hero .character-card:nth-child(3) {
-  flex: 1 1 30%;
-}
-
-.hero .character-card:nth-child(4),
-.hero .character-card:nth-child(5),
-.hero .character-card:nth-child(6),
-.hero .character-card:nth-child(7),
-.hero .character-card:nth-child(8) {
-  flex: 1 1 18%;
-}
-
-.hero .character-card:nth-child(9),
-.hero .character-card:nth-child(10) {
-  flex: 1 1 40%;
-}
-
-/* Teachers: 5-4 layout */
-.teachers .character-card:nth-child(-n+5) {
-  flex: 1 1 18%;
-}
-
-.teachers .character-card:nth-child(n+6) {
-  flex: 1 1 22%;
-}
-
-/* Magical Beings: 4-3 layout */
-.magical-beings .character-card:nth-child(-n+4) {
-  flex: 1 1 22%;
-}
-
-.magical-beings .character-card:nth-child(n+5) {
-  flex: 1 1 25%;
-}
-
-/* ===== Card Hover Effects ===== */
 .character-card:hover {
-  transform: translateY(-15px) scale(1.05) rotate(-1deg);
-  box-shadow: 0 15px 35px rgba(255, 215, 0, 0.7), 0 0 25px rgba(255, 223, 0, 0.5);
+  transform: translateY(-15px) scale(1.05);
+  box-shadow: 0 15px 35px rgba(255, 215, 0, 0.6), 0 0 25px rgba(255, 223, 0, 0.4);
   background: rgba(30, 30, 60, 0.85);
 }
 
@@ -216,7 +202,7 @@ header p {
   box-shadow: 0 0 20px #ffd700, 0 0 40px #ffcc00;
 }
 
-/* ===== Character Names & Description ===== */
+/* ===== Character Names ===== */
 .character-card h3 {
   color: #ffd700;
   font-size: 1.4em;
@@ -240,6 +226,42 @@ header p {
 .characters-section.villains .character-card { background: rgba(58, 26, 26, 0.85); }
 .characters-section.rivals .character-card { background: rgba(42, 42, 42, 0.85); }
 .characters-section.magical-beings .character-card { background: rgba(26, 42, 58, 0.85); }
+
+/* ===== Custom Layouts per Section ===== */
+.hero .character-card:nth-child(1),
+.hero .character-card:nth-child(2),
+.hero .character-card:nth-child(3) {
+  flex: 1 1 30%;
+}
+
+.hero .character-card:nth-child(4),
+.hero .character-card:nth-child(5),
+.hero .character-card:nth-child(6),
+.hero .character-card:nth-child(7),
+.hero .character-card:nth-child(8) {
+  flex: 1 1 18%;
+}
+
+.hero .character-card:nth-child(9),
+.hero .character-card:nth-child(10) {
+  flex: 1 1 40%;
+}
+
+.teachers .character-card:nth-child(-n+5) {
+  flex: 1 1 18%;
+}
+
+.teachers .character-card:nth-child(n+6) {
+  flex: 1 1 22%;
+}
+
+.magical-beings .character-card:nth-child(-n+4) {
+  flex: 1 1 22%;
+}
+
+.magical-beings .character-card:nth-child(n+5) {
+  flex: 1 1 25%;
+}
 
 /* ===== Footer ===== */
 footer {
@@ -265,14 +287,12 @@ footer a:hover {
 }
 
 /* ===== Responsive ===== */
-@media (max-width: 1100px) {
+@media (max-width: 900px) {
   .character-grid {
     flex-direction: column;
     align-items: center;
   }
-}
 
-@media (max-width: 900px) {
   .character-card {
     max-width: 80%;
   }
