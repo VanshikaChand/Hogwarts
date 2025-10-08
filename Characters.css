@@ -15,14 +15,14 @@ body {
     position: relative;
 }
 
-/* ===== Starry Ambient Layer ===== */
+/* ===== Starry Sky Background ===== */
 body::before {
     content: '';
     position: fixed;
     width: 100%;
     height: 100%;
     background:
-        radial-gradient(circle at 20% 20%, rgba(255, 255, 255, 0.06) 1px, transparent 1px),
+        radial-gradient(circle at 20% 20%, rgba(255, 255, 255, 0.05) 1px, transparent 1px),
         radial-gradient(circle at 80% 70%, rgba(255, 255, 255, 0.05) 1px, transparent 1px);
     background-size: 60px 60px, 90px 90px;
     z-index: 0;
@@ -39,19 +39,23 @@ body::before {
     }
 }
 
-/* ===== Silver-Blue Horizontal Fog ===== */
-body::after {
-    content: "";
+/* ===== Silver-Blue Fog (Visible on Dark Background) ===== */
+.fog-layer {
     position: fixed;
     top: 0;
     left: 0;
     width: 200%;
     height: 100%;
-    background: radial-gradient(circle, rgba(170, 200, 255, 0.08) 0%, transparent 70%);
-    opacity: 0.25;
-    filter: blur(70px);
-    z-index: 0;
+    background: radial-gradient(circle, rgba(160, 190, 255, 0.1) 0%, transparent 70%);
+    opacity: 0.3;
+    filter: blur(80px);
     animation: fogDrift 70s linear infinite;
+    z-index: 0;
+}
+
+.fog-layer:nth-child(2) {
+    animation-delay: -35s;
+    opacity: 0.2;
 }
 
 @keyframes fogDrift {
@@ -65,6 +69,64 @@ body::after {
 
     100% {
         transform: translateX(0);
+    }
+}
+
+/* ===== Faint Dementor-like Shadows ===== */
+.dementor {
+    position: fixed;
+    width: 280px;
+    height: 480px;
+    background: radial-gradient(circle at 40% 40%, rgba(0, 0, 0, 0.55) 0%, rgba(10, 10, 20, 0) 70%);
+    filter: blur(30px);
+    opacity: 0.4;
+    mix-blend-mode: normal;
+    animation: floatDementor 55s ease-in-out infinite;
+    z-index: 0;
+}
+
+.dementor:nth-child(1) {
+    left: 10%;
+    top: 20%;
+    animation-delay: 0s;
+}
+
+.dementor:nth-child(2) {
+    left: 70%;
+    top: 50%;
+    animation-delay: 18s;
+}
+
+.dementor:nth-child(3) {
+    left: 45%;
+    top: 10%;
+    animation-delay: 25s;
+}
+
+@keyframes floatDementor {
+    0% {
+        transform: translateY(0) translateX(0) scale(1);
+        opacity: 0.35;
+    }
+
+    25% {
+        transform: translateY(-60px) translateX(50px) scale(1.05);
+        opacity: 0.45;
+    }
+
+    50% {
+        transform: translateY(40px) translateX(-30px) scale(0.95);
+        opacity: 0.4;
+    }
+
+    75% {
+        transform: translateY(-40px) translateX(25px) scale(1);
+        opacity: 0.38;
+    }
+
+    100% {
+        transform: translateY(0) translateX(0) scale(1);
+        opacity: 0.35;
     }
 }
 
@@ -120,78 +182,53 @@ body::after {
     }
 }
 
-/* ===== Faint Dementor-like Shadows ===== */
-.dementor {
-    position: fixed;
-    width: 240px;
-    height: 440px;
-    background: radial-gradient(circle at 30% 40%, rgba(40, 40, 60, 0.7) 0%, rgba(10, 10, 15, 0) 75%);
-    filter: blur(35px);
-    opacity: 0.3;
-    mix-blend-mode: screen;
-    animation: floatDementor 50s ease-in-out infinite;
-    z-index: 0;
-}
-
-.dementor:nth-child(1) {
-    left: 8%;
-    top: 25%;
-    animation-delay: 0s;
-}
-
-.dementor:nth-child(2) {
-    left: 68%;
-    top: 45%;
-    animation-delay: 18s;
-}
-
-.dementor:nth-child(3) {
-    left: 40%;
-    top: 15%;
-    animation-delay: 28s;
-}
-
-@keyframes floatDementor {
-    0% {
-        transform: translateY(0) translateX(0) scale(1);
-        opacity: 0.25;
-    }
-
-    25% {
-        transform: translateY(-50px) translateX(40px) scale(1.05);
-        opacity: 0.35;
-    }
-
-    50% {
-        transform: translateY(30px) translateX(-30px) scale(0.95);
-        opacity: 0.3;
-    }
-
-    75% {
-        transform: translateY(-40px) translateX(20px) scale(1);
-        opacity: 0.28;
-    }
-
-    100% {
-        transform: translateY(0) translateX(0) scale(1);
-        opacity: 0.25;
-    }
-}
-
-/* ===== Navigation ===== */
+/* ===== Responsive Hamburger Menu ===== */
 nav {
-    background: rgba(0, 0, 0, 0.7);
-    padding: 15px;
     display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: nowrap;
+    background: rgba(0, 0, 0, 0.7);
+    padding: 15px 25px;
+    border-bottom: 2px solid gold;
     position: sticky;
     top: 0;
     z-index: 10;
-    justify-content: center;
-    flex-wrap: wrap;
-    border-bottom: 2px solid gold;
 }
 
-nav a {
+nav .logo {
+    color: gold;
+    font-size: 1.3rem;
+    font-weight: bold;
+    letter-spacing: 1px;
+    text-shadow: 0 0 10px gold;
+}
+
+.hamburger {
+    display: none;
+    font-size: 2rem;
+    color: gold;
+    cursor: pointer;
+    user-select: none;
+    transition: color 0.3s;
+}
+
+.hamburger:hover {
+    color: white;
+}
+
+#menu-toggle {
+    display: none;
+}
+
+.nav-links {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+}
+
+.nav-links a {
     margin: 10px 15px;
     text-decoration: none;
     color: gold;
@@ -200,10 +237,49 @@ nav a {
     transition: color 0.3s, text-shadow 0.3s;
 }
 
-nav a:hover {
+.nav-links a:hover {
     color: white;
     text-shadow: 0 0 10px gold;
 }
+
+/* ===== Mobile Menu ===== */
+@media (max-width: 850px) {
+    .hamburger {
+        display: block;
+    }
+
+    .nav-links {
+        display: none;
+        flex-direction: column;
+        width: 100%;
+        background: rgba(10, 10, 20, 0.95);
+        border-top: 2px solid gold;
+        box-shadow: 0 10px 25px rgba(255, 215, 0, 0.2);
+        animation: slideDown 0.5s ease;
+    }
+
+    #menu-toggle:checked+.hamburger+.nav-links {
+        display: flex;
+    }
+
+    .nav-links a {
+        padding: 15px;
+        font-size: 1.2rem;
+    }
+
+    @keyframes slideDown {
+        0% {
+            opacity: 0;
+            transform: translateY(-10px);
+        }
+
+        100% {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+}
+
 
 /* ===== Header ===== */
 header {

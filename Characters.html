@@ -15,6 +15,10 @@
 
 <body>
 
+    <!-- Fog Layers -->
+    <div class="fog-layer"></div>
+    <div class="fog-layer"></div>
+
     <!-- Background Fog + Faint Dementors -->
     <div class="dementor"></div>
     <div class="dementor"></div>
@@ -31,15 +35,25 @@
 
     <!-- ===== Navigation ===== -->
     <nav>
-        <a href="index.html">Home</a>
-        <a href="characters.html">Characters</a>
-        <a href="spells.html">Spells</a>
-        <a href="houses.html">Houses</a>
-        <a href="movies.html">Movies</a>
-        <a href="store.html">Store</a>
-        <a href="aboutme.html">About Me</a>
-        <a href="contactus.html">Contact Us</a>
+        <div class="logo">⚡ Wizarding World</div>
+
+        <!-- Hidden Checkbox -->
+        <input type="checkbox" id="menu-toggle">
+        <label for="menu-toggle" class="hamburger">&#9776;</label>
+
+        <!-- Navigation Links -->
+        <div class="nav-links">
+            <a href="index.html">Home</a>
+            <a href="characters.html">Characters</a>
+            <a href="spells.html">Spells</a>
+            <a href="houses.html">Houses</a>
+            <a href="movies.html">Movies</a>
+            <a href="store.html">Store</a>
+            <a href="aboutme.html">About Me</a>
+            <a href="contactus.html">Contact Us</a>
+        </div>
     </nav>
+
 
     <!-- ===== Header ===== -->
     <header>
