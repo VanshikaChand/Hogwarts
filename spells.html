@@ -1,35 +1,25 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Harry Potter Spells</title>
-
-  <!-- Google Fonts -->
+  <title>Wizarding Spells</title>
   <link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@700&display=swap" rel="stylesheet">
-
-  <!-- CSS -->
   <link rel="stylesheet" href="spells.css">
 </head>
-
 <body>
-  <!-- Background Magic Effects -->
-  <div class="fog-layer"></div>
-  <div class="fog-layer"></div>
-  <div class="spark-container"></div>
 
-  <!-- Floating Candles -->
-  <div class="candle" style="left:15%;animation-delay:0s;"></div>
-  <div class="candle" style="left:40%;animation-delay:2s;"></div>
-  <div class="candle" style="left:65%;animation-delay:4s;"></div>
-  <div class="candle" style="left:85%;animation-delay:1s;"></div>
+  <!-- Magical Atmosphere -->
+  <div class="fog-layer"></div>
+  <div class="fog-layer"></div>
 
   <!-- ===== NAVBAR ===== -->
   <nav class="nav-bar">
     <input type="checkbox" id="nav-toggle" class="nav-toggle">
     <label for="nav-toggle" class="hamburger">
-      <span></span><span></span><span></span>
+      <span></span>
+      <span></span>
+      <span></span>
     </label>
 
     <div class="nav-links">
@@ -46,84 +36,82 @@
 
   <!-- ===== HEADER ===== -->
   <header>
-    <h1>Spells & Charms</h1>
-    <p>Discover the most iconic spells from the wizarding world — where words have power!</p>
+    <h1>Spells of the Wizarding World</h1>
+    <p>Explore ancient magic, learn incantations, and craft your own spells...</p>
   </header>
 
-  <!-- ===== SPELLS GRID ===== -->
+  <!-- ===== SPELL GRID ===== -->
   <section class="spells-section">
-    <div class="spell-card">
-      <h2>Expelliarmus</h2>
-      <p><strong>Type:</strong> Disarming Charm</p>
-      <p><em>“Expelliarmus!”</em></p>
-      <p>Disarms an opponent by forcing whatever they are holding to fly out of their hand.</p>
+    <h2>Popular Spells</h2>
+    <div class="spells-grid">
+      <div class="spell-card">
+        <h3>Expelliarmus</h3>
+        <p>Disarms an opponent’s wand or weapon.</p>
+        <span class="incantation">"Expelliarmus!"</span>
+      </div>
+
+      <div class="spell-card">
+        <h3>Lumos</h3>
+        <p>Produces light from the wand tip.</p>
+        <span class="incantation">"Lumos!"</span>
+      </div>
+
+      <div class="spell-card">
+        <h3>Expecto Patronum</h3>
+        <p>Summons a Patronus to repel Dementors.</p>
+        <span class="incantation">"Expecto Patronum!"</span>
+      </div>
+
+      <div class="spell-card">
+        <h3>Alohomora</h3>
+        <p>Unlocks doors and objects magically.</p>
+        <span class="incantation">"Alohomora!"</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== LIVING SPELLBOOK SECTION ===== -->
+  <section class="spellbook">
+    <div class="book">
+      <!-- Left Page -->
+      <div class="page left">
+        <h2>Ancient Spells</h2>
+        <ul>
+          <li><b>Obliviate</b> – Erases memories.</li>
+          <li><b>Wingardium Leviosa</b> – Makes objects levitate.</li>
+          <li><b>Protego</b> – Creates a magical shield.</li>
+          <li><b>Accio</b> – Summons objects toward you.</li>
+        </ul>
+      </div>
+
+      <!-- Right Page -->
+      <div class="page right">
+        <h2>Make Your Own Spell ✨</h2>
+        <form>
+          <input type="text" placeholder="Spell Name ✍️" required>
+          <input type="text" placeholder="Incantation 🪶" required>
+          <select>
+            <option>Charm</option>
+            <option>Curse</option>
+            <option>Hex</option>
+            <option>Enchantment</option>
+          </select>
+          <textarea placeholder="Describe your spell's effect..." rows="4"></textarea>
+          <button class="cast-btn">Cast Spell ✨</button>
+        </form>
+      </div>
     </div>
 
-    <div class="spell-card">
-      <h2>Lumos</h2>
-      <p><strong>Type:</strong> Light Charm</p>
-      <p><em>“Lumos!”</em></p>
-      <p>Causes the tip of the caster’s wand to emit light, illuminating dark places.</p>
-    </div>
-
-    <div class="spell-card">
-      <h2>Nox</h2>
-      <p><strong>Type:</strong> Counter-Charm</p>
-      <p><em>“Nox!”</em></p>
-      <p>Extinguishes the light from a wand previously lit by the Lumos spell.</p>
-    </div>
-
-    <div class="spell-card">
-      <h2>Expecto Patronum</h2>
-      <p><strong>Type:</strong> Defensive Charm</p>
-      <p><em>“Expecto Patronum!”</em></p>
-      <p>Conjures a Patronus — a protective spirit that repels Dementors and Lethifolds.</p>
-    </div>
-
-    <div class="spell-card">
-      <h2>Wingardium Leviosa</h2>
-      <p><strong>Type:</strong> Levitation Charm</p>
-      <p><em>“Wingardium Leviosa!”</em></p>
-      <p>Makes objects levitate and fly at the caster’s command.</p>
-    </div>
-
-    <div class="spell-card">
-      <h2>Protego</h2>
-      <p><strong>Type:</strong> Shield Charm</p>
-      <p><em>“Protego!”</em></p>
-      <p>Creates an invisible magical barrier that reflects spells and physical entities.</p>
-    </div>
-
-    <div class="spell-card">
-      <h2>Accio</h2>
-      <p><strong>Type:</strong> Summoning Charm</p>
-      <p><em>“Accio [object name]!”</em></p>
-      <p>Summons an object towards the caster, no matter the distance.</p>
-    </div>
-
-    <div class="spell-card">
-      <h2>Obliviate</h2>
-      <p><strong>Type:</strong> Memory Charm</p>
-      <p><em>“Obliviate!”</em></p>
-      <p>Erases specific memories from an individual's mind.</p>
-    </div>
-
-    <div class="spell-card">
-      <h2>Alohomora</h2>
-      <p><strong>Type:</strong> Unlocking Charm</p>
-      <p><em>“Alohomora!”</em></p>
-      <p>Unlocks doors, windows, and other locked objects magically.</p>
+    <!-- Hidden Spell Card (pure CSS illusion) -->
+    <div class="new-spell">
+      <h3>Your Spell Has Been Added to the Grimoire!</h3>
+      <p>✨ The ancient book recognizes your magic... ✨</p>
     </div>
   </section>
 
   <!-- ===== FOOTER ===== -->
   <footer>
-    <p>✨ Crafted with magic by Vanshika Chand | © 2025 Wizarding World</p>
-    <a href="aboutme.html">About Me</a> |
-    <a href="contactus.html">Contact</a> |
-    <a href="https://www.linkedin.com/in/vanshika-chand-b1a316324/">Socials</a>
+    <p>⚡ Crafted with Magic by Vanshika Chand | © 2025 Wizarding Spells</p>
   </footer>
-
 </body>
-
 </html>
