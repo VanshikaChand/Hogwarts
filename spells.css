@@ -1,298 +1,274 @@
-/* ===== Custom Font ===== */
+/* ===== FONT ===== */
 @font-face {
   font-family: 'harrypotter';
   src: url(media/HarryPotter-ov4z.ttf);
 }
 
-/* ===== Reset & Body ===== */
+/* ===== BODY ===== */
 body {
-  font-family: 'Cinzel Decorative', serif;
-  background: #0f0f1a;
-  color: #f0f0f0;
   margin: 0;
   padding: 0;
+  font-family: 'Cinzel Decorative', serif;
+  color: #fff;
+  background: radial-gradient(circle at top, #0a0a12 10%, #0f0f1a 90%);
   overflow-x: hidden;
 }
 
-/* ===== Magic Starry Background ===== */
+/* ===== STAR BACKGROUND ===== */
 body::before {
   content: "";
   position: fixed;
   width: 200%;
   height: 200%;
+  background: radial-gradient(circle, rgba(255,255,255,0.08) 1px, transparent 1px);
+  background-size: 60px 60px;
   top: -50%;
   left: -50%;
-  background: url('https://i.ibb.co/Wxx1ZrF/stars.png') repeat;
-  animation: moveStars 120s linear infinite;
-  z-index: -2;
-  opacity: 0.2;
+  z-index: -1;
+  animation: stars 60s linear infinite;
 }
 
-@keyframes moveStars {
-  from { transform: translate(0, 0); }
-  to { transform: translate(50px, 50px); }
+@keyframes stars {
+  from { transform: translate(0,0); }
+  to { transform: translate(60px,60px); }
 }
 
-/* ===== Header ===== */
+/* ===== HEADER ===== */
 header {
   text-align: center;
-  padding: 60px 20px;
-  background: linear-gradient(to right, #4b2e83, #1a1a2e);
-  border-bottom: 3px solid #ffd700;
-  font-family: 'harrypotter';
-  position: relative;
+  padding: 70px 20px 50px;
+  background: linear-gradient(180deg, rgba(20, 10, 40, 0.95), rgba(10, 10, 20, 0.7));
+  border-bottom: 2px solid rgba(255, 215, 0, 0.3);
 }
 
 header h1 {
-  font-size: 4em;
-  color: #ffd700;
-  text-shadow: 0 0 5px #ffd700, 0 0 10px #ffcc00;
-  animation: glow 3s infinite alternate;
+  font-family: 'harrypotter';
+  font-size: 4rem;
+  color: #fdd835;
+  text-shadow: 0 0 20px #fdd835, 0 0 40px #b8860b;
 }
 
 header p {
-  font-size: 1.2em;
   color: #ddd;
-  margin-top: 10px;
+  font-size: 1.2rem;
 }
 
-/* ===== Navigation Bar ===== */
+/* ===== NAVBAR ===== */
 nav {
-  background: rgba(0, 0, 0, 0.85);
-  border-bottom: 2px solid gold;
+  background: rgba(0, 0, 0, 0.8);
   position: sticky;
   top: 0;
   z-index: 1000;
+  border-bottom: 2px solid rgba(255, 215, 0, 0.2);
+  padding: 10px 0;
 }
 
+/* ===== NAV CONTAINER ===== */
 .nav-container {
-  position: relative;
   display: flex;
   justify-content: center;
   align-items: center;
-  padding: 15px;
+  position: relative;
 }
 
-/* Menu links */
+/* ===== MENU LINKS ===== */
 .menu {
   display: flex;
-  justify-content: center;
-  align-items: center;
+  gap: 25px;
   flex-wrap: wrap;
   transition: all 0.3s ease;
 }
 
 .menu a {
-  margin: 10px 15px;
   text-decoration: none;
   color: gold;
   font-weight: bold;
-  font-size: 1.1rem;
-  transition: color 0.3s, text-shadow 0.3s;
+  transition: 0.3s;
 }
 
 .menu a:hover {
-  color: white;
+  color: #fff;
   text-shadow: 0 0 10px gold;
 }
 
-/* ===== Hamburger Menu (Pure CSS) ===== */
-.menu-icon {
-  display: none;
-  font-size: 2rem;
-  color: gold;
-  cursor: pointer;
-  padding: 10px;
-  transition: transform 0.3s ease, text-shadow 0.3s;
-}
-
-.menu-icon:hover {
-  transform: scale(1.1);
-  text-shadow: 0 0 10px gold;
-}
-
+/* ===== HAMBURGER ===== */
 #menu-toggle {
   display: none;
 }
 
+.menu-icon {
+  display: none;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 26px;
+  height: 18px;
+  cursor: pointer;
+  position: absolute;
+  right: 20px;
+  top: 12px;
+}
+
+.menu-icon span {
+  height: 3px;
+  width: 100%;
+  background: gold;
+  border-radius: 3px;
+  transition: 0.4s;
+}
+
+/* Animation for hamburger → X */
+#menu-toggle:checked + .menu-icon span:nth-child(1) {
+  transform: rotate(45deg) translateY(8px);
+}
+#menu-toggle:checked + .menu-icon span:nth-child(2) {
+  opacity: 0;
+}
+#menu-toggle:checked + .menu-icon span:nth-child(3) {
+  transform: rotate(-45deg) translateY(-8px);
+}
+
+/* Show dropdown on mobile */
 @media (max-width: 850px) {
   .menu {
     display: none;
     flex-direction: column;
     background: rgba(0, 0, 0, 0.95);
     position: absolute;
-    top: 60px;
+    top: 50px;
     left: 0;
     width: 100%;
     text-align: center;
     border-top: 2px solid gold;
-    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.6);
-    animation: fadeOut 0.3s ease forwards;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.7);
+    animation: fadeIn 0.4s ease-in-out;
   }
 
   #menu-toggle:checked ~ .menu {
     display: flex;
-    animation: fadeIn 0.5s ease forwards;
-  }
-
-  @keyframes fadeIn {
-    from { opacity: 0; transform: translateY(-15px); }
-    to { opacity: 1; transform: translateY(0); }
   }
 
   .menu-icon {
-    display: block;
-    position: absolute;
-    right: 20px;
-    top: 10px;
+    display: flex;
+  }
+
+  @keyframes fadeIn {
+    from { opacity: 0; transform: translateY(-10px); }
+    to { opacity: 1; transform: translateY(0); }
   }
 }
 
-/* ===== Section Titles ===== */
+/* ===== SECTION TITLES ===== */
 .spells-section h2 {
-  font-family: 'harrypotter', 'Cinzel Decorative', serif;
-  color: #ffd700;
-  text-shadow: 0 0 10px #ffd700, 0 0 20px #ffcc00;
-  border-bottom: 2px solid #ffd700;
-  padding: 15px 20px;
-  margin: 40px auto 30px auto;
+  font-family: 'harrypotter', serif;
   text-align: center;
-  width: fit-content;
-  font-size: 2.5em;
-  border-radius: 10px;
-  background: rgba(0, 0, 0, 0.3);
-  animation: glow 2s infinite alternate;
+  font-size: 2.8rem;
+  color: #ffd700;
+  margin-top: 60px;
+  text-shadow: 0 0 20px #ffd700, 0 0 40px #b8860b;
+  position: relative;
+}
+.spells-section h2::after {
+  content: "✨";
+  position: absolute;
+  right: 48%;
+  animation: sparkle 1.5s infinite alternate;
+}
+@keyframes sparkle {
+  from { opacity: 0.4; transform: scale(0.9); }
+  to { opacity: 1; transform: scale(1.1); }
 }
 
-/* ===== Spell Grid ===== */
+/* ===== SPELL GRID ===== */
 .spell-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-  gap: 25px;
-  padding: 0 20px 40px;
+  gap: 30px;
+  padding: 30px 40px 80px;
+  justify-items: center;
 }
 
-/* ===== Spell Card Flip ===== */
+/* ===== SPELL CARD ===== */
 .spell-card {
-  perspective: 1000px;
-}
-
-.spell-card-inner {
-  position: relative;
-  width: 100%;
-  min-height: 180px;
-  transition: transform 0.8s;
-  transform-style: preserve-3d;
-  cursor: pointer;
-}
-
-.spell-card:hover .spell-card-inner {
-  transform: rotateY(180deg);
-}
-
-.spell-card-front,
-.spell-card-back {
-  position: absolute;
-  width: 100%;
-  height: 100%;
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 215, 0, 0.4);
   border-radius: 15px;
-  backface-visibility: hidden;
   padding: 20px;
   text-align: center;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
+  width: 230px;
+  transition: all 0.4s ease;
+  box-shadow: 0 0 15px rgba(255, 215, 0, 0.1);
+  position: relative;
+  overflow: hidden;
 }
 
-.spell-card-front {
-  background: rgba(26, 26, 46, 0.9);
-  border: 2px solid gold;
-  transition: box-shadow 0.3s;
+.spell-card::before {
+  content: "";
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(circle, rgba(255,215,0,0.2) 0%, transparent 70%);
+  opacity: 0;
+  transition: opacity 0.5s;
 }
 
-.spell-card-front:hover {
-  box-shadow: 0 8px 25px rgba(255, 215, 0, 0.6), 0 0 20px rgba(255, 255, 200, 0.5);
+.spell-card:hover::before {
+  opacity: 1;
 }
 
-.spell-card-front h3 {
-  font-size: 1.4em;
+.spell-card:hover {
+  transform: translateY(-10px) scale(1.05);
+  box-shadow: 0 0 25px rgba(255, 215, 0, 0.4);
+}
+
+.spell-card h3 {
   color: #ffd700;
+  font-size: 1.4rem;
   margin-bottom: 8px;
-  animation: glow 2s infinite alternate;
+  text-shadow: 0 0 10px #b8860b;
 }
 
-.spell-card-front em {
-  color: #aaa;
-  font-size: 0.95em;
+.spell-card em {
+  color: #ccc;
+  font-size: 0.9rem;
+  display: block;
+  margin-bottom: 10px;
 }
 
-.spell-card-back {
-  background: #111;
-  border: 2px dashed #ffd700;
-  color: #ffd700;
-  transform: rotateY(180deg);
-  font-size: 0.9em;
+.spell-card p {
+  font-size: 0.9rem;
+  color: #ddd;
 }
 
-/* ===== Footer ===== */
+/* ===== FOOTER ===== */
 footer {
-  background: rgba(0, 0, 0, 0.85);
-  color: gold;
   text-align: center;
-  padding: 25px;
-  border-top: 2px solid gold;
+  padding: 40px;
+  background: linear-gradient(180deg, #0f0f1a, #0a0a12);
+  color: #bbb;
+  border-top: 2px solid rgba(255, 215, 0, 0.2);
   font-size: 1rem;
-  text-shadow: 0 0 5px gold;
 }
 
 footer a {
-  color: gold;
+  color: #ffd700;
   text-decoration: none;
-  margin: 0 10px;
-  transition: color 0.3s, text-shadow 0.3s;
 }
 
 footer a:hover {
-  color: white;
-  text-shadow: 0 0 10px gold;
+  text-shadow: 0 0 10px #ffd700;
 }
 
-/* ===== Glow Animation ===== */
-@keyframes glow {
-  0% { text-shadow: 0 0 5px #ffd700; }
-  50% { text-shadow: 0 0 15px #ffcc00; }
-  100% { text-shadow: 0 0 5px #ffd700; }
-}
-
-/* ===== Responsive ===== */
+/* ===== RESPONSIVE ===== */
 @media (max-width: 768px) {
   header h1 {
-    font-size: 2.5em;
+    font-size: 3rem;
   }
-
   .spells-section h2 {
-    font-size: 2em;
+    font-size: 2.2rem;
   }
-
-  .spell-card-front h3 {
-    font-size: 1.2em;
-  }
-
-  .spell-card-back {
-    font-size: 0.85em;
-  }
-}
-
-@media (max-width: 480px) {
-  header {
-    padding: 40px 10px;
-  }
-
-  .spells-section h2 {
-    font-size: 1.6em;
-  }
-
-  .spell-grid {
-    grid-template-columns: 1fr;
+  .spell-card {
+    width: 90%;
   }
 }
