@@ -135,7 +135,7 @@ body::before {
 
 .nav-links a:hover,
 .nav-links a.active {
-  color: white;
+  color: gold;
   text-shadow: 0 0 15px gold;
 }
 
