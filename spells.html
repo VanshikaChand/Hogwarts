@@ -5,173 +5,125 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Harry Potter Spells</title>
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@700&display=swap" rel="stylesheet">
+
+  <!-- CSS -->
   <link rel="stylesheet" href="spells.css">
 </head>
 
 <body>
+  <!-- Background Magic Effects -->
+  <div class="fog-layer"></div>
+  <div class="fog-layer"></div>
+  <div class="spark-container"></div>
 
-  <!-- ===== Header ===== -->
-  <header>
-    <h1>Spells of the Wizarding World</h1>
-    <p>Master the incantations that shaped the magical universe</p>
-  </header>
+  <!-- Floating Candles -->
+  <div class="candle" style="left:15%;animation-delay:0s;"></div>
+  <div class="candle" style="left:40%;animation-delay:2s;"></div>
+  <div class="candle" style="left:65%;animation-delay:4s;"></div>
+  <div class="candle" style="left:85%;animation-delay:1s;"></div>
 
-  <!-- ===== Navigation ===== -->
-  <nav>
-    <div class="nav-container">
-      <input type="checkbox" id="menu-toggle">
-      <label for="menu-toggle" class="menu-icon">&#9776;</label>
+  <!-- ===== NAVBAR ===== -->
+  <nav class="nav-bar">
+    <input type="checkbox" id="nav-toggle" class="nav-toggle">
+    <label for="nav-toggle" class="hamburger">
+      <span></span><span></span><span></span>
+    </label>
 
-      <div class="menu">
-        <a href="index.html">Home</a>
-        <a href="Characters.html">Characters</a>
-        <a href="spells.html">Spells</a>
-        <a href="houses.html">Houses</a>
-        <a href="movies.html">Movies</a>
-        <a href="store.html">Store</a>
-        <a href="aboutme.html">About Me</a>
-        <a href="contactus.html">Contact Us</a>
-      </div>
+    <div class="nav-links">
+      <a href="index.html">Home</a>
+      <a href="characters.html">Characters</a>
+      <a href="spells.html" class="active">Spells</a>
+      <a href="houses.html">Houses</a>
+      <a href="movies.html">Movies</a>
+      <a href="store.html">Store</a>
+      <a href="aboutme.html">About Me</a>
+      <a href="contactus.html">Contact Us</a>
     </div>
   </nav>
 
-  <!-- ===== Main Content ===== -->
-  <div class="main">
+  <!-- ===== HEADER ===== -->
+  <header>
+    <h1>Spells & Charms</h1>
+    <p>Discover the most iconic spells from the wizarding world — where words have power!</p>
+  </header>
 
-    <!-- ===== Charms ===== -->
-    <section class="spells-section">
-      <h2>Charms</h2>
-      <div class="spell-grid">
-        <div class="spell-card">
-          <div class="spell-card-inner">
-            <div class="spell-card-front">
-              <h3>Accio</h3>
-              <p><em>Summoning Charm</em></p>
-            </div>
-            <div class="spell-card-back">
-              <p>Brings an object directly to the caster. Very useful in emergencies!</p>
-            </div>
-          </div>
-        </div>
+  <!-- ===== SPELLS GRID ===== -->
+  <section class="spells-section">
+    <div class="spell-card">
+      <h2>Expelliarmus</h2>
+      <p><strong>Type:</strong> Disarming Charm</p>
+      <p><em>“Expelliarmus!”</em></p>
+      <p>Disarms an opponent by forcing whatever they are holding to fly out of their hand.</p>
+    </div>
 
-        <div class="spell-card">
-          <div class="spell-card-inner">
-            <div class="spell-card-front">
-              <h3>Lumos</h3>
-              <p><em>Wand-Lighting Charm</em></p>
-            </div>
-            <div class="spell-card-back">
-              <p>Illuminates the tip of your wand. Perfect for dark corridors or caves.</p>
-            </div>
-          </div>
-        </div>
+    <div class="spell-card">
+      <h2>Lumos</h2>
+      <p><strong>Type:</strong> Light Charm</p>
+      <p><em>“Lumos!”</em></p>
+      <p>Causes the tip of the caster’s wand to emit light, illuminating dark places.</p>
+    </div>
 
-        <div class="spell-card">
-          <div class="spell-card-inner">
-            <div class="spell-card-front">
-              <h3>Nox</h3>
-              <p><em>Wand-Extinguishing Charm</em></p>
-            </div>
-            <div class="spell-card-back">
-              <p>Extinguishes wand light from Lumos. Useful when stealth is needed.</p>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
+    <div class="spell-card">
+      <h2>Nox</h2>
+      <p><strong>Type:</strong> Counter-Charm</p>
+      <p><em>“Nox!”</em></p>
+      <p>Extinguishes the light from a wand previously lit by the Lumos spell.</p>
+    </div>
 
-    <!-- ===== Curses ===== -->
-    <section class="spells-section">
-      <h2>Curses</h2>
-      <div class="spell-grid">
-        <div class="spell-card">
-          <div class="spell-card-inner">
-            <div class="spell-card-front">
-              <h3>Avada Kedavra</h3>
-              <p><em>Killing Curse</em></p>
-            </div>
-            <div class="spell-card-back">
-              <p>Instantly kills the target. One of the Unforgivable Curses. Use with caution!</p>
-            </div>
-          </div>
-        </div>
+    <div class="spell-card">
+      <h2>Expecto Patronum</h2>
+      <p><strong>Type:</strong> Defensive Charm</p>
+      <p><em>“Expecto Patronum!”</em></p>
+      <p>Conjures a Patronus — a protective spirit that repels Dementors and Lethifolds.</p>
+    </div>
 
-        <div class="spell-card">
-          <div class="spell-card-inner">
-            <div class="spell-card-front">
-              <h3>Crucio</h3>
-              <p><em>Cruciatus Curse</em></p>
-            </div>
-            <div class="spell-card-back">
-              <p>Inflicts intense, unbearable pain on the target. Dark and dangerous magic.</p>
-            </div>
-          </div>
-        </div>
+    <div class="spell-card">
+      <h2>Wingardium Leviosa</h2>
+      <p><strong>Type:</strong> Levitation Charm</p>
+      <p><em>“Wingardium Leviosa!”</em></p>
+      <p>Makes objects levitate and fly at the caster’s command.</p>
+    </div>
 
-        <div class="spell-card">
-          <div class="spell-card-inner">
-            <div class="spell-card-front">
-              <h3>Imperio</h3>
-              <p><em>Imperius Curse</em></p>
-            </div>
-            <div class="spell-card-back">
-              <p>Controls another person’s actions. One of the Unforgivable Curses.</p>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
+    <div class="spell-card">
+      <h2>Protego</h2>
+      <p><strong>Type:</strong> Shield Charm</p>
+      <p><em>“Protego!”</em></p>
+      <p>Creates an invisible magical barrier that reflects spells and physical entities.</p>
+    </div>
 
-    <!-- ===== Defense Spells ===== -->
-    <section class="spells-section">
-      <h2>Defense Against the Dark Arts</h2>
-      <div class="spell-grid">
-        <div class="spell-card">
-          <div class="spell-card-inner">
-            <div class="spell-card-front">
-              <h3>Expelliarmus</h3>
-              <p><em>Disarming Charm</em></p>
-            </div>
-            <div class="spell-card-back">
-              <p>Forces the opponent to release whatever they are holding. Perfect for duels.</p>
-            </div>
-          </div>
-        </div>
+    <div class="spell-card">
+      <h2>Accio</h2>
+      <p><strong>Type:</strong> Summoning Charm</p>
+      <p><em>“Accio [object name]!”</em></p>
+      <p>Summons an object towards the caster, no matter the distance.</p>
+    </div>
 
-        <div class="spell-card">
-          <div class="spell-card-inner">
-            <div class="spell-card-front">
-              <h3>Protego</h3>
-              <p><em>Shield Charm</em></p>
-            </div>
-            <div class="spell-card-back">
-              <p>Creates a magical shield that deflects spells. Defense is key!</p>
-            </div>
-          </div>
-        </div>
+    <div class="spell-card">
+      <h2>Obliviate</h2>
+      <p><strong>Type:</strong> Memory Charm</p>
+      <p><em>“Obliviate!”</em></p>
+      <p>Erases specific memories from an individual's mind.</p>
+    </div>
 
-        <div class="spell-card">
-          <div class="spell-card-inner">
-            <div class="spell-card-front">
-              <h3>Expecto Patronum</h3>
-              <p><em>Patronus Charm</em></p>
-            </div>
-            <div class="spell-card-back">
-              <p>Summons a Patronus to ward off Dementors. A must-learn for protection.</p>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
+    <div class="spell-card">
+      <h2>Alohomora</h2>
+      <p><strong>Type:</strong> Unlocking Charm</p>
+      <p><em>“Alohomora!”</em></p>
+      <p>Unlocks doors, windows, and other locked objects magically.</p>
+    </div>
+  </section>
 
-  </div>
-
-  <!-- ===== Footer ===== -->
+  <!-- ===== FOOTER ===== -->
   <footer>
-    <p>⚡ Made with magic by a Potterhead (Vanshika Chand) | © 2025 Harry Potter Fanpage</p>
+    <p>✨ Crafted with magic by Vanshika Chand | © 2025 Wizarding World</p>
     <a href="aboutme.html">About Me</a> |
     <a href="contactus.html">Contact</a> |
     <a href="https://www.linkedin.com/in/vanshika-chand-b1a316324/">Socials</a>
   </footer>
+
 </body>
+
 </html>
