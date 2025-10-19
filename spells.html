@@ -3,104 +3,40 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Wizarding Spells</title>
-  <link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="spells.css">
+  <title>Document</title>
+  <link rel="stylesheet" href="css/index.css">
 </head>
 <body>
+  <header class="navbar">
+  <div class="logo">
+    <img src="media/hogwarts-crest.png" alt="Hogwarts Crest">
+  </div>
 
-  <!-- ===== Fog Background ===== -->
-  <div class="fog-layer"></div>
-  <div class="fog-layer"></div>
+  <!-- Hamburger Checkbox -->
+  <input type="checkbox" id="menu-toggle" />
+  <label for="menu-toggle" class="menu-icon">&#9776;</label>
 
-  <!-- ===== NAVBAR ===== -->
-  <nav class="nav-bar">
-    <input type="checkbox" id="nav-toggle" class="nav-toggle">
-    <label for="nav-toggle" class="hamburger">
-      <span></span><span></span><span></span>
-    </label>
-
-    <div class="nav-links">
-      <a href="index.html">Home</a>
-      <a href="characters.html">Characters</a>
-      <a href="spells.html" class="active">Spells</a>
-      <a href="houses.html">Houses</a>
-      <a href="movies.html">Movies</a>
-      <a href="store.html">Store</a>
-      <a href="aboutme.html">About Me</a>
-      <a href="contactus.html">Contact Us</a>
-    </div>
+  <!-- Nav Links -->
+  <nav class="nav-links">
+    <a href="index.html">Home</a>
+    <a href="characters.html">Characters</a>
+    <a href="spells.html">Spells</a>
+    <a href="houses.html">Houses</a>
+    <a href="store.html">Store</a>
+    <a href="about.html">About Me</a>
+    <a href="contact.html">Contact Us</a>
   </nav>
+</header>
 
-  <!-- ===== HEADER ===== -->
-  <header>
-    <h1>Spells of the Wizarding World</h1>
-    <p>Unravel ancient incantations — or write your own ✨</p>
-  </header>
 
-  <!-- ===== FAMOUS SPELLS ===== -->
-  <section class="spells-section">
-    <h2>Famous Spells</h2>
-    <div class="spells-grid">
-      <div class="spell-card">
-        <h3>Expelliarmus</h3>
-        <p>Disarms your opponent.</p>
-        <span class="incantation">"Expelliarmus!"</span>
-      </div>
-      <div class="spell-card">
-        <h3>Lumos</h3>
-        <p>Produces light from the wand tip.</p>
-        <span class="incantation">"Lumos!"</span>
-      </div>
-      <div class="spell-card">
-        <h3>Expecto Patronum</h3>
-        <p>Summons a Patronus to repel Dementors.</p>
-        <span class="incantation">"Expecto Patronum!"</span>
-      </div>
-      <div class="spell-card">
-        <h3>Protego</h3>
-        <p>Creates a magical shield.</p>
-        <span class="incantation">"Protego!"</span>
-      </div>
-    </div>
-  </section>
-
-  <!-- ===== SPELLBOOK SECTION ===== -->
-  <section class="spellbook">
-    <div class="book">
-      <div class="page left">
-        <h2>Ancient Spells</h2>
-        <ul>
-          <li><b>Obliviate</b> – Erases memories.</li>
-          <li><b>Accio</b> – Summons objects.</li>
-          <li><b>Wingardium Leviosa</b> – Makes objects levitate.</li>
-          <li><b>Stupefy</b> – Stuns opponents.</li>
-        </ul>
-      </div>
-
-      <div class="page right">
-        <h2>Make Your Own Spell ✨</h2>
-        <form>
-          <input type="text" placeholder="Spell Name ✍️" required>
-          <input type="text" placeholder="Incantation 🪶" required>
-          <select>
-            <option>Charm</option>
-            <option>Curse</option>
-            <option>Hex</option>
-            <option>Enchantment</option>
-          </select>
-          <textarea placeholder="Describe your spell..." rows="4"></textarea>
-          <button class="cast-btn">Cast Spell ✨</button>
-        </form>
-        <div class="floating-quill">✒️</div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ===== FOOTER ===== -->
-  <footer>
-    <p>⚡ Crafted by Vanshika Chand | © 2025 Wizarding Spells</p>
-  </footer>
+<footer class="footer">
+  <p>⚡ Made with Magic by a Potterhead (Vanshika Chand) | © 2025 Hogwarts Portal</p>
+  <p>
+    <a href="about.html">About</a> |
+    <a href="contact.html">Contact</a> |
+    <a href="https://www.linkedin.com/in/vanshika-chand-b1a316324/" target="_blank">Socials</a>
+  </p>
+</footer>
 
 </body>
 </html>
