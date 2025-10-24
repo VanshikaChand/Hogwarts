@@ -370,6 +370,7 @@ a {
     grid-column: 2; /* Center column */
 }
 
+
 .feature-card {
     background: rgba(20, 20, 20, 0.9);
     border: 2px solid #2a2a2a;
@@ -643,8 +644,18 @@ a {
     }
 
     .feature-grid {
-        grid-template-columns: 1fr;
-    }
+    grid-template-columns: 1fr;
+    justify-items: stretch; /* makes all cards same width */
+  }
+
+  .feature-grid .feature-card {
+    width: 100%; /* full width on mobile */
+    height: auto;
+  }
+
+  .feature-grid .feature-card:nth-child(4) {
+    grid-column: auto; /* reset to normal stacking */
+  }
 
     .feature-card {
         height: 350px;
