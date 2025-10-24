@@ -1,42 +1,237 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
-  <link rel="stylesheet" href="css/index.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hogwarts Portal - Welcome Wizard</title>
+    <link rel="stylesheet" href="css/index.css">
+    <!--
+    FOLDER STRUCTURE:
+    /
+    ├── index.html
+    ├── css/
+    │   └── index.css
+    └── media/
+        ├── hogwarts-crest.png
+        ├── HarryPotter-ov4z.ttf
+        ├── cursor.png
+        ├── wand-pointer.png
+        └── videos/
+            ├── houses.mp4
+            ├── characters.mp4
+            ├── spells.mp4
+            └── movies.mp4
+    -->
 </head>
 <body>
-  <header class="navbar">
-  <div class="logo">
-    <img src="media/hogwarts-crest.png" alt="Hogwarts Crest">
-  </div>
+    <!-- Hidden Checkbox to Control Transition -->
+    <input type="checkbox" id="intro-toggle" class="intro-toggle" />
 
-  <!-- Hamburger Checkbox -->
-  <input type="checkbox" id="menu-toggle" />
-  <label for="menu-toggle" class="menu-icon">&#9776;</label>
+    <!-- INTRO SCREEN -->
+    <section class="intro-screen">
+        <div id="particles-js"></div>
+        <div class="intro-content">
+            <img src="media/hogwarts-crest.png" alt="Hogwarts Crest" class="intro-crest">
+            <h1 class="intro-title">Welcome to Hogwarts</h1>
+            <label for="intro-toggle" class="start-btn">Start Your Journey</label>
+        </div>
+    </section>
 
-  <!-- Nav Links -->
-  <nav class="nav-links">
-    <a href="index.html">Home</a>
-    <a href="characters.html">Characters</a>
-    <a href="spells.html">Spells</a>
-    <a href="houses.html">Houses</a>
-    <a href="store.html">Store</a>
-    <a href="aboutme.html">About Me</a>
-    <a href="contactus.html">Contact Us</a>
-  </nav>
-</header>
+    <!-- MAIN HOME PAGE -->
+    <div class="main-page">
+        <!-- HEADER/NAVBAR -->
+        <header class="navbar">
+            <div class="logo">
+                <img src="media/hogwarts-crest.png" alt="Hogwarts Crest">
+            </div>
+            <input type="checkbox" id="menu-toggle" />
+            <label for="menu-toggle" class="menu-icon">&#9776;</label>
+            <nav class="nav-links">
+                <a href="index.html">Home</a>
+                <a href="Characters.html">Characters</a>
+                <a href="spells.html">Spells</a>
+                <a href="houses.html">Houses</a>
+                <a href="movies.html">Movies</a>
+                <a href="store.html">Store</a>
+                <a href="aboutme.html">About Me</a>
+                <a href="contactus.html">Contact Us</a>
+            </nav>
+        </header>
 
+        <!-- HERO SECTION -->
+        <section class="hero">
+            <div class="hero-overlay"></div>
+            <div class="hero-content">
+                <h1 class="hero-title">The Wizarding World Awaits</h1>
+                <p class="hero-subtitle">Discover the magic, mysteries, and legends of Hogwarts School of Witchcraft and Wizardry</p>
+                <div class="hero-buttons">
+                    <a href="houses.html" class="btn btn-primary">Discover Your House</a>
+                    <a href="spells.html" class="btn btn-secondary">Learn Spells</a>
+                </div>
+            </div>
+        </section>
 
-<footer class="footer">
-  <p>⚡ Made with Magic by a Potterhead (Vanshika Chand) | © 2025 Hogwarts Portal</p>
-  <p>
-    <a href="aboutme.html">About</a> |
-    <a href="contactus.html">Contact</a> |
-    <a href="https://www.linkedin.com/in/vanshika-chand-b1a316324/" target="_blank">Socials</a>
-  </p>
-</footer>
+        <!-- FEATURED SECTIONS WITH BACKGROUND VIDEOS -->
+        <section class="featured">
+            <div class="container">
+                <h2 class="section-title">Explore the Magical World</h2>
+                <div class="feature-grid">
+                    <!-- HOUSES CARD -->
+                    <div class="feature-card">
+                        <video class="feature-video" autoplay loop muted playsinline>
+                            <source src="media/houses.mp4" type="video/mp4">
+                        </video>
+                        <div class="overlay"></div>
+                        <div class="feature-content">
+                            <div class="feature-icon"></div>
+                            <h3>The Four Houses</h3>
+                            <p>Gryffindor, Slytherin, Ravenclaw, and Hufflepuff. Each house has its own noble history and has produced outstanding witches and wizards.</p>
+                            <a href="houses.html" class="feature-link">Explore Houses →</a>
+                        </div>
+                    </div>
 
+                    <!-- CHARACTERS CARD -->
+                    <div class="feature-card">
+                        <video class="feature-video" autoplay loop muted playsinline>
+                            <source src="media/characters.mp4" type="video/mp4">
+                        </video>
+                        <div class="overlay"></div>
+                        <div class="feature-content">
+                            <div class="feature-icon"></div>
+                            <h3>Legendary Characters</h3>
+                            <p>From the Boy Who Lived to the greatest wizards of all time. Meet the heroes, villains, and everyone in between.</p>
+                            <a href="Characters.html" class="feature-link">Meet Characters →</a>
+                        </div>
+                    </div>
+
+                    <!-- SPELLS CARD -->
+                    <div class="feature-card">
+                        <video class="feature-video" autoplay loop muted playsinline>
+                            <source src="media/spells.mp4" type="video/mp4">
+                        </video>
+                        <div class="overlay"></div>
+                        <div class="feature-content">
+                            <div class="feature-icon"></div>
+                            <h3>Powerful Spells</h3>
+                            <p>Master the magical arts from simple charms to the most powerful defensive spells. Every wizard needs their arsenal.</p>
+                            <a href="spells.html" class="feature-link">Learn Magic →</a>
+                        </div>
+                    </div>
+
+                    <!-- MOVIES CARD -->
+                    <div class="feature-card">
+                        <video class="feature-video" autoplay loop muted playsinline>
+                            <source src="media/movies.mp4" type="video/mp4">
+                        </video>
+                        <div class="overlay"></div>
+                        <div class="feature-content">
+                            <div class="feature-icon"></div>
+                            <h3>The Film Series</h3>
+                            <p>Relive the epic journey through all eight cinematic adventures that brought the wizarding world to life on the big screen.</p>
+                            <a href="movies.html" class="feature-link">Watch Timeline →</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- QUOTE SECTION -->
+        <section class="quote-section">
+            <div class="container">
+                <blockquote class="magical-quote">
+                    <p>"It does not do to dwell on dreams and forget to live."</p>
+                    <cite>— Albus Dumbledore</cite>
+                </blockquote>
+            </div>
+        </section>
+
+        <!-- FOOTER -->
+        <footer class="footer">
+            <p>⚡ Made with Magic by a Potterhead (Vanshika Chand) | © 2025 Hogwarts Portal</p>
+            <p>
+                <a href="aboutme.html">About</a> |
+                <a href="contactus.html">Contact</a> |
+                <a href="https://www.linkedin.com/in/vanshika-chand-b1a316324/" target="_blank">Socials</a>
+            </p>
+        </footer>
+    </div>
+
+    <!-- PARTICLE.JS LIBRARY (CDN) -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/particles.js/2.0.0/particles.min.js"></script>
+
+    <!-- PARTICLE.JS CONFIGURATION ONLY -->
+    <script>
+        particlesJS('particles-js', {
+            particles: {
+                number: {
+                    value: 80,
+                    density: {
+                        enable: true,
+                        value_area: 800
+                    }
+                },
+                color: {
+                    value: '#d4af37'
+                },
+                shape: {
+                    type: 'circle'
+                },
+                opacity: {
+                    value: 0.6,
+                    random: true,
+                    anim: {
+                        enable: true,
+                        speed: 1,
+                        opacity_min: 0.2,
+                        sync: false
+                    }
+                },
+                size: {
+                    value: 4,
+                    random: true,
+                    anim: {
+                        enable: true,
+                        speed: 2,
+                        size_min: 1,
+                        sync: false
+                    }
+                },
+                line_linked: {
+                    enable: false
+                },
+                move: {
+                    enable: true,
+                    speed: 1.5,
+                    direction: 'none',
+                    random: true,
+                    straight: false,
+                    out_mode: 'out',
+                    bounce: false
+                }
+            },
+            interactivity: {
+                detect_on: 'canvas',
+                events: {
+                    onhover: {
+                        enable: true,
+                        mode: 'bubble'
+                    },
+                    onclick: {
+                        enable: false
+                    },
+                    resize: true
+                },
+                modes: {
+                    bubble: {
+                        distance: 100,
+                        size: 6,
+                        duration: 2,
+                        opacity: 0.8
+                    }
+                }
+            },
+            retina_detect: true
+        });
+    </script>
 </body>
 </html>
