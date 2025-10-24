@@ -1,101 +1,716 @@
-/* ===== NAVBAR ===== */
+/* ========================================
+   HOGWARTS CHARACTERS PAGE - DARK THEME
+   WITH FLOATING CANDLES ANIMATION
+   ======================================== */
+
+/* FONT IMPORT */
+@font-face {
+    font-family: 'HarryPotter';
+    src: url('../media/HarryPotter-ov4z.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+/* GLOBAL RESET & BASE STYLES */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Cinzel', 'Georgia', serif;
+    background-color: #000000;
+    color: #d4d4d4;
+    overflow-x: hidden;
+    cursor: url('../media/cursor.cur'), auto;
+    position: relative;
+}
+
+a {
+    cursor: url('../media/pointer.cur'), pointer;
+}
+
+/* ========================================
+   FLOATING CANDLES BACKGROUND (PURE CSS)
+   ======================================== */
+
+/* === PARTICLE.JS CANDLE BACKGROUND === */
+#particles-js {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 0;
+    background: transparent;
+    pointer-events: none;
+}
+
+/* Floating Animation */
+@keyframes floatCandle {
+    0% {
+        bottom: -100px;
+        opacity: 0;
+        transform: translateX(0);
+    }
+
+    10% {
+        opacity: 1;
+    }
+
+    90% {
+        opacity: 1;
+    }
+
+    100% {
+        bottom: 110vh;
+        opacity: 0;
+        transform: translateX(30px);
+    }
+}
+
+/* Flickering Flame Animation */
+@keyframes flicker {
+
+    0%,
+    100% {
+        opacity: 1;
+        transform: translateX(-50%) scale(1);
+    }
+
+    25% {
+        opacity: 0.8;
+        transform: translateX(-50%) scale(0.95);
+    }
+
+    50% {
+        opacity: 1;
+        transform: translateX(-50%) scale(1.05);
+    }
+
+    75% {
+        opacity: 0.9;
+        transform: translateX(-50%) scale(0.98);
+    }
+}
+
+/* ========================================
+   NAVBAR
+   ======================================== */
 .navbar {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 12px 40px;
-  background: rgba(0, 0, 0, 0.5);
-  border-bottom: 1px solid gold;
-  position: fixed;
-  top: 0;
-  width: 100%;
-  z-index: 100;
-  backdrop-filter: blur(6px);
+    background: rgba(10, 10, 10, 0.95);
+    backdrop-filter: blur(15px);
+    padding: 1rem 3rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    border-bottom: 2px solid #d4af37;
+    box-shadow: 0 4px 20px rgba(212, 175, 55, 0.3);
 }
 
 .logo img {
-  height: 55px;
-  width: auto;
-  filter: drop-shadow(0 0 8px gold);
-  transition: transform 0.3s ease;
-}
-.logo img:hover {
-  transform: scale(1.05);
+    height: 60px;
+    filter: drop-shadow(0 0 10px rgba(212, 175, 55, 0.5));
 }
 
 .nav-links {
-  display: flex;
-  gap: 25px;
+    display: flex;
+    gap: 2rem;
+    align-items: center;
 }
+
 .nav-links a {
-  color: #eee;
-  text-decoration: none;
-  font-weight: bold;
-  transition: 0.3s;
-}
-.nav-links a:hover {
-  color: gold;
-  text-shadow: 0 0 10px gold;
-}
-
-/* ===== HAMBURGER MENU ===== */
-#menu-toggle {
-  display: none;
-}
-.menu-icon {
-  display: none;
-  font-size: 1.8rem;
-  color: gold;
-  cursor: pointer;
+    color: #d4af37;
+    text-decoration: none;
+    font-size: 1rem;
+    font-weight: 500;
+    transition: all 0.3s ease;
+    position: relative;
+    padding: 5px 0;
 }
 
-/* ===== RESPONSIVE MENU ===== */
-@media (max-width: 768px) {
-  .menu-icon { display: block; }
+.nav-links a.active {
+    color: #f4e5a1;
+}
 
-  .nav-links {
+.nav-links a:after {
+    content: '';
     position: absolute;
-    top: 70px;
-    right: 0;
-    background: rgba(0, 0, 0, 0.95);
-    flex-direction: column;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: #d4af37;
+    transition: width 0.3s ease;
+}
+
+.nav-links a.active:after {
     width: 100%;
+}
+
+.nav-links a:hover {
+    color: #f4e5a1;
+    text-shadow: 0 0 10px rgba(212, 175, 55, 0.8);
+}
+
+.nav-links a:hover:after {
+    width: 100%;
+}
+
+/* Mobile Menu Toggle */
+#menu-toggle {
+    display: none;
+}
+
+.menu-icon {
+    display: none;
+    font-size: 2rem;
+    color: #d4af37;
+    cursor: pointer;
+}
+
+/* ========================================
+   PAGE NAVIGATION BUTTONS
+   ======================================== */
+.page-navigation {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 2rem;
+    position: relative;
+    z-index: 10;
+}
+
+.nav-btn {
+    padding: 12px 30px;
+    background: linear-gradient(135deg, #d4af37, #f4e5a1);
+    color: #1a1a1a;
+    text-decoration: none;
+    border-radius: 8px;
+    font-weight: 600;
+    transition: all 0.4s ease;
+    box-shadow: 0 4px 15px rgba(212, 175, 55, 0.4);
+}
+
+.nav-btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 6px 25px rgba(212, 175, 55, 0.7);
+}
+
+/* ========================================
+   HERO SECTION
+   ======================================== */
+.hero {
+    position: relative;
+    padding: 8rem 2rem 6rem;
     text-align: center;
-    max-height: 0;
+    z-index: 10;
+    animation: fadeInUp 1s ease-out;
+}
+
+.hero-content {
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.hero-title {
+    font-family: 'HarryPotter', serif;
+    font-size: 4rem;
+    color: #d4af37;
+    margin-bottom: 1.5rem;
+    text-shadow: 0 0 30px rgba(212, 175, 55, 0.7);
+    animation: glowPulse 3s ease-in-out infinite;
+}
+
+.hero-subtitle {
+    font-size: 1.3rem;
+    color: #c9c9c9;
+    line-height: 1.8;
+    text-shadow: 0 2px 10px rgba(0, 0, 0, 0.8);
+}
+
+/* ========================================
+   CHARACTERS SECTIONS
+   ======================================== */
+.characters-section {
+    padding: 4rem 2rem;
+    position: relative;
+    z-index: 10;
+}
+
+.container {
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+.section-title {
+    font-family: 'HarryPotter', serif;
+    font-size: 3rem;
+    text-align: center;
+    color: #d4af37;
+    margin-bottom: 4rem;
+    text-shadow: 0 0 20px rgba(212, 175, 55, 0.5);
+}
+
+.villain-title {
+    color: #dc143c;
+    text-shadow: 0 0 20px rgba(220, 20, 60, 0.5);
+}
+
+.creature-title {
+    color: #c0c0c0;
+    text-shadow: 0 0 20px rgba(192, 192, 192, 0.5);
+}
+
+/* ========================================
+   CHARACTER GRID
+   ======================================== */
+.character-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    /* smaller width */
+    gap: 1.8rem;
+    /* tighter spacing */
+    justify-items: center;
+    align-items: stretch;
+    /* equal heights */
+}
+
+/* ========================================
+   CHARACTER CARDS
+   ======================================== */
+.character-card {
+    background: rgba(20, 20, 20, 0.9);
+    border: 2px solid #2a2a2a;
+    border-radius: 12px;
     overflow: hidden;
     transition: all 0.4s ease;
-  }
-
-  #menu-toggle:checked + .menu-icon + .nav-links {
-    max-height: 320px;
-    padding: 15px 0;
-  }
-
-  .nav-links a {
-    display: block;
-    padding: 10px 0;
-    font-size: 1.1rem;
-  }
+    position: relative;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
 }
 
-/* ===== FOOTER ===== */
+
+/* Floating Card Animation */
+@keyframes floatCard {
+
+    0%,
+    100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-15px);
+    }
+}
+
+/* Hero Cards - Gold Glow */
+.hero-card {
+    border-color: #3a3a3a;
+}
+
+.hero-card:hover {
+    border-color: #d4af37;
+    box-shadow: 0 10px 40px rgba(212, 175, 55, 0.6);
+    transform: translateY(-8px) scale(1.02);
+}
+
+/* Villain Cards - Red/Green Glow */
+.villain-card {
+    border-color: #3a1a1a;
+}
+
+.villain-card:hover {
+    border-color: #dc143c;
+    box-shadow: 0 10px 40px rgba(220, 20, 60, 0.6);
+    transform: translateY(-20px) scale(1.03);
+}
+
+/* Creature Cards - Silver Glow */
+.creature-card {
+    border-color: #2a2a2a;
+}
+
+.creature-card:hover {
+    border-color: #c0c0c0;
+    box-shadow: 0 10px 40px rgba(192, 192, 192, 0.5);
+    transform: translateY(-20px) scale(1.03);
+}
+
+/* Card Image */
+.card-image {
+    width: 100%;
+    height: 220px;
+    /* smaller image */
+    overflow: hidden;
+}
+
+.card-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+}
+
+.character-card:hover .card-image img {
+    transform: scale(1.1);
+}
+
+/* Card Content */
+.card-content {
+    flex: 1;
+    padding: 1rem;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.house-icon {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+    filter: drop-shadow(0 0 10px rgba(212, 175, 55, 0.5));
+}
+
+/* ========================================
+   MAGICAL GLOW ORB ICON (No Emoji Version)
+   ======================================== */
+
+.magic-glow {
+  width: 55px;
+  height: 55px;
+  border-radius: 50%;
+  margin: 0 auto 1rem;
+  background: radial-gradient(circle, rgba(255,240,150,0.9) 0%, rgba(212,175,55,0.1) 70%);
+  box-shadow:
+    0 0 25px rgba(212,175,55,0.6),
+    0 0 50px rgba(212,175,55,0.3),
+    inset 0 0 20px rgba(255,240,150,0.4);
+  animation: pulseGlow 3s ease-in-out infinite;
+  position: relative;
+  transition: all 0.4s ease;
+}
+
+/* Hover shimmer (like a wand spark) */
+.character-card:hover .magic-glow {
+  box-shadow:
+    0 0 40px rgba(255,240,150,0.8),
+    0 0 80px rgba(212,175,55,0.6),
+    inset 0 0 25px rgba(255,240,150,0.5);
+  transform: scale(1.1);
+}
+
+/* Gentle flicker aura inside the orb */
+.magic-glow::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 80%;
+  height: 80%;
+  border-radius: 50%;
+  box-shadow: 0 0 25px rgba(255,240,150,0.7);
+  animation: flicker 4s infinite ease-in-out;
+}
+
+/* Pulse + Flicker animations */
+@keyframes pulseGlow {
+  0%, 100% { transform: scale(1); opacity: 1; }
+  50% { transform: scale(1.2); opacity: 0.7; }
+}
+
+@keyframes flicker {
+  0%, 100% { opacity: 0.9; }
+  50% { opacity: 0.5; }
+}
+
+
+.card-content h3 {
+    font-family: 'HarryPotter', serif;
+    font-size: 1.3rem;
+    color: #d4af37;
+    margin-bottom: 0.5rem;
+    text-shadow: 0 2px 10px rgba(0, 0, 0, 0.8);
+}
+
+.character-quote {
+    font-style: italic;
+    color: #f4e5a1;
+    margin-bottom: 1rem;
+    font-size: 0.8rem;
+}
+
+.character-description {
+    color: #b8b8b8;
+    line-height: 1.5;
+    font-size: 0.85rem;
+    max-height: 0;
+    opacity: 0;
+    overflow: hidden;
+    transition: all 0.5s ease;
+}
+
+.character-card:hover .character-description {
+    max-height: 200px;
+    opacity: 1;
+    margin-top: 1rem;
+}
+
+/* ========================================
+   FOOTER
+   ======================================== */
 .footer {
-  background: #000;
-  color: gold;
-  text-align: center;
-  padding: 25px 0;
-  border-top: 1px solid gold;
-  margin-top: 80px;
-  font-size: 0.95rem;
-  line-height: 1.7;
+    background: rgba(10, 10, 10, 0.95);
+    backdrop-filter: blur(10px);
+    padding: 2.5rem 2rem;
+    text-align: center;
+    border-top: 2px solid #d4af37;
+    color: #b8b8b8;
+    position: relative;
+    z-index: 10;
+    margin-top: 4rem;
+}
+
+.footer p {
+    margin-bottom: 0.8rem;
 }
 
 .footer a {
-  color: #f5d76e;
-  text-decoration: none;
-  transition: 0.3s;
+    color: #d4af37;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    margin: 0 0.5rem;
 }
+
 .footer a:hover {
-  color: white;
-  text-shadow: 0 0 10px gold;
+    color: #f4e5a1;
+    text-shadow: 0 0 10px rgba(212, 175, 55, 0.8);
+}
+
+/* ========================================
+   ANIMATIONS
+   ======================================== */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(50px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes glowPulse {
+
+    0%,
+    100% {
+        text-shadow: 0 0 30px rgba(212, 175, 55, 0.7);
+    }
+
+    50% {
+        text-shadow: 0 0 50px rgba(212, 175, 55, 1);
+    }
+}
+
+/* ========================================
+   RESPONSIVE DESIGN
+   ======================================== */
+@media (max-width: 768px) {
+    .navbar {
+        padding: 1rem;
+        flex-wrap: wrap;
+    }
+
+    .menu-icon {
+        display: block;
+    }
+
+    .nav-links {
+        display: none;
+        flex-direction: column;
+        width: 100%;
+        gap: 1rem;
+        padding-top: 1rem;
+    }
+
+    #menu-toggle:checked~.nav-links {
+        display: flex;
+    }
+
+    .hero-title {
+        font-size: 2.5rem;
+    }
+
+    .hero-subtitle {
+        font-size: 1.1rem;
+    }
+
+    .section-title {
+        font-size: 2.2rem;
+    }
+
+    .page-navigation {
+        flex-direction: column;
+        gap: 1rem;
+    }
+
+    .character-grid {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+    }
+
+    .card-image {
+        height: 300px;
+    }
+
+    /* Make description always visible on mobile */
+    .character-description {
+        max-height: 200px;
+        opacity: 1;
+        margin-top: 1rem;
+    }
+
+    /* Reduce candle count on mobile for performance */
+    .candle:nth-child(n+11) {
+        display: none;
+    }
+}
+
+@media (max-width: 480px) {
+    .hero {
+        padding: 5rem 1rem 4rem;
+    }
+
+    .hero-title {
+        font-size: 2rem;
+    }
+
+    .hero-subtitle {
+        font-size: 1rem;
+    }
+
+    .section-title {
+        font-size: 1.8rem;
+    }
+
+    .nav-btn {
+        padding: 10px 20px;
+        font-size: 0.9rem;
+    }
+
+    .card-content {
+        padding: 0.8rem;
+    }
+
+    .card-content h3 {
+        font-size: 1.1rem;
+    }
+
+    .card-image {
+        height: 160px;
+    }
+
+    .character-grid {
+        grid-template-columns: 1fr 1fr;
+        gap: 1rem;
+    }
+}
+
+/* ========================================
+   ADDITIONAL VISUAL ENHANCEMENTS
+   ======================================== */
+
+/* Subtle background gradient behind sections */
+.villains-section {
+    background: linear-gradient(to bottom, rgba(0, 0, 0, 0) 0%, rgba(40, 0, 0, 0.3) 50%, rgba(0, 0, 0, 0) 100%);
+}
+
+.creatures-section {
+    background: linear-gradient(to bottom, rgba(0, 0, 0, 0) 0%, rgba(20, 30, 40, 0.3) 50%, rgba(0, 0, 0, 0) 100%);
+}
+
+/* Smooth scroll behavior */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Selection color */
+::selection {
+    background: #d4af37;
+    color: #000;
+}
+
+::-moz-selection {
+    background: #d4af37;
+    color: #000;
+}
+
+/* Loading animation for images */
+.card-image img {
+    opacity: 0;
+    animation: fadeIn 0.8s ease-in forwards;
+}
+
+@keyframes fadeIn {
+    to {
+        opacity: 1;
+    }
+}
+
+/* Add staggered delay to cards for entrance animation */
+.character-card:nth-child(1) {
+    animation-delay: 0s;
+}
+
+.character-card:nth-child(2) {
+    animation-delay: 0.5s;
+}
+
+.character-card:nth-child(3) {
+    animation-delay: 1s;
+}
+
+.character-card:nth-child(4) {
+    animation-delay: 1.5s;
+}
+
+.character-card:nth-child(5) {
+    animation-delay: 2s;
+}
+
+.character-card:nth-child(6) {
+    animation-delay: 2.5s;
+}
+
+.character-card:nth-child(7) {
+    animation-delay: 3s;
+}
+
+.character-card:nth-child(8) {
+    animation-delay: 3.5s;
+}
+
+/* Page entrance animation */
+body {
+    animation: pageEntrance 1s ease-out;
+}
+
+@keyframes pageEntrance {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
 }
