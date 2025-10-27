@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Hogwarts Portal - Contact Us</title>
+  <link rel="stylesheet" href="css/contactus.css">
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@400;700;900&family=Cormorant+Garamond:wght@300;400;600&family=Poppins:wght@300;400;600&family=Bilbo+Swash+Caps&display=swap" rel="stylesheet">
+</head>
+<body>
+  <!-- Navbar -->
+  <header class="navbar">
+    <div class="logo">
+      <img src="media/hogwarts-crest.png" alt="Hogwarts Crest">
+    </div>
+    <input type="checkbox" id="menu-toggle" />
+    <label for="menu-toggle" class="menu-icon">&#9776;</label>
+    <nav class="nav-links">
+      <a href="index.html">Home</a>
+      <a href="Characters.html">Characters</a>
+      <a href="spells.html">Spells</a>
+      <a href="houses.html">Houses</a>
+      <a href="movies.html">Movies</a>
+      <a href="store.html">Store</a>
+      <a href="contactus.html" class="active">Contact Us</a>
+    </nav>
+  </header>
+
+  <!-- Background Video -->
+  <div class="contact-bg">
+    <video autoplay muted loop playsinline poster="media/hogwarts.jpg">
+      <source src="media/hogwarts.mp4" type="video/mp4">
+    </video>
+    <div class="bg-overlay"></div>
+  </div>
+
+  <!-- Particle.js Container -->
+  <div id="particles-js"></div>
+
+  <!-- Main Contact Section -->
+  <section class="contact-section">
+    <div class="container">
+      <div class="contact-wrapper">
+        
+        <!-- Left Side - Header & Info -->
+        <div class="contact-header">
+          <div class="owl-icon"></div>
+          <h1 class="page-title">Send an Owl</h1>
+          <p class="page-subtitle">Write to us from the wizarding world</p>
+          
+          <div class="contact-quote">
+            <span class="quote-mark">"</span>
+            <p>You will receive your Hogwarts letter by Owl Post. No purchase necessary, batteries not included.</p>
+            <span class="quote-mark closing">"</span>
+          </div>
+
+          <div class="contact-info-cards">
+            <div class="info-card">
+              <div class="info-icon">📧</div>
+              <h3>Magical Mail</h3>
+              <p>owlpost@hogwarts.portal</p>
+            </div>
+            <div class="info-card">
+              <div class="info-icon">🏰</div>
+              <h3>Castle Location</h3>
+              <p>Scottish Highlands<br>United Kingdom</p>
+            </div>
+            <div class="info-card">
+              <div class="info-icon">⚡</div>
+              <h3>Response Time</h3>
+              <p>Within 24 magical hours<br>(Owl delivery may vary)</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Right Side - Contact Form (Parchment Style) -->
+        <div class="parchment-form">
+          <div class="parchment-decoration top"></div>
+          
+          <form class="contact-form" id="contactForm">
+            <h2 class="form-title">Your Message</h2>
+            
+            <div class="form-group">
+              <label for="name">
+                <span class="label-icon"></span>
+                Witch or Wizard Name
+              </label>
+              <input 
+                type="text" 
+                id="name" 
+                name="name" 
+                placeholder="Harry Potter" 
+                required 
+                class="form-input"
+              >
+            </div>
+
+            <div class="form-group">
+              <label for="email">
+                <span class="label-icon"></span>
+                Owl Post Address
+              </label>
+              <input 
+                type="email" 
+                id="email" 
+                name="email" 
+                placeholder="harry@hogwarts.edu" 
+                required 
+                class="form-input"
+              >
+            </div>
+
+            <div class="form-group">
+              <label for="house">
+                <span class="label-icon"></span>
+                Your House (Optional)
+              </label>
+              <select id="house" name="house" class="form-input">
+                <option value="">Select Your House</option>
+                <option value="gryffindor">Gryffindor</option>
+                <option value="hufflepuff">Hufflepuff</option>
+                <option value="ravenclaw">Ravenclaw</option>
+                <option value="slytherin">Slytherin</option>
+                <option value="muggle">Muggle / No-Maj</option>
+              </select>
+            </div>
+
+            <div class="form-group">
+              <label for="subject">
+                <span class="label-icon"></span>
+                Subject
+              </label>
+              <input 
+                type="text" 
+                id="subject" 
+                name="subject" 
+                placeholder="Inquiry about Defense Against the Dark Arts" 
+                required 
+                class="form-input"
+              >
+            </div>
+
+            <div class="form-group">
+              <label for="message">
+                <span class="label-icon"></span>
+                Your Message
+              </label>
+              <textarea 
+                id="message" 
+                name="message" 
+                rows="6" 
+                placeholder="Dear Headmaster,&#10;&#10;I am writing to inquire about..."
+                required 
+                class="form-input form-textarea"
+              ></textarea>
+            </div>
+
+            <button type="submit" class="submit-btn">
+              <span class="btn-icon"></span>
+              Send via Owl Post
+              <span class="btn-glow"></span>
+            </button>
+
+            <div class="form-footer">
+              <p class="disclaimer">
+                ⚡ Your message will be delivered by our most reliable school owls. 
+                Please allow 1-2 business days for a response. For urgent matters, 
+                please use a Patronus.
+              </p>
+            </div>
+          </form>
+
+          <div class="parchment-decoration bottom"></div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Social Connect Section -->
+  <section class="social-section">
+    <div class="container">
+      <h2 class="social-title">Join Our Magical Community</h2>
+      <p class="social-subtitle">Connect with fellow witches, wizards, and Muggles who love the wizarding world</p>
+      
+      <div class="social-links">
+        <a href="https://www.linkedin.com/in/vanshika-chand-b1a316324/" target="_blank" class="social-card linkedin">
+          <div class="social-icon">🔗</div>
+          <h3>LinkedIn</h3>
+          <p>Professional networking</p>
+        </a>
+        <a href="https://www.instagram.com/vanshikachand223/" class="social-card instagram">
+          <div class="social-icon">📷</div>
+          <h3>Instagram</h3>
+          <p>Wizarding world photos</p>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <p>⚡ Made with Magic by a Potterhead (Vanshika Chand) | © 2025 Hogwarts Portal</p>
+    <p>
+      <a href="contactus.html">Contact</a> |
+      <a href="https://www.linkedin.com/in/vanshika-chand-b1a316324/" target="_blank">Socials</a>
+    </p>
+  </footer>
+
+  <!-- Particle.js for magical particles -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/particles.js/2.0.0/particles.min.js"></script>
+  <script>
+    particlesJS('particles-js', {
+      particles: {
+        number: { value: 80, density: { enable: true, value_area: 800 } },
+        color: { value: '#d4af37' },
+        shape: { type: 'circle' },
+        opacity: {
+          value: 0.5,
+          random: true,
+          anim: { enable: true, speed: 1, opacity_min: 0.1, sync: false }
+        },
+        size: {
+          value: 3,
+          random: true,
+          anim: { enable: true, speed: 2, size_min: 0.1, sync: false }
+        },
+        line_linked: { enable: false },
+        move: {
+          enable: true,
+          speed: 1,
+          direction: 'top',
+          random: true,
+          straight: false,
+          out_mode: 'out',
+          bounce: false
+        }
+      },
+      interactivity: {
+        detect_on: 'canvas',
+        events: {
+          onhover: { enable: true, mode: 'bubble' },
+          onclick: { enable: false },
+          resize: true
+        },
+        modes: {
+          bubble: { distance: 100, size: 6, duration: 2, opacity: 0.8, speed: 3 }
+        }
+      },
+      retina_detect: true
+    });
+  </script>
+</body>
+</html>

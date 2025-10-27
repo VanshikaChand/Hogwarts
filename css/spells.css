@@ -1,101 +1,1068 @@
-/* ===== NAVBAR ===== */
+/* ========================================
+   3D SPELLBOOK OPENING ANIMATION
+   WITH MAGICAL ENHANCEMENTS
+   ======================================== */
+.book-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #000000;
+    z-index: 10000;
+    perspective: 2000px;
+    animation: bookGlow 3s ease-in-out;
+}
+
+/* Golden Glow Pulse Around Book */
+@keyframes crestGlow {
+    0%, 100% {
+        filter: drop-shadow(0 0 25px rgba(212, 175, 55, 0.9));
+    }
+    50% {
+        filter: drop-shadow(0 0 40px rgba(212, 175, 55, 1));
+    }
+}
+
+/* Golden Embossed Pattern Overlay */
+.cover-emboss {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: 
+        radial-gradient(circle at 30% 40%, rgba(212, 175, 55, 0.2) 0%, transparent 50%),
+        radial-gradient(circle at 70% 60%, rgba(212, 175, 55, 0.15) 0%, transparent 50%);
+    z-index: 2;
+    pointer-events: none;
+}
+
+.cover-border {
+    position: absolute;
+    top: 15px;
+    left: 15px;
+    right: 15px;
+    bottom: 15px;
+    border: 3px solid #d4af37;
+    border-radius: 8px;
+    box-shadow: 
+        0 0 20px rgba(212, 175, 55, 0.6),
+        inset 0 0 20px rgba(212, 175, 55, 0.2);
+    z-index: 2;
+    background: 
+        linear-gradient(45deg, transparent 48%, rgba(212, 175, 55, 0.3) 49%, rgba(212, 175, 55, 0.3) 51%, transparent 52%),
+        linear-gradient(-45deg, transparent 48%, rgba(212, 175, 55, 0.3) 49%, rgba(212, 175, 55, 0.3) 51%, transparent 52%);
+    background-size: 20px 20px;
+    background-position: 0 0;
+}
+
+.back-cover {
+    right: 0;
+    border-radius: 0 10px 10px 0;
+    background: linear-gradient(135deg, #2a2a2a 0%, #1a1a1a 100%);
+    border: 3px solid #3a3a3a;
+    box-shadow: inset 0 0 30px rgba(0, 0, 0, 0.8);
+}
+
+/* Parchment Page Texture */
+.page-texture {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: 
+        linear-gradient(to bottom, #f4e8d0 0%, #e8d5b0 100%),
+        repeating-linear-gradient(0deg, transparent, transparent 2px, rgba(139, 101, 64, 0.05) 2px, rgba(139, 101, 64, 0.05) 4px);
+    opacity: 0.9;
+}
+
+@keyframes openBook {
+    0% {
+        transform: rotateY(0deg);
+    }
+    100% {
+        transform: rotateY(-180deg);
+    }
+}
+
+/* Magical Golden Dust Particles Rising */
+.magic-particles {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 9999;
+}
+
+.magic-particles::before,
+.magic-particles::after {
+    content: '✦';
+    position: absolute;
+    font-size: 1.5rem;
+    color: #d4af37;
+    opacity: 0;
+    animation: riseSparkle 3s ease-out infinite;
+}
+
+.magic-particles::before {
+    left: 45%;
+    bottom: 40%;
+    animation-delay: 1.5s;
+}
+
+.magic-particles::after {
+    left: 55%;
+    bottom: 40%;
+    animation-delay: 1.8s;
+}
+
+@keyframes riseSparkle {
+    0% {
+        bottom: 40%;
+        opacity: 0;
+        transform: scale(0.5) translateX(0);
+    }
+    20% {
+        opacity: 1;
+    }
+    80% {
+        opacity: 0.8;
+    }
+    100% {
+        bottom: 70%;
+        opacity: 0;
+        transform: scale(1.2) translateX(30px);
+    }
+}
+
+.book {
+    position: relative;
+    width: 400px;
+    height: 550px;
+    transform-style: preserve-3d;
+    animation: openBook 3s ease-in-out forwards;
+    animation-delay: 1s;
+    filter: drop-shadow(0 20px 40px rgba(0, 0, 0, 0.8));
+}
+
+.book-cover {
+    position: absolute;
+    width: 200px;
+    height: 550px;
+    transform-style: preserve-3d;
+    backface-visibility: hidden;
+    border-radius: 8px;
+}
+
+.front-cover {
+    left: 0;
+    transform-origin: right;
+    border-radius: 10px 0 0 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    overflow: hidden;
+}
+
+/* Textured Leather Book Cover */
+.book-texture {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: 
+        linear-gradient(135deg, #2a1810 0%, #1a0f08 100%),
+        repeating-linear-gradient(45deg, transparent, transparent 2px, rgba(0,0,0,0.1) 2px, rgba(0,0,0,0.1) 4px);
+    border: 4px solid #3a2820;
+    box-shadow: 
+        0 0 40px rgba(212, 175, 55, 0.4),
+        inset 0 0 30px rgba(0, 0, 0, 0.9),
+        inset 0 0 80px rgba(58, 40, 32, 0.5);
+    z-index: 1;
+}
+
+/* Hogwarts Crest Glowing */
+.cover-crest {
+    width: 120px;
+    height: auto;
+    position: relative;
+    z-index: 3;
+    filter: drop-shadow(0 0 25px rgba(212, 175, 55, 0.9));
+    opacity: 0.95;
+    animation: crestGlow 3s ease-in-out infinite;
+}
+
+@keyframes crestGlow {
+    0%, 100% {
+        filter: drop-shadow(0 0 25px rgba(212, 175, 55, 0.9));
+    }
+    50% {
+        filter: drop-shadow(0 0 40px rgba(212, 175, 55, 1));
+    }
+}
+ ======================================== */
+
+/* FONT IMPORT */
+@font-face {
+    font-family: 'HarryPotter';
+    src: url('../media/HarryPotter-ov4z.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+/* GLOBAL RESET & BASE STYLES */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Cinzel', 'Georgia', serif;
+    background-color: #000000;
+    color: #d4d4d4;
+    overflow-x: hidden;
+    cursor: url('../media/cursor.png'), auto;
+    position: relative;
+}
+
+a {
+    cursor: url('../media/wand-pointer.png'), pointer;
+}
+
+/* ========================================
+   FLOATING RUNES BACKGROUND (PURE CSS)
+   ======================================== */
+.runes-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    pointer-events: none;
+    z-index: 0;
+    overflow: hidden;
+}
+
+.rune {
+    position: absolute;
+    bottom: -50px;
+    left: var(--left);
+    font-size: 2rem;
+    color: #d4af37;
+    opacity: 0.2;
+    animation: floatRune var(--duration) ease-in-out infinite;
+    animation-delay: var(--delay);
+    text-shadow: 0 0 10px rgba(212, 175, 55, 0.5);
+}
+
+@keyframes floatRune {
+    0% {
+        bottom: -50px;
+        opacity: 0;
+        transform: translateX(0) rotate(0deg);
+    }
+    10% {
+        opacity: 0.2;
+    }
+    90% {
+        opacity: 0.2;
+    }
+    100% {
+        bottom: 110vh;
+        opacity: 0;
+        transform: translateX(20px) rotate(360deg);
+    }
+}
+
+/* ========================================
+   3D SPELLBOOK OPENING ANIMATION
+   ======================================== */
+.book-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #000000;
+    z-index: 10000;
+    perspective: 2000px;
+}
+
+.book {
+    position: relative;
+    width: 400px;
+    height: 550px;
+    transform-style: preserve-3d;
+    animation: openBook 3s ease-in-out forwards;
+    animation-delay: 1s;
+}
+
+.book-cover {
+    position: absolute;
+    width: 200px;
+    height: 550px;
+    background: linear-gradient(135deg, #1a1a1a 0%, #0a0a0a 100%);
+    border: 3px solid #d4af37;
+    box-shadow: 
+        0 0 30px rgba(212, 175, 55, 0.5),
+        inset 0 0 20px rgba(0, 0, 0, 0.8);
+    transform-style: preserve-3d;
+    backface-visibility: hidden;
+}
+
+.front-cover {
+    left: 0;
+    transform-origin: right;
+    border-radius: 10px 0 0 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.cover-crest {
+    width: 150px;
+    height: auto;
+    filter: drop-shadow(0 0 20px rgba(212, 175, 55, 0.7));
+    opacity: 0.9;
+}
+
+.cover-border {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    right: 20px;
+    bottom: 20px;
+    border: 2px solid #d4af37;
+    border-radius: 8px;
+    box-shadow: 0 0 15px rgba(212, 175, 55, 0.4);
+}
+
+.back-cover {
+    right: 0;
+    background: linear-gradient(135deg, #2a2a2a 0%, #1a1a1a 100%);
+    border-radius: 0 10px 10px 0;
+}
+
+@keyframes openBook {
+    0% {
+        transform: rotateY(0deg);
+    }
+    100% {
+        transform: rotateY(-180deg);
+    }
+}
+
+/* ========================================
+   MAIN CONTENT
+   ======================================== */
+.main-content {
+    transition: opacity 1.5s ease-in, visibility 1.5s ease-in;
+}
+
+/* ========================================
+   NAVBAR
+   ======================================== */
 .navbar {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 12px 40px;
-  background: rgba(0, 0, 0, 0.5);
-  border-bottom: 1px solid gold;
-  position: fixed;
-  top: 0;
-  width: 100%;
-  z-index: 100;
-  backdrop-filter: blur(6px);
+    background: rgba(10, 10, 10, 0.95);
+    backdrop-filter: blur(15px);
+    padding: 1rem 3rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    border-bottom: 2px solid #d4af37;
+    box-shadow: 0 4px 20px rgba(212, 175, 55, 0.3);
 }
 
 .logo img {
-  height: 55px;
-  width: auto;
-  filter: drop-shadow(0 0 8px gold);
-  transition: transform 0.3s ease;
-}
-.logo img:hover {
-  transform: scale(1.05);
+    height: 60px;
+    filter: drop-shadow(0 0 10px rgba(212, 175, 55, 0.5));
 }
 
 .nav-links {
-  display: flex;
-  gap: 25px;
+    display: flex;
+    gap: 2rem;
+    align-items: center;
 }
+
 .nav-links a {
-  color: #eee;
-  text-decoration: none;
-  font-weight: bold;
-  transition: 0.3s;
-}
-.nav-links a:hover {
-  color: gold;
-  text-shadow: 0 0 10px gold;
-}
-
-/* ===== HAMBURGER MENU ===== */
-#menu-toggle {
-  display: none;
-}
-.menu-icon {
-  display: none;
-  font-size: 1.8rem;
-  color: gold;
-  cursor: pointer;
+    color: #d4af37;
+    text-decoration: none;
+    font-size: 1rem;
+    font-weight: 500;
+    transition: all 0.3s ease;
+    position: relative;
+    padding: 5px 0;
 }
 
-/* ===== RESPONSIVE MENU ===== */
-@media (max-width: 768px) {
-  .menu-icon { display: block; }
+.nav-links a.active {
+    color: #f4e5a1;
+}
 
-  .nav-links {
+.nav-links a:after {
+    content: '';
     position: absolute;
-    top: 70px;
-    right: 0;
-    background: rgba(0, 0, 0, 0.95);
-    flex-direction: column;
-    width: 100%;
-    text-align: center;
-    max-height: 0;
-    overflow: hidden;
-    transition: all 0.4s ease;
-  }
-
-  #menu-toggle:checked + .menu-icon + .nav-links {
-    max-height: 320px;
-    padding: 15px 0;
-  }
-
-  .nav-links a {
-    display: block;
-    padding: 10px 0;
-    font-size: 1.1rem;
-  }
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: #d4af37;
+    transition: width 0.3s ease;
 }
 
-/* ===== FOOTER ===== */
+.nav-links a.active:after {
+    width: 100%;
+}
+
+.nav-links a:hover {
+    color: #f4e5a1;
+    text-shadow: 0 0 10px rgba(212, 175, 55, 0.8);
+}
+
+.nav-links a:hover:after {
+    width: 100%;
+}
+
+/* Mobile Menu */
+#menu-toggle {
+    display: none;
+}
+
+.menu-icon {
+    display: none;
+    font-size: 2rem;
+    color: #d4af37;
+    cursor: pointer;
+}
+
+/* ========================================
+   PAGE NAVIGATION
+   ======================================== */
+.page-navigation {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 2rem;
+    position: relative;
+    z-index: 10;
+}
+
+.nav-btn {
+    padding: 12px 30px;
+    background: linear-gradient(135deg, #d4af37, #f4e5a1);
+    color: #1a1a1a;
+    text-decoration: none;
+    border-radius: 8px;
+    font-weight: 600;
+    transition: all 0.4s ease;
+    box-shadow: 0 4px 15px rgba(212, 175, 55, 0.4);
+}
+
+.nav-btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 6px 25px rgba(212, 175, 55, 0.7);
+}
+
+/* ========================================
+   HERO SECTION WITH ROTATING SPELL CIRCLE
+   ======================================== */
+.hero {
+    position: relative;
+    padding: 6rem 2rem 4rem;
+    text-align: center;
+    z-index: 10;
+    overflow: hidden;
+}
+
+/* Rotating Magical Circle */
+.spell-circle {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 400px;
+    height: 400px;
+    border: 3px solid #d4af37;
+    border-radius: 50%;
+    opacity: 0.4;
+    animation: rotateCircle 20s linear infinite;
+    box-shadow: 
+        0 0 30px rgba(212, 175, 55, 0.5),
+        inset 0 0 30px rgba(212, 175, 55, 0.3);
+}
+
+.spell-circle::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 350px;
+    height: 350px;
+    border: 2px solid #d4af37;
+    border-radius: 50%;
+    opacity: 0.6;
+}
+
+.spell-circle::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 300px;
+    height: 300px;
+    border: 1px dashed #d4af37;
+    border-radius: 50%;
+    opacity: 0.5;
+}
+
+@keyframes rotateCircle {
+    0% {
+        transform: translate(-50%, -50%) rotate(0deg);
+    }
+    100% {
+        transform: translate(-50%, -50%) rotate(360deg);
+    }
+}
+
+.hero-content {
+    position: relative;
+    z-index: 20;
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.spell-title {
+    font-family: 'HarryPotter', serif;
+    font-size: 4rem;
+    color: #d4af37;
+    margin-bottom: 1.5rem;
+    text-shadow: 0 0 30px rgba(212, 175, 55, 0.7);
+    animation: glowPulse 3s ease-in-out infinite;
+}
+
+.spell-subtitle {
+    font-size: 1.3rem;
+    color: #c9c9c9;
+    line-height: 1.8;
+    text-shadow: 0 2px 10px rgba(0, 0, 0, 0.8);
+}
+
+/* ========================================
+   SPELLS SECTIONS
+   ======================================== */
+.spells-section {
+    padding: 4rem 2rem;
+    position: relative;
+    z-index: 10;
+}
+
+.container {
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+.section-title {
+    font-family: 'HarryPotter', serif;
+    font-size: 3rem;
+    text-align: center;
+    color: #d4af37;
+    margin-bottom: 3rem;
+    text-shadow: 0 0 20px rgba(212, 175, 55, 0.5);
+}
+
+.forbidden-title {
+    color: #dc143c;
+    text-shadow: 0 0 25px rgba(220, 20, 60, 0.7);
+}
+
+.warning-text {
+    text-align: center;
+    color: #ff6b6b;
+    font-size: 1.1rem;
+    margin-bottom: 2rem;
+    padding: 1rem;
+    background: rgba(220, 20, 60, 0.1);
+    border: 2px solid rgba(220, 20, 60, 0.3);
+    border-radius: 8px;
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* ========================================
+   SPELLS GRID
+   ======================================== */
+.spells-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 2.5rem;
+}
+
+/* ========================================
+   SPELL CARDS
+   ======================================== */
+.spell-card {
+    background: rgba(20, 20, 20, 0.9);
+    border: 2px solid #2a2a2a;
+    border-radius: 15px;
+    padding: 2.5rem;
+    text-align: center;
+    transition: all 0.5s ease;
+    position: relative;
+    overflow: hidden;
+    animation: floatSpell 6s ease-in-out infinite;
+}
+
+@keyframes floatSpell {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-10px);
+    }
+}
+
+/* Spell Card Hover Glow Effects */
+.offensive-spell {
+    border-color: #3a3a3a;
+}
+
+.offensive-spell:hover {
+    border-color: #d4af37;
+    box-shadow: 0 10px 40px rgba(212, 175, 55, 0.6);
+    transform: translateY(-15px) scale(1.03);
+}
+
+.defensive-spell {
+    border-color: #1a3a5a;
+}
+
+.defensive-spell:hover {
+    border-color: #0a2a66;
+    box-shadow: 0 10px 40px rgba(10, 42, 102, 0.6);
+    transform: translateY(-15px) scale(1.03);
+}
+
+.utility-spell {
+    border-color: #3a3a3a;
+}
+
+.utility-spell:hover {
+    border-color: #4a90e2;
+    box-shadow: 0 10px 40px rgba(74, 144, 226, 0.5);
+    transform: translateY(-15px) scale(1.03);
+}
+
+.unforgivable-spell {
+    border-color: #3a1a1a;
+    background: rgba(30, 10, 10, 0.9);
+}
+
+.unforgivable-spell:hover {
+    border-color: #dc143c;
+    box-shadow: 0 10px 40px rgba(220, 20, 60, 0.7);
+    transform: translateY(-15px) scale(1.03);
+}
+
+/* Spell Card Content */
+.spell-icon {
+    width: 120px;
+    height: 120px;
+    margin: 0 auto 1.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+}
+
+.spell-icon img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    filter: drop-shadow(0 0 20px rgba(212, 175, 55, 0.7));
+    animation: iconPulse 3s ease-in-out infinite;
+}
+
+/* Different glow colors for different spell types */
+.offensive-spell .spell-icon img {
+    filter: drop-shadow(0 0 20px rgba(212, 175, 55, 0.8));
+}
+
+.defensive-spell .spell-icon img {
+    filter: drop-shadow(0 0 20px rgba(10, 42, 102, 0.8));
+}
+
+.utility-spell .spell-icon img {
+    filter: drop-shadow(0 0 20px rgba(74, 144, 226, 0.7));
+}
+
+.unforgivable-spell .spell-icon img {
+    filter: drop-shadow(0 0 25px rgba(220, 20, 60, 0.9));
+}
+
+@keyframes iconPulse {
+    0%, 100% {
+        transform: scale(1);
+        opacity: 1;
+    }
+    50% {
+        transform: scale(1.08);
+        opacity: 0.95;
+    }
+}
+
+.spell-name {
+    font-family: 'HarryPotter', serif;
+    font-size: 2rem;
+    color: #d4af37;
+    margin-bottom: 0.5rem;
+    text-shadow: 0 2px 10px rgba(0, 0, 0, 0.8);
+}
+
+.unforgivable-spell .spell-name {
+    color: #dc143c;
+}
+
+.spell-pronunciation {
+    font-style: italic;
+    color: #f4e5a1;
+    font-size: 0.9rem;
+    margin-bottom: 0.8rem;
+}
+
+.spell-type {
+    font-weight: 600;
+    color: #4a90e2;
+    margin-bottom: 1rem;
+    text-transform: uppercase;
+    font-size: 0.85rem;
+    letter-spacing: 1px;
+}
+
+.defensive-spell .spell-type {
+    color: #0a2a66;
+}
+
+.unforgivable-spell .spell-type {
+    color: #ff4444;
+}
+
+.spell-description {
+    color: #b8b8b8;
+    line-height: 1.7;
+    margin-bottom: 1.5rem;
+    font-size: 0.95rem;
+}
+
+.spell-wand-movement {
+    font-size: 1.5rem;
+    color: #d4af37;
+    padding: 0.8rem;
+    background: rgba(212, 175, 55, 0.1);
+    border-radius: 8px;
+    border: 1px dashed #d4af37;
+    display: inline-block;
+    animation: wandGlow 2s ease-in-out infinite;
+}
+
+@keyframes wandGlow {
+    0%, 100% {
+        box-shadow: 0 0 5px rgba(212, 175, 55, 0.3);
+    }
+    50% {
+        box-shadow: 0 0 15px rgba(212, 175, 55, 0.6);
+    }
+}
+
+/* ========================================
+   SECTION BACKGROUNDS
+   ======================================== */
+.defensive-section {
+    background: linear-gradient(to bottom, rgba(0, 0, 0, 0) 0%, rgba(10, 42, 102, 0.15) 50%, rgba(0, 0, 0, 0) 100%);
+}
+
+.utility-section {
+    background: linear-gradient(to bottom, rgba(0, 0, 0, 0) 0%, rgba(74, 144, 226, 0.1) 50%, rgba(0, 0, 0, 0) 100%);
+}
+
+.unforgivable-section {
+    background: linear-gradient(to bottom, rgba(0, 0, 0, 0) 0%, rgba(60, 0, 0, 0.3) 50%, rgba(0, 0, 0, 0) 100%);
+}
+
+/* ========================================
+   FOOTER
+   ======================================== */
 .footer {
-  background: #000;
-  color: gold;
-  text-align: center;
-  padding: 25px 0;
-  border-top: 1px solid gold;
-  margin-top: 80px;
-  font-size: 0.95rem;
-  line-height: 1.7;
+    background: rgba(10, 10, 10, 0.95);
+    backdrop-filter: blur(10px);
+    padding: 2.5rem 2rem;
+    text-align: center;
+    border-top: 2px solid #d4af37;
+    color: #b8b8b8;
+    position: relative;
+    z-index: 10;
+    margin-top: 4rem;
+}
+
+.footer p {
+    margin-bottom: 0.8rem;
 }
 
 .footer a {
-  color: #f5d76e;
-  text-decoration: none;
-  transition: 0.3s;
+    color: #d4af37;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    margin: 0 0.5rem;
 }
+
 .footer a:hover {
-  color: white;
-  text-shadow: 0 0 10px gold;
+    color: #f4e5a1;
+    text-shadow: 0 0 10px rgba(212, 175, 55, 0.8);
+}
+
+/* ========================================
+   ANIMATIONS
+   ======================================== */
+@keyframes glowPulse {
+    0%, 100% {
+        text-shadow: 0 0 30px rgba(212, 175, 55, 0.7);
+    }
+    50% {
+        text-shadow: 0 0 50px rgba(212, 175, 55, 1);
+    }
+}
+
+/* ========================================
+   RESPONSIVE DESIGN
+   ======================================== */
+@media (max-width: 768px) {
+    .navbar {
+        padding: 1rem;
+        flex-wrap: wrap;
+    }
+
+    .menu-icon {
+        display: block;
+    }
+
+    .nav-links {
+        display: none;
+        flex-direction: column;
+        width: 100%;
+        gap: 1rem;
+        padding-top: 1rem;
+    }
+
+    #menu-toggle:checked ~ .nav-links {
+        display: flex;
+    }
+
+    .book {
+        width: 300px;
+        height: 400px;
+    }
+
+    .book-cover {
+        width: 150px;
+        height: 400px;
+    }
+
+    .cover-crest {
+        width: 90px;
+    }
+
+    .cover-border {
+        top: 12px;
+        left: 12px;
+        right: 12px;
+        bottom: 12px;
+    }
+
+    .spell-icon {
+        width: 100px;
+        height: 100px;
+    }
+
+    .spell-circle {
+        width: 300px;
+        height: 300px;
+    }
+
+    .spell-circle::before {
+        width: 250px;
+        height: 250px;
+    }
+
+    .spell-circle::after {
+        width: 200px;
+        height: 200px;
+    }
+
+    .spell-title {
+        font-size: 2.5rem;
+    }
+
+    .spell-subtitle {
+        font-size: 1.1rem;
+    }
+
+    .section-title {
+        font-size: 2.2rem;
+    }
+
+    .page-navigation {
+        flex-direction: column;
+        gap: 1rem;
+    }
+
+    .spells-grid {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+    }
+
+    /* Reduce candles on mobile for performance */
+    .floating-candle:nth-child(n+6) {
+        display: none;
+    }
+
+    /* Reduce sparks on mobile */
+    .spark:nth-child(n+5) {
+        display: none;
+    }
+}
+
+@media (max-width: 480px) {
+    .hero {
+        padding: 4rem 1rem 3rem;
+    }
+
+    .spell-title {
+        font-size: 2rem;
+    }
+
+    .spell-subtitle {
+        font-size: 1rem;
+    }
+
+    .section-title {
+        font-size: 1.8rem;
+    }
+
+    .spell-card {
+        padding: 2rem;
+    }
+
+    .spell-name {
+        font-size: 1.6rem;
+    }
+
+    .spell-icon {
+        font-size: 3rem;
+    }
+
+    .book {
+        width: 250px;
+        height: 350px;
+    }
+
+    .book-cover {
+        width: 125px;
+        height: 350px;
+    }
+
+    .cover-crest {
+        width: 70px;
+    }
+
+    .cover-border {
+        top: 10px;
+        left: 10px;
+        right: 10px;
+        bottom: 10px;
+        border-width: 2px;
+    }
+
+    .spell-icon {
+        width: 80px;
+        height: 80px;
+    }
+
+    .spell-circle {
+        width: 250px;
+        height: 250px;
+    }
+}
+
+/* ========================================
+   ACCESSIBILITY & POLISH
+   ======================================== */
+html {
+    scroll-behavior: smooth;
+}
+
+::selection {
+    background: #d4af37;
+    color: #000;
+}
+
+::-moz-selection {
+    background: #d4af37;
+    color: #000;
+}
+
+/* Prevent flash of unstyled content */
+body {
+    opacity: 0;
+    animation: pageLoad 0.5s ease-in forwards;
+}
+
+@keyframes pageLoad {
+    to {
+        opacity: 1;
+    }
+}
+
+/* Add sparkle effect on spell cards */
+.spell-card::before {
+    content: '✦';
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    font-size: 1.5rem;
+    color: #d4af37;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.spell-card:hover::before {
+    opacity: 0.6;
+    animation: sparkle 1s ease-in-out infinite;
+}
+
+@keyframes sparkle {
+    0%, 100% {
+        transform: scale(1) rotate(0deg);
+        opacity: 0.6;
+    }
+    50% {
+        transform: scale(1.2) rotate(180deg);
+        opacity: 1;
+    }
 }
