@@ -3,38 +3,432 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
+  <title>Hogwarts Portal - Magical Store</title>
   <link rel="stylesheet" href="css/store.css">
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@400;700;900&family=Cormorant+Garamond:wght@300;400;600&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
 </head>
 <body>
+  <!-- Navbar -->
   <header class="navbar">
-  <div class="logo">
-    <img src="media/hogwarts-crest.png" alt="Hogwarts Crest">
+    <div class="logo">
+      <img src="media/hogwarts-crest.png" alt="Hogwarts Crest">
+    </div>
+    <input type="checkbox" id="menu-toggle" />
+    <label for="menu-toggle" class="menu-icon">&#9776;</label>
+    <nav class="nav-links">
+      <a href="index.html">Home</a>
+      <a href="characters.html">Characters</a>
+      <a href="spells.html">Spells</a>
+      <a href="houses.html">Houses</a>
+      <a href="movies.html">Movies</a>
+      <a href="store.html" class="active">Store</a>
+      <a href="contactus.html">Contact Us</a>
+    </nav>
+  </header>
+
+  <!-- Background Video -->
+  <div class="store-bg">
+    <video autoplay muted loop playsinline poster="https://i.pinimg.com/736x/43/c5/31/43c53143e91f8803c18539eb1d06d2ba.jpg">
+    </video>
+    <div class="bg-overlay"></div>
   </div>
 
-  <!-- Hamburger Checkbox -->
-  <input type="checkbox" id="menu-toggle" />
-  <label for="menu-toggle" class="menu-icon">&#9776;</label>
+  <!-- Floating Particles -->
+  <div id="particles-js"></div>
 
-  <!-- Nav Links -->
-  <nav class="nav-links">
-    <a href="index.html">Home</a>
-    <a href="characters.html">Characters</a>
-    <a href="spells.html">Spells</a>
-    <a href="houses.html">Houses</a>
-    <a href="store.html">Store</a>
-    <a href="contactus.html">Contact Us</a>
-  </nav>
-</header>
+  <!-- Page Header -->
+  <section class="store-header">
+    <div class="header-content">
+      <div class="shop-icon"></div>
+      <h1 class="page-title">Diagon Alley Emporium</h1>
+      <p class="page-subtitle">The finest magical goods from across the wizarding world</p>
+      <div class="header-badges">
+        <span class="badge">✨ Authentic Wares</span>
+        <span class="badge">🦉 Owl Delivery Available</span>
+        <span class="badge">⚡ Galleons Accepted</span>
+      </div>
+    </div>
+  </section>
 
+  <!-- Featured Banner -->
+  <section class="featured-banner">
+    <div class="container">
+      <div class="banner-content">
+        <div class="banner-text">
+          <span class="banner-label">Limited Edition</span>
+          <h2>Elder Wand Replica Collection</h2>
+          <p>Handcrafted wands from Ollivanders. Each wand chooses the wizard. Available while supplies last.</p>
+          <a href="#wands" class="banner-btn">Explore Wands</a>
+        </div>
+        <div class="banner-image">
+          <img src="media/featured-wand.png" alt="Elder Wand">
+        </div>
+      </div>
+    </div>
+  </section>
 
-<footer class="footer">
-  <p>⚡ Made with Magic by a Potterhead (Vanshika Chand) | © 2025 Hogwarts Portal</p>
-  <p>
-    <a href="contactus.html">Contact</a> |
-    <a href="https://www.linkedin.com/in/vanshika-chand-b1a316324/" target="_blank">Socials</a>
-  </p>
-</footer>
+  <!-- Product Categories -->
+  <section class="categories-section">
+    <div class="container">
+      <h2 class="section-title">Browse by Category</h2>
+      <div class="categories-grid">
+        <a href="#wands" class="category-card wands-bg">
+          <div class="category-overlay">
+            <h3>Wands & Staffs</h3>
+            <p>12 items</p>
+          </div>
+        </a>
+        <a href="#robes" class="category-card robes-bg">
+          <div class="category-overlay">
+            <h3>Robes & Apparel</h3>
+            <p>24 items</p>
+          </div>
+        </a>
+        <a href="#books" class="category-card books-bg">
+          <div class="category-overlay">
+            <h3>Spellbooks</h3>
+            <p>18 items</p>
+          </div>
+        </a>
+        <a href="#creatures" class="category-card creatures-bg">
+          <div class="category-overlay">
+            <h3>Magical Creatures</h3>
+            <p>8 items</p>
+          </div>
+        </a>
+        <a href="#potions" class="category-card potions-bg">
+          <div class="category-overlay">
+            <h3>Potions & Ingredients</h3>
+            <p>15 items</p>
+          </div>
+        </a>
+        <a href="#collectibles" class="category-card collectibles-bg">
+          <div class="category-overlay">
+            <h3>Collectibles</h3>
+            <p>30 items</p>
+          </div>
+        </a>
+      </div>
+    </div>
+  </section>
 
+  <!-- Wands Collection -->
+  <section class="products-section" id="wands">
+    <div class="container">
+      <h2 class="section-title">Ollivanders Fine Wands</h2>
+      <p class="section-subtitle">The wand chooses the wizard, Mr. Potter</p>
+      
+      <div class="products-grid">
+        <!-- Product 1 -->
+        <div class="product-card">
+          <div class="product-badge bestseller">Bestseller</div>
+          <div class="product-image">
+            <img src="media/product-harry-wand.jpg" alt="Harry Potter Wand">
+            <div class="product-overlay">
+              <button class="quick-view-btn">Quick View</button>
+            </div>
+          </div>
+          <div class="product-info">
+            <h3>Harry Potter's Wand</h3>
+            <p class="product-desc">Holly and Phoenix feather, 11 inches</p>
+            <div class="product-footer">
+              <span class="price">29 Galleons</span>
+              <button class="add-to-cart">Add to Cart</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Product 2 -->
+        <div class="product-card">
+          <div class="product-badge new">New Arrival</div>
+          <div class="product-image">
+            <img src="media/product-hermione-wand.jpg" alt="Hermione's Wand">
+            <div class="product-overlay">
+              <button class="quick-view-btn">Quick View</button>
+            </div>
+          </div>
+          <div class="product-info">
+            <h3>Hermione's Wand</h3>
+            <p class="product-desc">Vine wood and Dragon heartstring, 10¾ inches</p>
+            <div class="product-footer">
+              <span class="price">28 Galleons</span>
+              <button class="add-to-cart">Add to Cart</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Product 3 -->
+        <div class="product-card">
+          <div class="product-image">
+            <img src="media/product-elder-wand.jpg" alt="Elder Wand">
+            <div class="product-overlay">
+              <button class="quick-view-btn">Quick View</button>
+            </div>
+          </div>
+          <div class="product-info">
+            <h3>Elder Wand Replica</h3>
+            <p class="product-desc">Most powerful wand ever made, 15 inches</p>
+            <div class="product-footer">
+              <span class="price">99 Galleons</span>
+              <button class="add-to-cart">Add to Cart</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Product 4 -->
+        <div class="product-card">
+          <div class="product-image">
+            <img src="media/product-dumbledore-wand.jpg" alt="Dumbledore's Wand">
+            <div class="product-overlay">
+              <button class="quick-view-btn">Quick View</button>
+            </div>
+          </div>
+          <div class="product-info">
+            <h3>Dumbledore's Wand</h3>
+            <p class="product-desc">Originally the Elder Wand, incredibly powerful</p>
+            <div class="product-footer">
+              <span class="price">45 Galleons</span>
+              <button class="add-to-cart">Add to Cart</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Robes & Apparel -->
+  <section class="products-section dark-section" id="robes">
+    <div class="container">
+      <h2 class="section-title">Madam Malkin's Robes</h2>
+      <p class="section-subtitle">Dress for success at Hogwarts</p>
+      
+      <div class="products-grid">
+        <!-- Product 5 -->
+        <div class="product-card">
+          <div class="product-image">
+            <img src="media/product-gryffindor-robe.jpg" alt="Gryffindor Robe">
+            <div class="product-overlay">
+              <button class="quick-view-btn">Quick View</button>
+            </div>
+          </div>
+          <div class="product-info">
+            <h3>Gryffindor House Robe</h3>
+            <p class="product-desc">Official Hogwarts uniform with house crest</p>
+            <div class="product-footer">
+              <span class="price">35 Galleons</span>
+              <button class="add-to-cart">Add to Cart</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Product 6 -->
+        <div class="product-card">
+          <div class="product-image">
+            <img src="media/product-slytherin-robe.jpg" alt="Slytherin Robe">
+            <div class="product-overlay">
+              <button class="quick-view-btn">Quick View</button>
+            </div>
+          </div>
+          <div class="product-info">
+            <h3>Slytherin House Robe</h3>
+            <p class="product-desc">Elegant green and silver trim</p>
+            <div class="product-footer">
+              <span class="price">35 Galleons</span>
+              <button class="add-to-cart">Add to Cart</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Product 7 -->
+        <div class="product-card">
+          <div class="product-badge limited">Limited</div>
+          <div class="product-image">
+            <img src="media/product-quidditch-robe.jpg" alt="Quidditch Robes">
+            <div class="product-overlay">
+              <button class="quick-view-btn">Quick View</button>
+            </div>
+          </div>
+          <div class="product-info">
+            <h3>Quidditch Team Robes</h3>
+            <p class="product-desc">Professional quality with house colors</p>
+            <div class="product-footer">
+              <span class="price">55 Galleons</span>
+              <button class="add-to-cart">Add to Cart</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Product 8 -->
+        <div class="product-card">
+          <div class="product-image">
+            <img src="media/product-scarf.jpg" alt="House Scarf">
+            <div class="product-overlay">
+              <button class="quick-view-btn">Quick View</button>
+            </div>
+          </div>
+          <div class="product-info">
+            <h3>House Scarf Collection</h3>
+            <p class="product-desc">Wool scarves in all four house colors</p>
+            <div class="product-footer">
+              <span class="price">12 Galleons</span>
+              <button class="add-to-cart">Add to Cart</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Collectibles -->
+  <section class="products-section" id="collectibles">
+    <div class="container">
+      <h2 class="section-title">Rare Collectibles</h2>
+      <p class="section-subtitle">Treasures for the true Potterhead</p>
+      
+      <div class="products-grid">
+        <!-- Product 9 -->
+        <div class="product-card">
+          <div class="product-badge rare">Rare</div>
+          <div class="product-image">
+            <img src="media/product-marauders-map.jpg" alt="Marauder's Map">
+            <div class="product-overlay">
+              <button class="quick-view-btn">Quick View</button>
+            </div>
+          </div>
+          <div class="product-info">
+            <h3>Marauder's Map</h3>
+            <p class="product-desc">I solemnly swear that I am up to no good</p>
+            <div class="product-footer">
+              <span class="price">42 Galleons</span>
+              <button class="add-to-cart">Add to Cart</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Product 10 -->
+        <div class="product-card">
+          <div class="product-image">
+            <img src="media/product-time-turner.jpg" alt="Time Turner">
+            <div class="product-overlay">
+              <button class="quick-view-btn">Quick View</button>
+            </div>
+          </div>
+          <div class="product-info">
+            <h3>Time-Turner Necklace</h3>
+            <p class="product-desc">Hermione's time-traveling device replica</p>
+            <div class="product-footer">
+              <span class="price">38 Galleons</span>
+              <button class="add-to-cart">Add to Cart</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Product 11 -->
+        <div class="product-card">
+          <div class="product-badge bestseller">Bestseller</div>
+          <div class="product-image">
+            <img src="media/product-golden-snitch.jpg" alt="Golden Snitch">
+            <div class="product-overlay">
+              <button class="quick-view-btn">Quick View</button>
+            </div>
+          </div>
+          <div class="product-info">
+            <h3>Golden Snitch</h3>
+            <p class="product-desc">Flying Quidditch ball with wings</p>
+            <div class="product-footer">
+              <span class="price">25 Galleons</span>
+              <button class="add-to-cart">Add to Cart</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Product 12 -->
+        <div class="product-card">
+          <div class="product-image">
+            <img src="media/product-sorting-hat.jpg" alt="Sorting Hat">
+            <div class="product-overlay">
+              <button class="quick-view-btn">Quick View</button>
+            </div>
+          </div>
+          <div class="product-info">
+            <h3>The Sorting Hat</h3>
+            <p class="product-desc">Premium replica with sound effects</p>
+            <div class="product-footer">
+              <span class="price">65 Galleons</span>
+              <button class="add-to-cart">Add to Cart</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Newsletter Section -->
+  <section class="newsletter-section">
+    <div class="container">
+      <div class="newsletter-content">
+        <h2>Join the Hogwarts Mailing List</h2>
+        <p>Be the first to know about new arrivals, exclusive offers, and magical events</p>
+        <form class="newsletter-form">
+          <input type="email" placeholder="Enter your owl post address" required>
+          <button type="submit">Subscribe</button>
+        </form>
+        <p class="newsletter-note">🦉 We respect your privacy. Unsubscribe anytime.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <p>⚡ Made with Magic by a Potterhead (Vanshika Chand) | © 2025 Hogwarts Portal</p>
+    <p>
+      <a href="contactus.html">Contact</a> |
+      <a href="https://www.linkedin.com/in/vanshika-chand-b1a316324/" target="_blank">Socials</a>
+    </p>
+  </footer>
+
+  <!-- Particle.js for magical particles -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/particles.js/2.0.0/particles.min.js"></script>
+  <script>
+    particlesJS('particles-js', {
+      particles: {
+        number: { value: 60, density: { enable: true, value_area: 800 } },
+        color: { value: ['#d4af37', '#ff9d4d'] },
+        shape: { type: 'circle' },
+        opacity: {
+          value: 0.6,
+          random: true,
+          anim: { enable: true, speed: 1, opacity_min: 0.1, sync: false }
+        },
+        size: {
+          value: 3,
+          random: true,
+          anim: { enable: true, speed: 2, size_min: 0.1, sync: false }
+        },
+        line_linked: { enable: false },
+        move: {
+          enable: true,
+          speed: 1.5,
+          direction: 'top',
+          random: true,
+          straight: false,
+          out_mode: 'out',
+          bounce: false
+        }
+      },
+      interactivity: {
+        detect_on: 'canvas',
+        events: {
+          onhover: { enable: true, mode: 'bubble' },
+          onclick: { enable: false },
+          resize: true
+        },
+        modes: {
+          bubble: { distance: 120, size: 6, duration: 2, opacity: 0.8, speed: 3 }
+        }
+      },
+      retina_detect: true
+    });
+  </script>
 </body>
 </html>
