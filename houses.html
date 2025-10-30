@@ -3,38 +3,377 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
+  <title>Hogwarts Portal - Houses</title>
   <link rel="stylesheet" href="css/houses.css">
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@400;700;900&family=Cormorant+Garamond:wght@300;400;600&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
 </head>
 <body>
+  <!-- Navbar -->
   <header class="navbar">
-  <div class="logo">
-    <img src="media/hogwarts-crest.png" alt="Hogwarts Crest">
+    <div class="logo">
+      <img src="media/hogwarts-crest.png" alt="Hogwarts Crest">
+    </div>
+    <input type="checkbox" id="menu-toggle" />
+    <label for="menu-toggle" class="menu-icon">&#9776;</label>
+    <nav class="nav-links">
+      <a href="index.html">Home</a>
+      <a href="characters.html">Characters</a>
+      <a href="spells.html">Spells</a>
+      <a href="houses.html" class="active">Houses</a>
+      <a href="movies.html">Movies</a>
+      <a href="store.html">Store</a>
+      <a href="aboutme.html">About Me</a>
+      <a href="contactus.html">Contact Us</a>
+    </nav>
+  </header>
+
+  <!-- Background Video -->
+  <div class="houses-bg">
+    <video autoplay muted loop playsinline poster="media/bg-houses.jpg">
+      <source src="media/bg-houses.mp4" type="video/mp4">
+    </video>
+    <div class="bg-overlay"></div>
   </div>
 
-  <!-- Hamburger Checkbox -->
-  <input type="checkbox" id="menu-toggle" />
-  <label for="menu-toggle" class="menu-icon">&#9776;</label>
+  <!-- Floating Candles (CSS Only) -->
+  <div class="candles">
+    <span class="candle"></span>
+    <span class="candle"></span>
+    <span class="candle"></span>
+    <span class="candle"></span>
+    <span class="candle"></span>
+    <span class="candle"></span>
+    <span class="candle"></span>
+    <span class="candle"></span>
+  </div>
 
-  <!-- Nav Links -->
-  <nav class="nav-links">
-    <a href="index.html">Home</a>
-    <a href="characters.html">Characters</a>
-    <a href="spells.html">Spells</a>
-    <a href="houses.html">Houses</a>
-    <a href="store.html">Store</a>
-    <a href="contactus.html">Contact Us</a>
-  </nav>
-</header>
+  <!-- Page Header -->
+  <section class="houses-header">
+    <div class="header-content">
+      <div class="sorting-hat-icon"></div>
+      <h1 class="page-title">The Four Houses of Hogwarts</h1>
+      <p class="page-subtitle">Where dwell the brave at heart, the wise of mind, the loyal and true, and the cunning and ambitious</p>
+      
+      <!-- Sorting Hat Quote -->
+      <div class="sorting-quote">
+        <div class="quote-decoration">⚡</div>
+        <blockquote>
+          <p>"Oh, you may not think I'm pretty,<br>
+          But don't judge on what you see,<br>
+          I'll eat myself if you can find<br>
+          A smarter hat than me."</p>
+          <footer>— The Sorting Hat</footer>
+        </blockquote>
+        <div class="quote-decoration">⚡</div>
+      </div>
+    </div>
+  </section>
 
+  <!-- Gryffindor Section -->
+  <section class="house-section gryffindor-section">
+    <div class="container">
+      <div class="house-banner">
+        <div class="banner-decoration left"></div>
+        <span class="house-emblem">🦁</span>
+        <div class="banner-decoration right"></div>
+      </div>
+      
+      <div class="house-content">
+        <div class="house-crest">
+          <img src="https://i.pinimg.com/736x/d4/0b/6b/d40b6b25157591407c06497b8669eb28.jpg" alt="Gryffindor Crest">
+          <div class="crest-glow gryffindor-glow"></div>
+        </div>
+        
+        <div class="house-info">
+          <h2 class="house-name">Gryffindor</h2>
+          <p class="house-motto">"Their daring, nerve, and chivalry set Gryffindors apart"</p>
+          
+          <div class="house-details">
+            <div class="detail-item">
+              <span class="detail-label">Founder:</span>
+              <span class="detail-value">Godric Gryffindor</span>
+            </div>
+            <div class="detail-item">
+              <span class="detail-label">House Colors:</span>
+              <span class="detail-value">Scarlet and Gold</span>
+            </div>
+            <div class="detail-item">
+              <span class="detail-label">Animal:</span>
+              <span class="detail-value">Lion</span>
+            </div>
+            <div class="detail-item">
+              <span class="detail-label">Element:</span>
+              <span class="detail-value">Fire</span>
+            </div>
+            <div class="detail-item">
+              <span class="detail-label">Common Room:</span>
+              <span class="detail-value">Gryffindor Tower</span>
+            </div>
+            <div class="detail-item">
+              <span class="detail-label">Head of House:</span>
+              <span class="detail-value">Professor Minerva McGonagall</span>
+            </div>
+          </div>
 
-<footer class="footer">
-  <p>⚡ Made with Magic by a Potterhead (Vanshika Chand) | © 2025 Hogwarts Portal</p>
-  <p>
-    <a href="contactus.html">Contact</a> |
-    <a href="https://www.linkedin.com/in/vanshika-chand-b1a316324/" target="_blank">Socials</a>
-  </p>
-</footer>
+          <div class="house-traits">
+            <h3>House Traits</h3>
+            <div class="traits-list">
+              <span class="trait">Bravery</span>
+              <span class="trait">Courage</span>
+              <span class="trait">Daring</span>
+              <span class="trait">Nerve</span>
+              <span class="trait">Chivalry</span>
+              <span class="trait">Determination</span>
+            </div>
+          </div>
 
+          <p class="house-description">
+            Gryffindor values bravery, daring, nerve, and chivalry. Its emblematic animal is the lion, and its colors are scarlet and gold. The house was founded by Godric Gryffindor, one of the four founders of Hogwarts. Famous Gryffindors include Albus Dumbledore, Harry Potter, Hermione Granger, and Ron Weasley. Students sorted into Gryffindor are known for their courage and willingness to stand up for what is right, even in the face of danger.
+          </p>
+
+          <div class="famous-members">
+            <h4>Notable Members</h4>
+            <p>Harry Potter • Hermione Granger • Ron Weasley • Albus Dumbledore • Minerva McGonagall • Sirius Black • James Potter • Lily Potter • Remus Lupin • Neville Longbottom • Ginny Weasley</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Slytherin Section -->
+  <section class="house-section slytherin-section">
+    <div class="container">
+      <div class="house-banner">
+        <div class="banner-decoration left"></div>
+        <span class="house-emblem">🐍</span>
+        <div class="banner-decoration right"></div>
+      </div>
+      
+      <div class="house-content">
+        <div class="house-crest">
+          <img src="https://i.pinimg.com/736x/2c/96/0c/2c960ce3d997bfe662721abfed01aa7e.jpg" alt="Slytherin Crest">
+          <div class="crest-glow slytherin-glow"></div>
+        </div>
+        
+        <div class="house-info">
+          <h2 class="house-name">Slytherin</h2>
+          <p class="house-motto">"Those cunning folk use any means to achieve their ends"</p>
+          
+          <div class="house-details">
+            <div class="detail-item">
+              <span class="detail-label">Founder:</span>
+              <span class="detail-value">Salazar Slytherin</span>
+            </div>
+            <div class="detail-item">
+              <span class="detail-label">House Colors:</span>
+              <span class="detail-value">Green and Silver</span>
+            </div>
+            <div class="detail-item">
+              <span class="detail-label">Animal:</span>
+              <span class="detail-value">Serpent</span>
+            </div>
+            <div class="detail-item">
+              <span class="detail-label">Element:</span>
+              <span class="detail-value">Water</span>
+            </div>
+            <div class="detail-item">
+              <span class="detail-label">Common Room:</span>
+              <span class="detail-value">Slytherin Dungeon</span>
+            </div>
+            <div class="detail-item">
+              <span class="detail-label">Head of House:</span>
+              <span class="detail-value">Professor Severus Snape</span>
+            </div>
+          </div>
+
+          <div class="house-traits">
+            <h3>House Traits</h3>
+            <div class="traits-list">
+              <span class="trait">Ambition</span>
+              <span class="trait">Cunning</span>
+              <span class="trait">Leadership</span>
+              <span class="trait">Resourcefulness</span>
+              <span class="trait">Determination</span>
+              <span class="trait">Self-Preservation</span>
+            </div>
+          </div>
+
+          <p class="house-description">
+            Slytherin values ambition, cunning, leadership, and resourcefulness. Its emblematic animal is the serpent, and its colors are green and silver. The house was founded by Salazar Slytherin. While often misunderstood as the "dark" house, Slytherin has produced many accomplished witches and wizards who are driven, ambitious, and strategic. Notable members include Severus Snape, Draco Malfoy, and Merlin himself.
+          </p>
+
+          <div class="famous-members">
+            <h4>Notable Members</h4>
+            <p>Severus Snape • Draco Malfoy • Horace Slughorn • Merlin • Bellatrix Lestrange • Tom Riddle (Voldemort) • Lucius Malfoy • Dolores Umbridge • Regulus Black</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Ravenclaw Section -->
+  <section class="house-section ravenclaw-section">
+    <div class="container">
+      <div class="house-banner">
+        <div class="banner-decoration left"></div>
+        <span class="house-emblem">🦅</span>
+        <div class="banner-decoration right"></div>
+      </div>
+      
+      <div class="house-content">
+        <div class="house-crest">
+          <img src="https://i.pinimg.com/736x/60/c4/e8/60c4e8d4a60f94f710af3a972369d443.jpg" alt="Ravenclaw Crest">
+          <div class="crest-glow ravenclaw-glow"></div>
+        </div>
+        
+        <div class="house-info">
+          <h2 class="house-name">Ravenclaw</h2>
+          <p class="house-motto">"Wit beyond measure is man's greatest treasure"</p>
+          
+          <div class="house-details">
+            <div class="detail-item">
+              <span class="detail-label">Founder:</span>
+              <span class="detail-value">Rowena Ravenclaw</span>
+            </div>
+            <div class="detail-item">
+              <span class="detail-label">House Colors:</span>
+              <span class="detail-value">Blue and Bronze</span>
+            </div>
+            <div class="detail-item">
+              <span class="detail-label">Animal:</span>
+              <span class="detail-value">Eagle</span>
+            </div>
+            <div class="detail-item">
+              <span class="detail-label">Element:</span>
+              <span class="detail-value">Air</span>
+            </div>
+            <div class="detail-item">
+              <span class="detail-label">Common Room:</span>
+              <span class="detail-value">Ravenclaw Tower</span>
+            </div>
+            <div class="detail-item">
+              <span class="detail-label">Head of House:</span>
+              <span class="detail-value">Professor Filius Flitwick</span>
+            </div>
+          </div>
+
+          <div class="house-traits">
+            <h3>House Traits</h3>
+            <div class="traits-list">
+              <span class="trait">Intelligence</span>
+              <span class="trait">Wisdom</span>
+              <span class="trait">Wit</span>
+              <span class="trait">Creativity</span>
+              <span class="trait">Learning</span>
+              <span class="trait">Acceptance</span>
+            </div>
+          </div>
+
+          <p class="house-description">
+            Ravenclaw values intelligence, knowledge, curiosity, creativity and wit. Its emblematic animal is the eagle, and its colors are blue and bronze. The house was founded by Rowena Ravenclaw. Ravenclaws are known for their wisdom and love of learning. They value cleverness and are often eccentric. Famous Ravenclaws include Luna Lovegood, Cho Chang, and Gilderoy Lockhart.
+          </p>
+
+          <div class="famous-members">
+            <h4>Notable Members</h4>
+            <p>Luna Lovegood • Cho Chang • Gilderoy Lockhart • Filius Flitwick • Garrick Ollivander • Sybill Trelawney • Padma Patil • Rowena Ravenclaw • Helena Ravenclaw (The Grey Lady)</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Hufflepuff Section -->
+  <section class="house-section hufflepuff-section">
+    <div class="container">
+      <div class="house-banner">
+        <div class="banner-decoration left"></div>
+        <span class="house-emblem">🦡</span>
+        <div class="banner-decoration right"></div>
+      </div>
+      
+      <div class="house-content">
+        <div class="house-crest">
+          <img src="https://i.pinimg.com/736x/8d/2b/87/8d2b87e8bc785cf999eb7682674c85d2.jpg" alt="Hufflepuff Crest">
+          <div class="crest-glow hufflepuff-glow"></div>
+        </div>
+        
+        <div class="house-info">
+          <h2 class="house-name">Hufflepuff</h2>
+          <p class="house-motto">"Those patient Hufflepuffs are true and unafraid of toil"</p>
+          
+          <div class="house-details">
+            <div class="detail-item">
+              <span class="detail-label">Founder:</span>
+              <span class="detail-value">Helga Hufflepuff</span>
+            </div>
+            <div class="detail-item">
+              <span class="detail-label">House Colors:</span>
+              <span class="detail-value">Yellow and Black</span>
+            </div>
+            <div class="detail-item">
+              <span class="detail-label">Animal:</span>
+              <span class="detail-value">Badger</span>
+            </div>
+            <div class="detail-item">
+              <span class="detail-label">Element:</span>
+              <span class="detail-value">Earth</span>
+            </div>
+            <div class="detail-item">
+              <span class="detail-label">Common Room:</span>
+              <span class="detail-value">Near the Kitchens</span>
+            </div>
+            <div class="detail-item">
+              <span class="detail-label">Head of House:</span>
+              <span class="detail-value">Professor Pomona Sprout</span>
+            </div>
+          </div>
+
+          <div class="house-traits">
+            <h3>House Traits</h3>
+            <div class="traits-list">
+              <span class="trait">Loyalty</span>
+              <span class="trait">Hard Work</span>
+              <span class="trait">Dedication</span>
+              <span class="trait">Patience</span>
+              <span class="trait">Fair Play</span>
+              <span class="trait">Tolerance</span>
+            </div>
+          </div>
+
+          <p class="house-description">
+            Hufflepuff values hard work, dedication, patience, loyalty, and fair play. Its emblematic animal is the badger, and its colors are yellow and black. The house was founded by Helga Hufflepuff. Hufflepuffs are known for being just, loyal, hardworking, and accepting of everyone. They are often underestimated but produce some of the most dependable witches and wizards.
+          </p>
+
+          <div class="famous-members">
+            <h4>Notable Members</h4>
+            <p>Cedric Diggory • Newt Scamander • Nymphadora Tonks • Pomona Sprout • Fat Friar • Helga Hufflepuff • Teddy Lupin • Susan Bones • Hannah Abbott</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <p>⚡ Made with Magic by a Potterhead (Vanshika Chand) | © 2025 Hogwarts Portal</p>
+    <p>
+      <a href="aboutme.html">About</a> |
+      <a href="contactus.html">Contact</a> |
+      <a href="https://www.linkedin.com/in/vanshika-chand-b1a316324/" target="_blank">Socials</a>
+    </p>
+  </footer>
+
+  <!-- Fade-in Animation Script -->
+  <script>
+    window.addEventListener('load', function() {
+      const sections = document.querySelectorAll('.house-section');
+      sections.forEach(function(section, index) {
+        setTimeout(function() {
+          section.style.opacity = '1';
+          section.style.transform = 'translateY(0)';
+        }, index * 200);
+      });
+    });
+  </script>
 </body>
 </html>
