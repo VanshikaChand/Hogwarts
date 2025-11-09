@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description"
+        content="Enter the Hogwarts Portal — your gateway to the wizarding world! Explore Hogwarts houses, spells, legendary characters, movies, and magical secrets. Experience the magic like never before.">
+    <meta name="keywords"
+        content="Hogwarts, Harry Potter, Wizarding World, Spells, Hogwarts Houses, Gryffindor, Slytherin, Ravenclaw, Hufflepuff, Harry Potter Movies, Magic, Witchcraft, Wizards, Hogwarts Portal, Vanshika Chand">
+    <meta name="author" content="Vanshika Chand">
+    <meta name="theme-color" content="#d4af37">
+
+    <meta property="og:title" content="Hogwarts Portal – Enter the Wizarding World">
+    <meta property="og:description"
+        content="Step inside Hogwarts and explore spells, houses, and characters that shaped the wizarding world. Discover your house and relive the Harry Potter magic.">
+    <meta property="og:image" content="https://yourwebsite.com/media/hogwarts-crest.png">
+    <meta property="og:url" content="https://yourwebsite.com/">
+    <meta property="og:type" content="website">
+
+    <title>Hogwarts Portal</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <header class="navbar">
+        <div class="logo">
+            <img src="media/hogwarts-crest.png" alt="Hogwarts Crest">
+        </div>
+        <input type="checkbox" id="menu-toggle" />
+        <label for="menu-toggle" class="menu-icon">&#9776;</label>
+        <nav class="nav-links">
+            <a href="index.html">Home</a>
+            <a href="characters/index.html">Characters</a>
+            <a href="spell/index.html">Spells</a>
+            <a href="Houses/index.html">Houses</a>
+            <a href="Movies/index.html">Movies</a>
+            <a href="store/index.html">Store</a>
+            <a href="contact/index.html">Contact Us</a>
+        </nav>
+    </header>
+
+    <input type="checkbox" id="intro-toggle" class="intro-toggle" />
+
+    <section class="intro-screen">
+        <div id="particles-js"></div>
+        <div class="intro-content">
+            <img src="media/hogwarts-crest.png" alt="Hogwarts Crest" class="intro-crest">
+            <h1 class="intro-title">Welcome to Hogwarts</h1>
+            <label for="intro-toggle" class="start-btn">Start Your Journey</label>
+        </div>
+    </section>
+
+    <div class="main-page">
+
+        <video id="bg-video" autoplay loop muted playsinline>
+            <source src="media/hogwarts-night.mp4" type="video/mp4">
+        </video>
+        <div class="video-overlay"></div>
+
+        <section class="hero">
+            <div class="hero-overlay"></div>
+            <div class="hero-content">
+                <h1 class="hero-title">The Wizarding World Awaits</h1>
+                <p class="hero-subtitle">Discover the magic, mysteries, and legends of Hogwarts School of Witchcraft and
+                    Wizardry</p>
+                <div class="hero-buttons">
+                    <a href="Houses/index.html" class="btn btn-primary">Discover Your House</a>
+                    <a href="spell/index.html" class="btn btn-secondary">Learn Spells</a>
+                </div>
+            </div>
+        </section>
+
+        <section class="featured">
+            <h2 class="section-title">Explore the Magical World</h2>
+            <div class="feature-grid">
+                <div class="feature-card">
+                    <video class="feature-video" autoplay loop muted playsinline>
+                        <source src="media/houses.mp4" type="video/mp4">
+                    </video>
+                    <div class="overlay"></div>
+                    <div class="feature-content">
+                        <h3>The Four Houses</h3>
+                        <p>Gryffindor, Slytherin, Ravenclaw, and Hufflepuff. Each house has its own noble history
+                            and has produced outstanding witches and wizards.</p>
+                        <a href="Houses/index.html" class="feature-link">Explore Houses →</a>
+                    </div>
+                </div>
+
+                <div class="feature-card">
+                    <video class="feature-video" autoplay loop muted playsinline>
+                        <source src="media/characters.mp4" type="video/mp4">
+                    </video>
+                    <div class="overlay"></div>
+                    <div class="feature-content">
+                        <h3>Legendary Characters</h3>
+                        <p>From the Boy Who Lived to the greatest wizards of all time. Meet the heroes, villains,
+                            and everyone in between.</p>
+                        <a href="characters/index.html" class="feature-link">Meet Characters →</a>
+                    </div>
+                </div>
+
+                <div class="feature-card">
+                    <video class="feature-video" autoplay loop muted playsinline>
+                        <source src="media/spells.mp4" type="video/mp4">
+                    </video>
+                    <div class="overlay"></div>
+                    <div class="feature-content">
+                        <h3>Powerful Spells</h3>
+                        <p>Master the magical arts from simple charms to the most powerful defensive spells. Every
+                            wizard needs their arsenal.</p>
+                        <a href="spell/index.html" class="feature-link">Learn Magic →</a>
+                    </div>
+                </div>
+
+                <div class="feature-card">
+                    <video class="feature-video" autoplay loop muted playsinline>
+                        <source src="media/movies.mp4" type="video/mp4">
+                    </video>
+                    <div class="overlay"></div>
+                    <div class="feature-content">
+                        <h3>The Film Series</h3>
+                        <p>Relive the epic journey through all eight cinematic adventures that brought the wizarding
+                            world to life on the big screen.</p>
+                        <a href="Movies/index.html" class="feature-link">Watch Timeline →</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="quote-section">
+            <blockquote class="magical-quote">
+                <p>"It does not do to dwell on dreams and forget to live."</p>
+                <cite>— Albus Dumbledore</cite>
+            </blockquote>
+        </section>
+
+
+        <footer class="footer">
+            <p>⚡ Made with Magic by a Potterhead (Vanshika Chand) | © 2025 Hogwarts Portal</p>
+            <p>
+                <a href="contact/index.html">Contact</a> |
+                <a href="https://www.linkedin.com/in/vanshika-chand-b1a316324/" target="_blank">Socials</a>
+            </p>
+        </footer>
+
+        <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+        <script>
+            particlesJS("particles-js", {
+                particles: {
+                    number: {
+                        value: 160,
+                        density: { enable: true, value_area: 800 }
+                    },
+                    color: { value: ["#d4af37", "#f4e5a1", "#fff9c4"] }, // subtle gold tones
+                    shape: {
+                        type: "circle",
+                        stroke: { width: 0, color: "#000000" }
+                    },
+                    opacity: {
+                        value: 0.6,
+                        random: true,
+                        anim: { enable: true, speed: 0.8, opacity_min: 0.2, sync: false }
+                    },
+                    size: {
+                        value: 3,
+                        random: true,
+                        anim: { enable: true, speed: 2, size_min: 0.5, sync: false }
+                    },
+                    move: {
+                        enable: true,
+                        speed: 1.2,
+                        direction: "none",
+                        random: true,
+                        straight: false,
+                        out_mode: "out",
+                        attract: { enable: true, rotateX: 600, rotateY: 1200 }
+                    },
+                    line_linked: {
+                        enable: true,
+                        distance: 120,
+                        color: "#d4af37",
+                        opacity: 0.2,
+                        width: 0.7
+                    }
+                },
+                interactivity: {
+                    detect_on: "canvas",
+                    events: {
+                        onhover: { enable: true, mode: "grab" },
+                        onclick: { enable: true, mode: "push" },
+                        resize: true
+                    },
+                    modes: {
+                        grab: { distance: 140, line_linked: { opacity: 0.5 } },
+                        push: { particles_nb: 4 }
+                    }
+                },
+                retina_detect: true
+            });
+        </script>
+
+
+</body>
+
+</html>

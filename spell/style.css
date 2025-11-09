@@ -1,0 +1,934 @@
+@font-face {
+    font-family: 'HarryPotter';
+    src: url('../media/HarryPotter-ov4z.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'HarryPotter', sans-serif;
+    cursor: url('../media/pointer.cur'), auto;
+}
+
+/* Ensure particles.js covers the whole page */
+
+#particles-js {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  z-index: -1; /* keeps it behind everything */
+  pointer-events: none; /* allows clicks through it */
+}
+
+
+/* Make sure your content sits above it */
+
+
+.navbar {
+    background: rgba(10, 10, 10, 0.85);
+    backdrop-filter: blur(15px);
+    padding: 1rem 3rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    border-bottom: 2px solid #d4af37;
+    box-shadow: 0 4px 20px rgba(212, 175, 55, 0.3);
+}
+
+.logo img {
+    height: 60px;
+    filter: drop-shadow(0 0 10px rgba(212, 175, 55, 0.5));
+}
+
+.nav-links {
+    display: flex;
+    gap: 2rem;
+    align-items: center;
+}
+
+.nav-links a {
+    color: #d4af37;
+    text-decoration: none;
+    font-size: 1rem;
+    font-weight: 500;
+    transition: all 0.3s ease;
+    position: relative;
+    padding: 5px 0;
+}
+
+.nav-links a:after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: #d4af37;
+    transition: width 0.3s ease;
+}
+
+.nav-links a:hover {
+    color: #f4e5a1;
+    text-shadow: 0 0 10px rgba(212, 175, 55, 0.8);
+}
+
+.nav-links a:hover:after {
+    width: 100%;
+}
+
+#menu-toggle {
+    display: none;
+}
+
+.menu-icon {
+    display: none;
+    font-size: 2rem;
+    color: #d4af37;
+    cursor: pointer;
+}
+
+
+.footer {
+    background: rgba(10, 10, 10, 0.9);
+    backdrop-filter: blur(10px);
+    padding: 2.5rem 2rem;
+    text-align: center;
+    border-top: 2px solid #d4af37;
+    color: #b8b8b8;
+    position: relative;
+    z-index: 1;
+}
+
+.book-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #000000;
+    z-index: 10000;
+    perspective: 2000px;
+    animation: bookGlow 3s ease-in-out;
+}
+
+@keyframes crestGlow {
+
+    0%,
+    100% {
+        filter: drop-shadow(0 0 25px rgba(212, 175, 55, 0.9));
+    }
+
+    50% {
+        filter: drop-shadow(0 0 40px rgba(212, 175, 55, 1));
+    }
+}
+
+.back-cover {
+    right: 0;
+    border-radius: 0 10px 10px 0;
+    background: linear-gradient(135deg, #2a2a2a 0%, #1a1a1a 100%);
+    border: 3px solid #3a3a3a;
+    box-shadow: inset 0 0 30px rgba(0, 0, 0, 0.8);
+}
+
+.cover-emboss {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background:
+        radial-gradient(circle at 30% 40%, rgba(212, 175, 55, 0.2) 0%, transparent 50%),
+        radial-gradient(circle at 70% 60%, rgba(212, 175, 55, 0.15) 0%, transparent 50%);
+    z-index: 2;
+    pointer-events: none;
+}
+
+.cover-border {
+    position: absolute;
+    top: 15px;
+    left: 15px;
+    right: 15px;
+    bottom: 15px;
+    border: 3px solid #d4af37;
+    border-radius: 8px;
+    box-shadow:
+        0 0 20px rgba(212, 175, 55, 0.6),
+        inset 0 0 20px rgba(212, 175, 55, 0.2);
+    z-index: 2;
+    background:
+        linear-gradient(45deg, transparent 48%, rgba(212, 175, 55, 0.3) 49%, rgba(212, 175, 55, 0.3) 51%, transparent 52%),
+        linear-gradient(-45deg, transparent 48%, rgba(212, 175, 55, 0.3) 49%, rgba(212, 175, 55, 0.3) 51%, transparent 52%);
+    background-size: 20px 20px;
+    background-position: 0 0;
+}
+
+.back-cover {
+    right: 0;
+    border-radius: 0 10px 10px 0;
+    background: linear-gradient(135deg, #2a2a2a 0%, #1a1a1a 100%);
+    border: 3px solid #3a3a3a;
+    box-shadow: inset 0 0 30px rgba(0, 0, 0, 0.8);
+}
+
+.page-texture {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background:
+        linear-gradient(to bottom, #f4e8d0 0%, #e8d5b0 100%),
+        repeating-linear-gradient(0deg, transparent, transparent 2px, rgba(139, 101, 64, 0.05) 2px, rgba(139, 101, 64, 0.05) 4px);
+    opacity: 0.9;
+}
+
+@keyframes openBook {
+    0% {
+        transform: rotateY(0deg);
+    }
+
+    100% {
+        transform: rotateY(-180deg);
+    }
+}
+
+.magic-particles {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 9999;
+}
+
+.magic-particles::before,
+.magic-particles::after {
+    content: '✦';
+    position: absolute;
+    font-size: 1.5rem;
+    color: #d4af37;
+    opacity: 0;
+    animation: riseSparkle 3s ease-out infinite;
+}
+
+.magic-particles::before {
+    left: 45%;
+    bottom: 40%;
+    animation-delay: 1.5s;
+}
+
+.magic-particles::after {
+    left: 55%;
+    bottom: 40%;
+    animation-delay: 1.8s;
+}
+
+@keyframes riseSparkle {
+    0% {
+        bottom: 40%;
+        opacity: 0;
+        transform: scale(0.5) translateX(0);
+    }
+
+    20% {
+        opacity: 1;
+    }
+
+    80% {
+        opacity: 0.8;
+    }
+
+    100% {
+        bottom: 70%;
+        opacity: 0;
+        transform: scale(1.2) translateX(30px);
+    }
+}
+
+.book {
+    position: relative;
+    width: 400px;
+    height: 550px;
+    transform-style: preserve-3d;
+    animation: openBook 3s ease-in-out forwards;
+    animation-delay: 1s;
+    filter: drop-shadow(0 20px 40px rgba(0, 0, 0, 0.8));
+}
+
+.book-cover {
+    position: absolute;
+    width: 200px;
+    height: 300px;
+    transform-style: preserve-3d;
+    backface-visibility: hidden;
+    border-radius: 8px;
+}
+
+.front-cover {
+    left: 0;
+    transform-origin: right;
+    border-radius: 10px 0 0 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    overflow: hidden;
+}
+
+.book-texture {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background:
+        linear-gradient(135deg, #2a1810 0%, #1a0f08 100%),
+        repeating-linear-gradient(45deg, transparent, transparent 2px, rgba(0, 0, 0, 0.1) 2px, rgba(0, 0, 0, 0.1) 4px);
+    border: 4px solid #3a2820;
+    box-shadow:
+        0 0 40px rgba(212, 175, 55, 0.4),
+        inset 0 0 30px rgba(0, 0, 0, 0.9),
+        inset 0 0 80px rgba(58, 40, 32, 0.5);
+    z-index: 1;
+}
+
+.cover-crest {
+    width: 120px;
+    height: auto;
+    position: relative;
+    z-index: 3;
+    filter: drop-shadow(0 0 25px rgba(212, 175, 55, 0.9));
+    opacity: 0.95;
+    animation: crestGlow 3s ease-in-out infinite;
+}
+
+@keyframes crestGlow {
+
+    0%,
+    100% {
+        filter: drop-shadow(0 0 25px rgba(212, 175, 55, 0.9));
+    }
+
+    50% {
+        filter: drop-shadow(0 0 40px rgba(212, 175, 55, 1));
+    }
+}
+
+.hero {
+    margin-top: 0; 
+    position: relative;
+    padding: 6rem 2rem 4rem;
+    text-align: center;
+    z-index: 10;
+    overflow: hidden;
+}
+
+.spell-circle {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 400px;
+    height: 400px;
+    border: 3px solid #d4af37;
+    border-radius: 50%;
+    opacity: 0.4;
+    animation: rotateCircle 20s linear infinite;
+    box-shadow:
+        0 0 30px rgba(212, 175, 55, 0.5),
+        inset 0 0 30px rgba(212, 175, 55, 0.3);
+}
+
+.spell-circle::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 350px;
+    height: 350px;
+    border: 2px solid #d4af37;
+    border-radius: 50%;
+    opacity: 0.6;
+}
+
+.spell-circle::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 300px;
+    height: 300px;
+    border: 1px dashed #d4af37;
+    border-radius: 50%;
+    opacity: 0.5;
+}
+
+@keyframes rotateCircle {
+    0% {
+        transform: translate(-50%, -50%) rotate(0deg);
+    }
+
+    100% {
+        transform: translate(-50%, -50%) rotate(360deg);
+    }
+}
+
+.hero-content {
+    position: relative;
+    z-index: 20;
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.spell-title {
+    font-family: 'HarryPotter', serif;
+    font-size: 4rem;
+    color: #d4af37;
+    margin-bottom: 1.5rem;
+    text-shadow: 0 0 30px rgba(212, 175, 55, 0.7);
+    animation: glowPulse 3s ease-in-out infinite;
+}
+
+.spell-subtitle {
+    font-size: 1.3rem;
+    color: #c9c9c9;
+    line-height: 1.8;
+    text-shadow: 0 2px 10px rgba(0, 0, 0, 0.8);
+}
+
+.spells-section {
+    padding: 4rem 2rem;
+    position: relative;
+    z-index: 10;
+}
+
+.container {
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+.section-title {
+    font-family: 'HarryPotter', serif;
+    font-size: 3rem;
+    text-align: center;
+    color: #d4af37;
+    margin-bottom: 3rem;
+    text-shadow: 0 0 20px rgba(212, 175, 55, 0.5);
+}
+
+.forbidden-title {
+    color: #dc143c;
+    text-shadow: 0 0 25px rgba(220, 20, 60, 0.7);
+}
+
+.warning-text {
+    text-align: center;
+    color: #ff6b6b;
+    font-size: 1.1rem;
+    margin-bottom: 2rem;
+    padding: 1rem;
+    background: rgba(220, 20, 60, 0.1);
+    border: 2px solid rgba(220, 20, 60, 0.3);
+    border-radius: 8px;
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.spells-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 2.5rem;
+}
+
+.spell-card {
+    background: rgba(20, 20, 20, 0.9);
+    border: 2px solid #2a2a2a;
+    border-radius: 15px;
+    padding: 2.5rem;
+    text-align: center;
+    transition: all 0.5s ease;
+    position: relative;
+    overflow: hidden;
+    animation: floatSpell 6s ease-in-out infinite;
+}
+
+@keyframes floatSpell {
+
+    0%,
+    100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-10px);
+    }
+}
+
+.offensive-spell {
+    border-color: #3a3a3a;
+}
+
+.offensive-spell:hover {
+    border-color: #d4af37;
+    box-shadow: 0 10px 40px rgba(212, 175, 55, 0.6);
+    transform: translateY(-15px) scale(1.03);
+}
+
+.defensive-spell {
+    border-color: #1a3a5a;
+}
+
+.defensive-spell:hover {
+    border-color: #0a2a66;
+    box-shadow: 0 10px 40px rgba(10, 42, 102, 0.6);
+    transform: translateY(-15px) scale(1.03);
+}
+
+.utility-spell {
+    border-color: #3a3a3a;
+}
+
+.utility-spell:hover {
+    border-color: #4a90e2;
+    box-shadow: 0 10px 40px rgba(74, 144, 226, 0.5);
+    transform: translateY(-15px) scale(1.03);
+}
+
+.unforgivable-spell {
+    border-color: #3a1a1a;
+    background: rgba(30, 10, 10, 0.9);
+}
+
+.unforgivable-spell:hover {
+    border-color: #dc143c;
+    box-shadow: 0 10px 40px rgba(220, 20, 60, 0.7);
+    transform: translateY(-15px) scale(1.03);
+}
+
+.spell-icon {
+    width: 120px;
+    height: 120px;
+    margin: 0 auto 1.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+}
+
+.spell-icon img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    filter: drop-shadow(0 0 20px rgba(212, 175, 55, 0.7));
+    animation: iconPulse 3s ease-in-out infinite;
+}
+
+.offensive-spell .spell-icon img {
+    filter: drop-shadow(0 0 20px rgba(212, 175, 55, 0.8));
+}
+
+.defensive-spell .spell-icon img {
+    filter: drop-shadow(0 0 20px rgba(10, 42, 102, 0.8));
+}
+
+.utility-spell .spell-icon img {
+    filter: drop-shadow(0 0 20px rgba(74, 144, 226, 0.7));
+}
+
+.unforgivable-spell .spell-icon img {
+    filter: drop-shadow(0 0 25px rgba(220, 20, 60, 0.9));
+}
+
+@keyframes iconPulse {
+
+    0%,
+    100% {
+        transform: scale(1);
+        opacity: 1;
+    }
+
+    50% {
+        transform: scale(1.08);
+        opacity: 0.95;
+    }
+}
+
+.spell-name {
+    font-family: 'HarryPotter', serif;
+    font-size: 2rem;
+    color: #d4af37;
+    margin-bottom: 0.5rem;
+    text-shadow: 0 2px 10px rgba(0, 0, 0, 0.8);
+}
+
+.unforgivable-spell .spell-name {
+    color: #dc143c;
+}
+
+.spell-pronunciation {
+    font-style: italic;
+    color: #f4e5a1;
+    font-size: 0.9rem;
+    margin-bottom: 0.8rem;
+}
+
+.spell-type {
+    font-weight: 600;
+    color: #4a90e2;
+    margin-bottom: 1rem;
+    text-transform: uppercase;
+    font-size: 0.85rem;
+    letter-spacing: 1px;
+}
+
+.defensive-spell .spell-type {
+    color: #0a2a66;
+}
+
+.unforgivable-spell .spell-type {
+    color: #ff4444;
+}
+
+.spell-description {
+    color: #b8b8b8;
+    line-height: 1.7;
+    margin-bottom: 1.5rem;
+    font-size: 0.95rem;
+}
+
+.spell-wand-movement {
+    font-size: 1.5rem;
+    color: #d4af37;
+    padding: 0.8rem;
+    background: rgba(212, 175, 55, 0.1);
+    border-radius: 8px;
+    border: 1px dashed #d4af37;
+    display: inline-block;
+    animation: wandGlow 2s ease-in-out infinite;
+}
+
+@keyframes wandGlow {
+
+    0%,
+    100% {
+        box-shadow: 0 0 5px rgba(212, 175, 55, 0.3);
+    }
+
+    50% {
+        box-shadow: 0 0 15px rgba(212, 175, 55, 0.6);
+    }
+}
+
+.defensive-section {
+    background: linear-gradient(to bottom, rgba(0, 0, 0, 0) 0%, rgba(10, 42, 102, 0.15) 50%, rgba(0, 0, 0, 0) 100%);
+}
+
+.utility-section {
+    background: linear-gradient(to bottom, rgba(0, 0, 0, 0) 0%, rgba(74, 144, 226, 0.1) 50%, rgba(0, 0, 0, 0) 100%);
+}
+
+.unforgivable-section {
+    background: linear-gradient(to bottom, rgba(0, 0, 0, 0) 0%, rgba(60, 0, 0, 0.3) 50%, rgba(0, 0, 0, 0) 100%);
+}
+
+
+.footer p {
+    margin-bottom: 0.8rem;
+}
+
+.footer a {
+    color: #d4af37;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    margin: 0 0.5rem;
+}
+
+.footer a:hover {
+    color: #f4e5a1;
+    text-shadow: 0 0 10px rgba(212, 175, 55, 0.8);
+}
+
+@media (max-width: 768px) {
+    .navbar {
+        padding: 1rem;
+        flex-wrap: wrap;
+    }
+
+    .menu-icon {
+        display: block;
+    }
+
+    .nav-links {
+        display: none;
+        flex-direction: column;
+        width: 100%;
+        gap: 1rem;
+        padding-top: 1rem;
+    }
+
+    #menu-toggle:checked~.nav-links {
+        display: flex;
+    }
+
+    .book {
+        width: 300px;
+        height: 400px;
+    }
+
+    .book-cover {
+        width: 150px;
+        height: 400px;
+    }
+
+    .cover-crest {
+        width: 90px;
+    }
+
+    .cover-border {
+        top: 12px;
+        left: 12px;
+        right: 12px;
+        bottom: 12px;
+    }
+
+    .spell-icon {
+        width: 100px;
+        height: 100px;
+    }
+
+    .spell-circle {
+        width: 300px;
+        height: 300px;
+    }
+
+    .spell-circle::before {
+        width: 250px;
+        height: 250px;
+    }
+
+    .spell-circle::after {
+        width: 200px;
+        height: 200px;
+    }
+
+    .spell-title {
+        font-size: 2.5rem;
+    }
+
+    .spell-subtitle {
+        font-size: 1.1rem;
+    }
+
+    .section-title {
+        font-size: 2.2rem;
+    }
+
+    .page-navigation {
+        flex-direction: column;
+        gap: 1rem;
+    }
+
+    .spells-grid {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+    }
+
+    /* Reduce candles on mobile for performance */
+    .floating-candle:nth-child(n+6) {
+        display: none;
+    }
+
+    /* Reduce sparks on mobile */
+    .spark:nth-child(n+5) {
+        display: none;
+    }
+}
+
+@media (max-width: 480px) {
+    .hero {
+        padding: 4rem 1rem 3rem;
+    }
+
+    .spell-title {
+        font-size: 2rem;
+    }
+
+    .spell-subtitle {
+        font-size: 1rem;
+    }
+
+    .section-title {
+        font-size: 1.8rem;
+    }
+
+    .spell-card {
+        padding: 2rem;
+    }
+
+    .spell-name {
+        font-size: 1.6rem;
+    }
+
+    .spell-icon {
+        font-size: 3rem;
+    }
+
+    .book {
+        width: 250px;
+        height: 350px;
+    }
+
+    .book-cover {
+        width: 125px;
+        height: 350px;
+    }
+
+    .cover-crest {
+        width: 70px;
+    }
+
+    .cover-border {
+        top: 10px;
+        left: 10px;
+        right: 10px;
+        bottom: 10px;
+        border-width: 2px;
+    }
+
+    .spell-icon {
+        width: 80px;
+        height: 80px;
+    }
+
+    .spell-circle {
+        width: 250px;
+        height: 250px;
+    }
+}
+
+html {
+    scroll-behavior: smooth;
+}
+/* Fade-out animation for the book intro */
+@keyframes fadeOut {
+  from {
+    opacity: 1;
+    visibility: visible;
+  }
+  to {
+    opacity: 0;
+    visibility: hidden;
+  }
+}
+
+.book-container.hidden {
+  animation: fadeOut 1.5s ease forwards;
+}
+/* === GLOBAL UPDATES TO MATCH MOVIES STYLE === */
+body {
+  background: radial-gradient(1000px 600px at 10% 10%, rgba(24, 18, 8, 0.08), transparent 10%),
+              linear-gradient(180deg, #020204 0%, #07070a 55%, #000000 100%);
+  color: rgba(255, 255, 255, 0.9);
+  cursor: url('../media/pointer.cur'), auto;
+}
+
+/* Make the book intro fade out (keep your animation script) */
+.book-container.hidden {
+  animation: fadeOut 1.5s ease forwards;
+}
+
+/* Reduce space under navbar */
+.hero {
+  padding: 3rem 2rem 2rem;
+  margin-top: 0;
+  text-align: center;
+  background: transparent;
+}
+
+/* Adjust hero title and subtitle for movie-page style */
+.spell-title {
+  font-size: 3rem;
+  color: #d4af37;
+  text-shadow: 0 0 20px rgba(212, 175, 55, 0.4);
+}
+
+.spell-subtitle {
+  color: rgba(244, 229, 161, 0.9);
+  font-size: 1.1rem;
+}
+
+/* SPELL SECTION */
+.spells-section {
+  background: linear-gradient(180deg, rgba(5, 5, 10, 0.9), rgba(0, 0, 0, 0.95));
+  padding: 3rem 1.5rem;
+}
+
+.section-title {
+  font-size: 2.4rem;
+  color: #d4af37;
+  text-align: center;
+  text-shadow: 0 0 20px rgba(212, 175, 55, 0.3);
+}
+
+/* SPELL CARDS — make smaller and cleaner */
+.spell-card {
+  background: linear-gradient(145deg, rgba(8, 8, 16, 0.95), rgba(0, 0, 0, 0.95));
+  border: 1px solid rgba(212, 175, 55, 0.15);
+  border-radius: 12px;
+  padding: 1.5rem;
+  text-align: center;
+  transition: all 0.35s ease;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.6);
+  animation: floatSpell 6s ease-in-out infinite;
+}
+
+.spell-card:hover {
+  transform: translateY(-8px);
+  border-color: rgba(212, 175, 55, 0.25);
+  box-shadow: 0 12px 40px rgba(212, 175, 55, 0.1);
+}
+
+.spell-icon {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+}
+
+.spell-name {
+  font-size: 1.5rem;
+  margin-bottom: 0.3rem;
+}
+
+.spell-description {
+  font-size: 0.9rem;
+  line-height: 1.5;
+}
+
+/* Grid adjustment so more cards fit on screen */
+.spells-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 1.8rem;
+}
+
+/* Optional: darker footer like movie page */
+.footer {
+  background: linear-gradient(180deg, rgba(3, 3, 6, 0.9), rgba(6, 6, 8, 0.95));
+  border-top: 1px solid rgba(212, 175, 55, 0.12);
+  color: #bdbdbd;
+}
